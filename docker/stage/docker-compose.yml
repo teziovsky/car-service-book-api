@@ -1,0 +1,19 @@
+version: '3.8'
+services:
+  postgresql:
+    container_name: stage_car_service_book_postgresql
+    image: postgres:14.1-alpine
+    restart: unless-stopped
+    env_file:
+      - ../../.env.stage
+    ports:
+      - '5003:5432'
+    volumes:
+      - car_service_book_postgresql_volume:/var/lib/postgresql/data
+    networks:
+      - car_service_book
+volumes:
+  car_service_book_postgresql_volume:
+    driver: local
+networks:
+  car_service_book:
