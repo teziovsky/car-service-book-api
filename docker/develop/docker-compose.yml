@@ -10,6 +10,10 @@ services:
       - '5432:5432'
     volumes:
       - car_service_book_postgresql_volume:/var/lib/postgresql/data
+    networks:
+      - car_service_book
 volumes:
   car_service_book_postgresql_volume:
     driver: local
+networks:
+  car_service_book:
