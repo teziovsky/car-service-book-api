@@ -24,16 +24,16 @@ export class CarService {
     });
   }
 
-  async createCar(userId: number, dto: CreateCarDto) {
+  async createCar(userId: number, createCarDto: CreateCarDto) {
     return await this.prisma.car.create({
       data: {
         userId,
-        ...dto,
+        ...createCarDto,
       },
     });
   }
 
-  async editCarById(userId: number, carId: number, dto: EditCarDto) {
+  async editCarById(userId: number, carId: number, editCarDto: EditCarDto) {
     const car = await this.prisma.car.findUnique({
       where: {
         id: carId,
@@ -48,7 +48,7 @@ export class CarService {
         id: carId,
       },
       data: {
-        ...dto,
+        ...editCarDto,
       },
     });
   }

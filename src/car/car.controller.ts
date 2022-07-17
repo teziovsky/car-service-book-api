@@ -11,6 +11,7 @@ import {
   Put,
   UseGuards,
 } from "@nestjs/common";
+import { ApiTags } from "@nestjs/swagger";
 import { GetUser } from "../auth/decorator";
 import { JwtGuard } from "../auth/guard";
 import { CarService } from "./car.service";
@@ -18,6 +19,7 @@ import { EditCarDto } from "./dto";
 import { CreateCarDto } from "./dto/create-car.dto";
 
 @UseGuards(JwtGuard)
+@ApiTags("cars")
 @Controller("cars")
 export class CarController {
   constructor(private carService: CarService) {}
@@ -36,17 +38,17 @@ export class CarController {
   }
 
   @Post()
-  createCar(@GetUser("id") userId: number, @Body() dto: CreateCarDto) {
-    return this.carService.createCar(userId, dto);
+  createCar(@GetUser("id") userId: number, @Body() createCarDto: CreateCarDto) {
+    return this.carService.createCar(userId, createCarDto);
   }
 
   @Put(":id")
   editCarById(
     @GetUser("id") userId: number,
     @Param("id", ParseIntPipe) bookmarkId: number,
-    @Body() dto: EditCarDto,
+    @Body() editCarDto: EditCarDto,
   ) {
-    return this.carService.editCarById(userId, bookmarkId, dto);
+    return this.carService.editCarById(userId, bookmarkId, editCarDto);
   }
 
   @HttpCode(HttpStatus.NO_CONTENT)

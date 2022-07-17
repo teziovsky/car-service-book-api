@@ -14,13 +14,13 @@ export class AuthService {
     private config: ConfigService,
   ) {}
 
-  async register(dto: AuthDto) {
-    const hash = await argon.hash(dto.password);
+  async register(authDto: AuthDto) {
+    const hash = await argon.hash(authDto.password);
 
     try {
       const user = await this.prisma.user.create({
         data: {
-          email: dto.email,
+          email: authDto.email,
           hash,
         },
       });
@@ -36,10 +36,10 @@ export class AuthService {
     }
   }
 
-  async login(dto: AuthDto) {
+  async login(authDto: AuthDto) {
     const user = await this.prisma.user.findUnique({
       where: {
-        email: dto.email,
+        email: authDto.email,
       },
     });
 
@@ -47,7 +47,7 @@ export class AuthService {
       throw new ForbiddenException("Credentials incorrect");
     }
 
-    const pwMatches = await argon.verify(user.hash, dto.password);
+    const pwMatches = await argon.verify(user.hash, authDto.password);
 
     if (!pwMatches) {
       throw new ForbiddenException("Credentials incorrect");
