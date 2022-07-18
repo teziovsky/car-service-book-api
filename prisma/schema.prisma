@@ -42,7 +42,26 @@ model Car {
   gearboxType    String?
 
   userId Int
-  user   User @relation(fields: [userId], references: [id])
+  user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  Repair Repair[]
 
   @@map("cars")
+}
+
+model Repair {
+  id        Int      @id @default(autoincrement())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  title       String
+  description String?
+  price       Int?
+  date        DateTime?
+  mileage     Int?
+
+  carId Int
+  car   Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+
+  @@map("repairs")
 }
