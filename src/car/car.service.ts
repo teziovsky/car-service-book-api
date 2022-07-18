@@ -1,7 +1,6 @@
 import { ForbiddenException, Injectable } from "@nestjs/common";
 import { PrismaService } from "../prisma/prisma.service";
-import { EditCarDto } from "./dto";
-import { CreateCarDto } from "./dto/create-car.dto";
+import { EditCarDto, CreateCarDto } from "./dto";
 
 @Injectable()
 export class CarService {

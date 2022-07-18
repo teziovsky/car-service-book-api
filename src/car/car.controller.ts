@@ -15,8 +15,7 @@ import { ApiTags } from "@nestjs/swagger";
 import { GetUser } from "../auth/decorator";
 import { JwtGuard } from "../auth/guard";
 import { CarService } from "./car.service";
-import { EditCarDto } from "./dto";
-import { CreateCarDto } from "./dto/create-car.dto";
+import { EditCarDto, CreateCarDto } from "./dto";
 
 @UseGuards(JwtGuard)
 @ApiTags("cars")
