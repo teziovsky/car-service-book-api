@@ -7,18 +7,18 @@ import { EditUserDto } from "./dto";
 import { UserService } from "./user.service";
 
 @UseGuards(JwtGuard)
-@ApiTags("users")
+@ApiTags("user")
 @ApiBearerAuth()
-@Controller("users")
+@Controller("user")
 export class UserController {
   constructor(private userService: UserService) {}
 
-  @Get("me")
+  @Get()
   getMe(@GetUser() user: User) {
     return user;
   }
 
-  @Put("me")
+  @Put()
   editUser(@GetUser("id") userId: number, @Body() editUserDto: EditUserDto) {
     return this.userService.editUser(userId, editUserDto);
   }
