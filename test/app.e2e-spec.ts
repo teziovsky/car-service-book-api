@@ -1,16 +1,16 @@
-import { Test, TestingModule } from "@nestjs/testing";
 import { HttpStatus, INestApplication, ValidationPipe } from "@nestjs/common";
+import { Test, TestingModule } from "@nestjs/testing";
 import * as request from "supertest";
-import { log } from "util";
 import { AppModule } from "../src/app.module";
 import { AuthDto } from "../src/auth/dto";
+import { CreateCarDto, EditCarDto } from "../src/car/dto";
 import { PrismaService } from "../src/prisma/prisma.service";
 import { EditUserDto } from "../src/user/dto";
 
 describe("App e2e", () => {
   let app: INestApplication;
   let prisma: PrismaService;
-  let access_token: string;
+  let accessToken: string;
 
   beforeAll(async () => {
     const moduleRef: TestingModule = await Test.createTestingModule({
@@ -99,7 +99,7 @@ describe("App e2e", () => {
           .set("Accept", "application/json")
           .expect("Content-Type", /json/)
           .expect(({ body }) => {
-            access_token = body.access_token;
+            accessToken = body.access_token;
           })
           .expect(HttpStatus.OK);
       });
@@ -110,9 +110,9 @@ describe("App e2e", () => {
     describe("Get Me", () => {
       it("should get current user", () => {
         return request(app.getHttpServer())
-          .get(`/api/users/me`)
+          .get(`/api/user`)
           .set("Accept", "application/json")
-          .set("Authorization", `Bearer ${access_token}`)
+          .set("Authorization", `Bearer ${accessToken}`)
           .expect(HttpStatus.OK);
       });
     });
@@ -125,29 +125,128 @@ describe("App e2e", () => {
         };
 
         return request(app.getHttpServer())
-          .put(`/api/users/me`)
+          .put(`/api/user`)
           .set("Accept", "application/json")
-          .set("Authorization", `Bearer ${access_token}`)
+          .set("Authorization", `Bearer ${accessToken}`)
           .send(editUserDto)
           .expect(HttpStatus.OK)
-          .expect((res) => {
-            res.body.firstName = editUserDto.firstName;
-            res.body.lastName = editUserDto.lastName;
+          .then((res) => {
+            expect(res.body.firstName).toEqual(editUserDto.firstName);
+            expect(res.body.lastName).toEqual(editUserDto.lastName);
           });
       });
     });
   });
 
   describe("Car", () => {
-    describe("Create Car", () => {});
+    describe("Get Empty Cars", () => {
+      it("should get empty cars", () => {
+        return request(app.getHttpServer())
+          .get(`/api/cars`)
+          .set("Accept", "application/json")
+          .set("Authorization", `Bearer ${accessToken}`)
+          .expect(HttpStatus.OK)
+          .then((res) => {
+            expect(res.body).toEqual([]);
+          });
+      });
+    });
 
-    describe("Get Cars", () => {});
+    let carId: number;
 
-    describe("Get Car by ID", () => {});
+    describe("Create Car", () => {
+      it("should create car", () => {
+        const createCarDto: CreateCarDto = {
+          brand: "Honda",
+          model: "Civic",
+          productionYear: "2021",
+        };
 
-    describe("Edit Car by ID", () => {});
+        return request(app.getHttpServer())
+          .post(`/api/cars`)
+          .set("Accept", "application/json")
+          .set("Authorization", `Bearer ${accessToken}`)
+          .send(createCarDto)
+          .expect(HttpStatus.CREATED)
+          .then((res) => {
+            expect(res.body.brand).toEqual(createCarDto.brand);
+            expect(res.body.model).toEqual(createCarDto.model);
+            expect(res.body.productionYear).toEqual(
+              createCarDto.productionYear,
+            );
+          });
+      });
+    });
 
-    describe("Delete Car by ID", () => {});
+    describe("Get Cars", () => {
+      it("should get cars", () => {
+        return request(app.getHttpServer())
+          .get(`/api/cars`)
+          .set("Accept", "application/json")
+          .set("Authorization", `Bearer ${accessToken}`)
+          .expect(HttpStatus.OK)
+          .then((res) => {
+            carId = res.body[0].id;
+            expect(res.body.length).toEqual(1);
+          });
+      });
+    });
+
+    describe("Get Car by ID", () => {
+      it("should get a car", () => {
+        return request(app.getHttpServer())
+          .get(`/api/cars/${carId}`)
+          .set("Accept", "application/json")
+          .set("Authorization", `Bearer ${accessToken}`)
+          .expect(HttpStatus.OK)
+          .then((res) => {
+            expect(res.body.id).toEqual(carId);
+          });
+      });
+    });
+
+    describe("Edit Car by ID", () => {
+      it("should edit car", () => {
+        const editCarDto: EditCarDto = {
+          brand: "BMW",
+          model: "330ci",
+          productionYear: "2021",
+        };
+
+        return request(app.getHttpServer())
+          .put(`/api/cars/${carId}`)
+          .set("Accept", "application/json")
+          .set("Authorization", `Bearer ${accessToken}`)
+          .send(editCarDto)
+          .expect(HttpStatus.OK)
+          .then((res) => {
+            expect(res.body.id).toEqual(carId);
+            expect(res.body.brand).toEqual(editCarDto.brand);
+            expect(res.body.model).toEqual(editCarDto.model);
+          });
+      });
+    });
+
+    describe("Delete Car by ID", () => {
+      it("should delete a car", () => {
+        return request(app.getHttpServer())
+          .delete(`/api/cars/${carId}`)
+          .set("Accept", "application/json")
+          .set("Authorization", `Bearer ${accessToken}`)
+          .expect(HttpStatus.NO_CONTENT);
+      });
+
+      it("should get empty cars", () => {
+        return request(app.getHttpServer())
+          .get(`/api/cars`)
+          .set("Accept", "application/json")
+          .set("Authorization", `Bearer ${accessToken}`)
+          .expect(HttpStatus.OK)
+          .then((res) => {
+            expect(res.body).toEqual([]);
+          });
+      });
+    });
   });
 
   afterAll(() => {
