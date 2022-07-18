@@ -14,12 +14,12 @@ export class UserController {
   constructor(private userService: UserService) {}
 
   @Get()
-  getMe(@GetUser() user: User) {
+  findOne(@GetUser() user: User) {
     return user;
   }
 
   @Put()
-  editUser(@GetUser("id") userId: number, @Body() editUserDto: EditUserDto) {
-    return this.userService.editUser(userId, editUserDto);
+  update(@GetUser("id") userId: number, @Body() editUserDto: EditUserDto) {
+    return this.userService.update(userId, editUserDto);
   }
 }
