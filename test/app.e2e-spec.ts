@@ -3,7 +3,7 @@ import { Test, TestingModule } from "@nestjs/testing";
 import * as request from "supertest";
 import { AppModule } from "../src/app.module";
 import { AuthDto } from "../src/auth/dto";
-import { CreateCarDto, EditCarDto } from "../src/car/dto";
+import { CreateCarDto, UpdateCarDto } from "../src/car/dto";
 import { PrismaService } from "../src/prisma/prisma.service";
 import { EditUserDto } from "../src/user/dto";
 
@@ -159,7 +159,7 @@ describe("App e2e", () => {
         const createCarDto: CreateCarDto = {
           brand: "Honda",
           model: "Civic",
-          productionYear: "2021",
+          productionYear: 2021,
         };
 
         return request(app.getHttpServer())
@@ -207,10 +207,10 @@ describe("App e2e", () => {
 
     describe("Edit Car by ID", () => {
       it("should edit car", () => {
-        const editCarDto: EditCarDto = {
+        const editCarDto: UpdateCarDto = {
           brand: "BMW",
           model: "330ci",
-          productionYear: "2021",
+          productionYear: 2021,
         };
 
         return request(app.getHttpServer())

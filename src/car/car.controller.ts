@@ -15,7 +15,7 @@ import { ApiTags } from "@nestjs/swagger";
 import { GetUser } from "../auth/decorator";
 import { JwtGuard } from "../auth/guard";
 import { CarService } from "./car.service";
-import { EditCarDto, CreateCarDto } from "./dto";
+import { CreateCarDto, UpdateCarDto } from "./dto";
 
 @UseGuards(JwtGuard)
 @ApiTags("cars")
@@ -23,39 +23,39 @@ import { EditCarDto, CreateCarDto } from "./dto";
 export class CarController {
   constructor(private carService: CarService) {}
 
+  @Post()
+  create(@GetUser("id") userId: number, @Body() createCarDto: CreateCarDto) {
+    return this.carService.create(userId, createCarDto);
+  }
+
   @Get()
-  getCars(@GetUser("id") userId: number) {
-    return this.carService.getCars(userId);
+  findAll(@GetUser("id") userId: number) {
+    return this.carService.findAll(userId);
   }
 
   @Get(":id")
-  getCarById(
+  findOne(
     @GetUser("id") userId: number,
-    @Param("id", ParseIntPipe) bookmarkId: number,
+    @Param("id", ParseIntPipe) carId: number,
   ) {
-    return this.carService.getCarById(userId, bookmarkId);
-  }
-
-  @Post()
-  createCar(@GetUser("id") userId: number, @Body() createCarDto: CreateCarDto) {
-    return this.carService.createCar(userId, createCarDto);
+    return this.carService.findOne(userId, carId);
   }
 
   @Put(":id")
-  editCarById(
+  update(
     @GetUser("id") userId: number,
-    @Param("id", ParseIntPipe) bookmarkId: number,
-    @Body() editCarDto: EditCarDto,
+    @Param("id", ParseIntPipe) carId: number,
+    @Body() editCarDto: UpdateCarDto,
   ) {
-    return this.carService.editCarById(userId, bookmarkId, editCarDto);
+    return this.carService.update(userId, carId, editCarDto);
   }
 
   @HttpCode(HttpStatus.NO_CONTENT)
   @Delete(":id")
-  deleteCarById(
+  remove(
     @GetUser("id") userId: number,
-    @Param("id", ParseIntPipe) bookmarkId: number,
+    @Param("id", ParseIntPipe) carId: number,
   ) {
-    return this.carService.deleteCarById(userId, bookmarkId);
+    return this.carService.remove(userId, carId);
   }
 }

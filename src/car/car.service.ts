@@ -1,29 +1,12 @@
 import { ForbiddenException, Injectable } from "@nestjs/common";
 import { PrismaService } from "../prisma/prisma.service";
-import { EditCarDto, CreateCarDto } from "./dto";
+import { UpdateCarDto, CreateCarDto } from "./dto";
 
 @Injectable()
 export class CarService {
   constructor(private prisma: PrismaService) {}
 
-  getCars(userId: number) {
-    return this.prisma.car.findMany({
-      where: {
-        userId,
-      },
-    });
-  }
-
-  getCarById(userId: number, carId: number) {
-    return this.prisma.car.findFirst({
-      where: {
-        id: carId,
-        userId,
-      },
-    });
-  }
-
-  async createCar(userId: number, createCarDto: CreateCarDto) {
+  async create(userId: number, createCarDto: CreateCarDto) {
     return await this.prisma.car.create({
       data: {
         userId,
@@ -32,7 +15,24 @@ export class CarService {
     });
   }
 
-  async editCarById(userId: number, carId: number, editCarDto: EditCarDto) {
+  findAll(userId: number) {
+    return this.prisma.car.findMany({
+      where: {
+        userId,
+      },
+    });
+  }
+
+  findOne(userId: number, carId: number) {
+    return this.prisma.car.findFirst({
+      where: {
+        id: carId,
+        userId,
+      },
+    });
+  }
+
+  async update(userId: number, carId: number, editCarDto: UpdateCarDto) {
     const car = await this.prisma.car.findUnique({
       where: {
         id: carId,
@@ -52,7 +52,7 @@ export class CarService {
     });
   }
 
-  async deleteCarById(userId: number, carId: number) {
+  async remove(userId: number, carId: number) {
     const car = await this.prisma.car.findUnique({
       where: {
         id: carId,
