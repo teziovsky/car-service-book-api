@@ -33,7 +33,7 @@ model Car {
 
   brand           String
   model           String
-  production_year String?
+  productionYear String?
 
   userId Int
   user   User @relation(fields: [userId], references: [id])

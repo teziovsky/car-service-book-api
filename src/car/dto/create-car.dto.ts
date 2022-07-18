@@ -21,5 +21,5 @@ export class CreateCarDto {
   })
   @IsString()
   @IsOptional()
-  production_year?: string;
+  productionYear?: string;
 }
