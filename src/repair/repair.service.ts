@@ -1,26 +1,76 @@
-import { Injectable } from "@nestjs/common";
+import { ForbiddenException, Injectable } from "@nestjs/common";
+import { PrismaService } from "../prisma/prisma.service";
 import { CreateRepairDto } from "./dto/create-repair.dto";
 import { UpdateRepairDto } from "./dto/update-repair.dto";
 
 @Injectable()
 export class RepairService {
-  create(carId: number, createRepairDto: CreateRepairDto) {
-    return createRepairDto;
+  constructor(private prisma: PrismaService) {}
+
+  async create(carId: number, createRepairDto: CreateRepairDto) {
+    return await this.prisma.repair.create({
+      data: {
+        carId,
+        ...createRepairDto,
+      },
+    });
   }
 
   findAll(carId: number) {
-    return `This action returns all repair in car #${carId}`;
+    return this.prisma.repair.findMany({
+      where: {
+        carId,
+      },
+    });
   }
 
   findOne(carId: number, repairId: number) {
-    return `This action returns a #${repairId} repair in car #${carId}`;
+    return this.prisma.repair.findFirst({
+      where: {
+        id: repairId,
+        carId,
+      },
+    });
   }
 
-  update(carId: number, repairId: number, updateRepairDto: UpdateRepairDto) {
-    return `This action updates a #${repairId} repair in car #${carId}`;
+  async update(
+    carId: number,
+    repairId: number,
+    updateRepairDto: UpdateRepairDto,
+  ) {
+    const repair = await this.prisma.repair.findUnique({
+      where: {
+        id: repairId,
+      },
+    });
+
+    if (!repair || repair.carId !== carId)
+      throw new ForbiddenException("Access to resources denied");
+
+    return this.prisma.repair.update({
+      where: {
+        id: repairId,
+      },
+      data: {
+        ...updateRepairDto,
+      },
+    });
   }
 
-  remove(carId: number, repairId: number) {
-    return `This action removes a #${repairId} repair in car #${carId}`;
+  async remove(carId: number, repairId: number) {
+    const repair = await this.prisma.repair.findUnique({
+      where: {
+        id: repairId,
+      },
+    });
+
+    if (!repair || repair.carId !== carId)
+      throw new ForbiddenException("Access to resources denied");
+
+    await this.prisma.repair.delete({
+      where: {
+        id: repairId,
+      },
+    });
   }
 }

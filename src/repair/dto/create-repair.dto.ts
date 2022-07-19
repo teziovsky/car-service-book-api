@@ -1,5 +1,12 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
+import {
+  IsDate,
+  IsDateString,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from "class-validator";
 
 export class CreateRepairDto {
   @ApiProperty({
@@ -26,7 +33,7 @@ export class CreateRepairDto {
   @ApiProperty({
     required: false,
   })
-  @IsString()
+  @IsDateString()
   @IsOptional()
   date?: string;
 

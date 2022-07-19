@@ -36,28 +36,28 @@ export class RepairController {
     return this.repairService.findAll(carId);
   }
 
-  @Get(":id")
+  @Get(":repair_id")
   findOne(
     @Param("car_id", ParseIntPipe) carId: number,
-    @Param("id", ParseIntPipe) repairId: number,
+    @Param("repair_id", ParseIntPipe) repairId: number,
   ) {
     return this.repairService.findOne(carId, repairId);
   }
 
-  @Put(":id")
+  @Put(":repair_id")
   update(
     @Param("car_id", ParseIntPipe) carId: number,
-    @Param("id", ParseIntPipe) repairId: number,
+    @Param("repair_id", ParseIntPipe) repairId: number,
     @Body() updateRepairDto: UpdateRepairDto,
   ) {
     return this.repairService.update(carId, repairId, updateRepairDto);
   }
 
-  // @HttpCode(HttpStatus.NO_CONTENT)
-  @Delete(":id")
+  @HttpCode(HttpStatus.NO_CONTENT)
+  @Delete(":repair_id")
   remove(
     @Param("car_id", ParseIntPipe) carId: number,
-    @Param("id", ParseIntPipe) repairId: number,
+    @Param("repair_id", ParseIntPipe) repairId: number,
   ) {
     return this.repairService.remove(carId, repairId);
   }
