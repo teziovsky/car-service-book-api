@@ -3,7 +3,7 @@ import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { User } from "@prisma/client";
 import { GetUser } from "../auth/decorator";
 import { JwtGuard } from "../auth/guard";
-import { EditUserDto } from "./dto";
+import { UpdateUserDto } from "./dto";
 import { UserService } from "./user.service";
 
 @UseGuards(JwtGuard)
@@ -19,7 +19,7 @@ export class UserController {
   }
 
   @Put()
-  update(@GetUser("id") userId: number, @Body() editUserDto: EditUserDto) {
+  update(@GetUser("id") userId: number, @Body() editUserDto: UpdateUserDto) {
     return this.userService.update(userId, editUserDto);
   }
 }

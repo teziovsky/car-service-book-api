@@ -32,7 +32,7 @@ export class CarService {
     });
   }
 
-  async update(userId: number, carId: number, editCarDto: UpdateCarDto) {
+  async update(userId: number, carId: number, updateCarDto: UpdateCarDto) {
     const car = await this.prisma.car.findUnique({
       where: {
         id: carId,
@@ -47,7 +47,7 @@ export class CarService {
         id: carId,
       },
       data: {
-        ...editCarDto,
+        ...updateCarDto,
       },
     });
   }
@@ -59,7 +59,6 @@ export class CarService {
       },
     });
 
-    // check if user owns the car
     if (!car || car.userId !== userId)
       throw new ForbiddenException("Access to resources denied");
 
