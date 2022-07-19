@@ -33,28 +33,28 @@ export class CarController {
     return this.carService.findAll(userId);
   }
 
-  @Get(":id")
+  @Get(":car_id")
   findOne(
     @GetUser("id") userId: number,
-    @Param("id", ParseIntPipe) carId: number,
+    @Param("car_id", ParseIntPipe) carId: number,
   ) {
     return this.carService.findOne(userId, carId);
   }
 
-  @Put(":id")
+  @Put(":car_id")
   update(
     @GetUser("id") userId: number,
-    @Param("id", ParseIntPipe) carId: number,
-    @Body() editCarDto: UpdateCarDto,
+    @Param("car_id", ParseIntPipe) carId: number,
+    @Body() updateCarDto: UpdateCarDto,
   ) {
-    return this.carService.update(userId, carId, editCarDto);
+    return this.carService.update(userId, carId, updateCarDto);
   }
 
   @HttpCode(HttpStatus.NO_CONTENT)
-  @Delete(":id")
+  @Delete(":car_id")
   remove(
     @GetUser("id") userId: number,
-    @Param("id", ParseIntPipe) carId: number,
+    @Param("car_id", ParseIntPipe) carId: number,
   ) {
     return this.carService.remove(userId, carId);
   }
