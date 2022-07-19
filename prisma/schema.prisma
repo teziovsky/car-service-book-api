@@ -57,7 +57,7 @@ model Repair {
   title       String
   description String?
   price       Int?
-  date        DateTime?
+  date        String?
   mileage     Int?
 
   carId Int
