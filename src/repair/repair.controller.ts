@@ -17,8 +17,8 @@ import { CreateRepairDto } from "./dto/create-repair.dto";
 import { UpdateRepairDto } from "./dto/update-repair.dto";
 import { RepairService } from "./repair.service";
 
-@UseGuards(JwtGuard)
 @ApiTags("repairs")
+@UseGuards(JwtGuard)
 @Controller("/cars/:car_id/repairs")
 export class RepairController {
   constructor(private readonly repairService: RepairService) {}

@@ -17,8 +17,8 @@ import { JwtGuard } from "../auth/guard";
 import { CarService } from "./car.service";
 import { CreateCarDto, UpdateCarDto } from "./dto";
 
-@UseGuards(JwtGuard)
 @ApiTags("cars")
+@UseGuards(JwtGuard)
 @Controller("cars")
 export class CarController {
   constructor(private carService: CarService) {}

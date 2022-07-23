@@ -6,9 +6,9 @@ import { JwtGuard } from "../auth/guard";
 import { UpdateUserDto } from "./dto";
 import { UserService } from "./user.service";
 
-@UseGuards(JwtGuard)
 @ApiTags("user")
 @ApiBearerAuth()
+@UseGuards(JwtGuard)
 @Controller("user")
 export class UserController {
   constructor(private userService: UserService) {}
