@@ -159,8 +159,10 @@ describe("App e2e", () => {
     describe("Create Car", () => {
       it("should create car", () => {
         const createCarDto: CreateCarDto = {
+          type: "Hatchback",
           brand: "Honda",
           model: "Civic",
+          generation: "X",
           productionYear: 2021,
         };
 
@@ -213,6 +215,10 @@ describe("App e2e", () => {
           brand: "BMW",
           model: "330ci",
           productionYear: 2021,
+          engineType: "Benzynowy",
+          engineCapacity: "3.0",
+          enginePower: 250,
+          gearboxType: "Automatic",
         };
 
         return request(app.getHttpServer())
@@ -251,9 +257,15 @@ describe("App e2e", () => {
 
       it("should create another car", () => {
         const createCarDto: CreateCarDto = {
+          type: "Sedan",
           brand: "Lexus",
           model: "is300h",
+          generation: "III",
           productionYear: 2020,
+          engineType: "Hybrydowy",
+          engineCapacity: "2494",
+          enginePower: 223,
+          gearboxType: "Automatyczna",
         };
 
         return request(app.getHttpServer())
@@ -389,6 +401,30 @@ describe("App e2e", () => {
             expect(res.body).toEqual([]);
           });
       });
+    });
+
+    it("should create another repair", () => {
+      const createRepairDto: CreateRepairDto = {
+        title: "Wymiana oleju w Lexus is300h",
+        description: "Wlano olej Castrol Magnatec",
+        price: 500,
+        date: "2022-07-19",
+        mileage: 49500,
+      };
+
+      return request(app.getHttpServer())
+        .post(`/api/cars/${carId}/repairs`)
+        .set("Accept", "application/json")
+        .set("Authorization", `Bearer ${accessToken}`)
+        .send(createRepairDto)
+        .expect(HttpStatus.CREATED)
+        .then((res) => {
+          expect(res.body.title).toEqual(createRepairDto.title);
+          expect(res.body.description).toEqual(createRepairDto.description);
+          expect(res.body.price).toEqual(createRepairDto.price);
+          expect(res.body.date).toEqual(createRepairDto.date);
+          expect(res.body.mileage).toEqual(createRepairDto.mileage);
+        });
     });
   });
 
