@@ -17,20 +17,10 @@ Clone the project and go to the project directory
 git clone git@github.com:teziovsky/car-service-book.git && cd car-service-book
 ```
 
-Install dependencies
+Start the docker compose!
 
 ```bash
-cd backend && npm install
-# in another terminal window
-cd frontend && npm install
-```
-
-Start the application!
-
-```bash
-cd backend && npm run start:dev
-# in another terminal window
-cd frontend && npm run start
+cd docker/develop && ./docker_up.sh
 ```
 
 ## Author 🙎🏼‍
