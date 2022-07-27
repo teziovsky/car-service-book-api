@@ -12,7 +12,7 @@
 Clone the project and go to the project directory
 
 ```bash
-git clone git@github.com:teziovsky/car-service-book-api.git && cd car-service-book-api
+git clone git@github.com:teziovsky/car-service-book.git && cd car-service-book
 ```
 
 Install dependencies
