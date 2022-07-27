@@ -1,3 +1,3 @@
-#! /bin/bash
+#!/bin/bash
 
 docker compose --env-file ../../.env down
