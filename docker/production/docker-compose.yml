@@ -2,7 +2,7 @@ version: '3.8'
 services:
   app:
     container_name: car_service_book_app
-    image: car_service_book_app
+    image: car_service_book_app_prod
     build:
       dockerfile: Dockerfile
       context: ../../frontend
@@ -17,7 +17,7 @@ services:
       - api
   api:
     container_name: car_service_book_api
-    image: car_service_book_api
+    image: car_service_book_api_prod
     build:
       dockerfile: Dockerfile
       context: ../../backend
