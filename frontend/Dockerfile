@@ -54,7 +54,10 @@ USER node
 FROM nginx:1.23.1-alpine As production
 
 # Copy the bundled code from the build stage to the production image
-COPY --chown=node:node --from=build /usr/src/app/dist ./dist
+COPY --chown=node:node --from=build /usr/src/app/dist/frontend /usr/share/nginx/html
+COPY /nginx/nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
 
 # Start the server using the production build
 #CMD [ "npm", "run", "start:migrate:prod" ]

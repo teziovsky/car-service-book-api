@@ -51,7 +51,7 @@ services:
     volumes:
       - car_service_book_postgresql:/var/lib/postgresql/data
     ports:
-      - ${POSTGRES_PORT}:5432
+      - 127.0.0.1:${POSTGRES_PORT}:5432
     networks:
       - teziovsky_network
 volumes:

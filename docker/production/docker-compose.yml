@@ -48,6 +48,8 @@ services:
     #    TODO: Sprawdź, gdzie się zapiszą dane z tej bazy
     volumes:
       - ../../database/data:/var/lib/postgresql/data
+    ports:
+      - 127.0.0.1:${POSTGRES_PORT}:5432
     networks:
       - teziovsky_network
 networks:
