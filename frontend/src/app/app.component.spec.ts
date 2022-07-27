@@ -26,10 +26,17 @@ describe('AppComponent', () => {
     expect(app.title).toEqual('frontend');
   });
 
-  it('should render title', () => {
+  it('should render header', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('.content span')?.textContent).toContain('frontend app is running!');
+    expect(compiled.querySelector('header.header')).toBeTruthy();
+  });
+
+  it('should render footer', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('footer.footer')).toBeTruthy();
   });
 });
