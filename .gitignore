@@ -3,6 +3,7 @@
 **/*.log
 **/npm-debug.log*
 **/yarn-debug.log*
+**/pnpm-debug.log*
 **/yarn-error.log*
 **/lerna-debug.log*
 **/.pnpm-debug.log*
@@ -24,6 +25,8 @@
 **/.lock-wscript
 
 # Dependency directories
+**/node_modules
+**/jspm_packages
 **/node_modules/
 **/jspm_packages/
 
@@ -65,9 +68,10 @@
 **/.next
 **/out
 
-# Nuxt.js build / generate output
+# build / generate output
 **/.nuxt
 **/dist
+**/dist-ssr
 
 # Compiled output
 **/tmp
@@ -78,6 +82,8 @@
 **/.vscode-test
 
 # IDEs and editors
+
+**/.idea
 **/.idea/
 **/.project
 **/.classpath
@@ -91,6 +97,11 @@
 !**/.vscode/launch.json
 !**/.vscode/extensions.json
 **/.history/*
+**/*.suo
+**/*.ntvs*
+**/*.njsproj
+**/*.sln
+**/*.sw?
 
 # Miscellaneous
 **/.angular/cache
