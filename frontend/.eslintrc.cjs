@@ -24,6 +24,10 @@ module.exports = {
     amd: true,
     node: true,
   },
+  globals: {
+    React: true,
+    JSX: true,
+  },
   extends: [
     "eslint:recommended",
     "plugin:react/recommended",
