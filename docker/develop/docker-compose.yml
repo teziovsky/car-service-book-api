@@ -10,9 +10,9 @@ services:
     volumes:
       - ../../frontend:/usr/src/app
       - /usr/src/app/node_modules
-    command: npm run start
+    command: npm run dev
     ports:
-      - ${APP_PORT}:4200
+      - ${APP_PORT}:${APP_PORT}
     networks:
       - teziovsky_network
     depends_on:
