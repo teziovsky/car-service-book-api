@@ -1,19 +1,23 @@
+import Button from "components/styles/Button/Button.styled";
+import GlobalStyles from "components/styles/Global";
+import { dark, light } from "components/styles/Theme.styled";
 import React, { useState } from "react";
+import { ThemeProvider } from "styled-components";
 
 function App() {
-  const [count, setCount] = useState(0);
+  const [selectedTheme, setSelectedTheme] = useState(light);
 
   return (
-    <div>
-      <h1>Vite + React</h1>
-      <div>
-        <button onClick={() => setCount((count) => count + 1)}>count is {count}</button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p>Click on the Vite and React logos to learn more</p>
-    </div>
+    <ThemeProvider theme={selectedTheme}>
+      <>
+        <GlobalStyles />
+        <h1 style={{ marginBottom: "10px" }}>{selectedTheme.name}</h1>
+        <Button style={{ marginRight: "10px" }} onClick={() => setSelectedTheme(light)}>
+          Light
+        </Button>
+        <Button onClick={() => setSelectedTheme(dark)}>Dark</Button>
+      </>
+    </ThemeProvider>
   );
 }
 
