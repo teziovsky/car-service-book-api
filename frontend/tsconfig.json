@@ -15,7 +15,11 @@
     "isolatedModules": true,
     "noEmit": true,
     "jsx": "react-jsx",
-    "types": ["node", "styled-components"]
+    "types": ["node", "styled-components"],
+    "paths": {
+      "components/*": ["src/components/*"],
+      "views/*": ["src/views/*"]
+    }
   },
   "include": ["src"],
   "references": [{ "path": "./tsconfig.node.json" }]

@@ -12,5 +12,11 @@ export default ({ mode }) => {
     server: {
       port: parseInt(APP_PORT) || 3000,
     },
+    resolve: {
+      alias: {
+        components: path.resolve(__dirname, "src/components"),
+        views: path.resolve(__dirname, "src/views"),
+      },
+    },
   });
 };
