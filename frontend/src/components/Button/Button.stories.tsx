@@ -6,10 +6,7 @@ import Button from "./Button";
 export default {
   title: "Button",
   component: Button,
-  args: {
-    small: false,
-    large: false,
-  },
+  args: {},
   argTypes: {},
 } as ComponentMeta<typeof Button>;
 
@@ -17,12 +14,18 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args}>{arg
 
 export const Primary = Template.bind({});
 Primary.args = {
+  status: "primary",
   children: "Add car",
-  secondary: false,
 };
 
 export const Secondary = Template.bind({});
 Secondary.args = {
+  status: "secondary",
   children: "Sign In",
-  secondary: true,
+};
+
+export const Tertiary = Template.bind({});
+Tertiary.args = {
+  status: "tertiary",
+  children: "Sign In",
 };
