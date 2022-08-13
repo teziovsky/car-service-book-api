@@ -1,0 +1,62 @@
+.btn {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  font-family: "Overpass";
+  font-size: 16px;
+  line-height: 20px;
+  font-weight: 700;
+  color: #e6f3fe;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 20px 8px 20px;
+  transition: background-color 0.25s linear;
+
+  &Small {
+    font-size: 12px;
+    line-height: 16px;
+    padding: 5px 10px 4px;
+  }
+
+  &Large {
+    font-size: 20px;
+    line-height: 26px;
+    padding: 15px 35px 12px;
+  }
+
+  &Primary {
+    background-color: #033863;
+
+    &:hover {
+      background-color: #055494;
+    }
+
+    &:active {
+      background-color: #0670c6;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: #859bad;
+      background-color: #29343d;
+    }
+  }
+
+  &Secondary {
+    background-color: #021c31;
+
+    &:hover {
+      background-color: #033863;
+    }
+
+    &:active {
+      background-color: #055494;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      color: #859bad;
+      background-color: #141a1f;
+    }
+  }
+}

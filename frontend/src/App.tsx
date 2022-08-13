@@ -1,23 +1,23 @@
-import Button from "components/styles/Button/Button.styled";
-import GlobalStyles from "components/styles/Global";
-import { dark, light } from "components/styles/Theme.styled";
+import Button from "components/Button/Button";
+import Heading from "components/Heading/Heading";
 import React, { useState } from "react";
-import { ThemeProvider } from "styled-components";
 
 function App() {
-  const [selectedTheme, setSelectedTheme] = useState(light);
+  const [selectedTheme, setSelectedTheme] = useState("light");
 
   return (
-    <ThemeProvider theme={selectedTheme}>
-      <>
-        <GlobalStyles />
-        <h1 style={{ marginBottom: "10px" }}>{selectedTheme.name}</h1>
-        <Button style={{ marginRight: "10px" }} onClick={() => setSelectedTheme(light)}>
+    <div>
+      <Heading level={1}>{selectedTheme}</Heading>
+      <Heading level={2}>Buttony</Heading>
+      <div style={{ display: "flex", gap: "8px" }}>
+        <Button onClick={() => setSelectedTheme("light")} icon="HiPlus">
           Light
         </Button>
-        <Button onClick={() => setSelectedTheme(dark)}>Dark</Button>
-      </>
-    </ThemeProvider>
+        <Button onClick={() => setSelectedTheme("dark")} secondary>
+          Dark
+        </Button>
+      </div>
+    </div>
   );
 }
 
