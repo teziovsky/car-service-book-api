@@ -1,3 +1,14 @@
+@use "../../assets/scss/mixins" as *;
+@use "../../assets/scss/typography" as *;
+
 .h1 {
-  font-size: 10px;
+  @include font($h1-font-size, $h1-line-height, 700, $main-heading-font-family);
+}
+
+.h2 {
+  @include font($h2-font-size, $h2-line-height, 400, $main-heading-font-family);
+}
+
+.h2-bold {
+  @include font($h2-font-size, $h2-line-height, 700, $main-heading-font-family);
 }

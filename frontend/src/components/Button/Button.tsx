@@ -5,31 +5,46 @@ import Icon from "../Icon/Icon";
 import styles from "./Button.module.scss";
 
 type Props = {
-  status: "primary" | "secondary" | "tertiary";
-  size?: "small" | "large";
+  status?: "primary" | "secondary" | "tertiary";
+  color?: "accent" | "success" | "info" | "warning" | "error";
+  size?: "small" | "default" | "large";
   icon?: string;
   iconRight?: boolean;
   children?: string | ReactNode;
+  className?: any;
   [x: string]: any;
 };
 
-const Button: FC<Props> = ({ status, size, icon, iconRight, children }) => {
+const Button: FC<Props> = ({ className: passedClasses, ...props }) => {
   return (
     <button
-      className={cx(styles.btn, {
-        [styles.btnPrimary]: status === "primary",
-        [styles.btnSecondary]: status === "secondary",
-        [styles.btnTertiary]: status === "tertiary",
-        [styles.btnSmall]: size === "small",
-        [styles.btnLarge]: size === "large",
-      })}>
+      className={cx(styles.btn, passedClasses, {
+        [styles.btnPrimary]: props.status === "primary",
+        [styles.btnSecondary]: props.status === "secondary",
+        [styles.btnTertiary]: props.status === "tertiary",
+        [styles.btnSuccess]: props.color === "success",
+        [styles.btnInfo]: props.color === "info",
+        [styles.btnWarning]: props.color === "warning",
+        [styles.btnError]: props.color === "error",
+        [styles.btnSmall]: props.size === "small",
+        [styles.btnLarge]: props.size === "large",
+        [styles.btnOnlyIcon]: !props.children,
+      })}
+      {...props}>
       <>
-        {icon && !iconRight && <Icon icon="HiPlus" />}
-        {children}
-        {icon && iconRight && <Icon icon={icon} />}
+        {props.icon && !props.iconRight && <Icon className={styles.btnIcon} icon={props.icon} />}
+        {props.children}
+        {props.icon && props.iconRight && <Icon className={styles.btnIcon} icon={props.icon} />}
       </>
     </button>
   );
+};
+
+Button.defaultProps = {
+  status: "primary",
+  color: "accent",
+  size: "default",
+  iconRight: false,
 };
 
 export default Button;

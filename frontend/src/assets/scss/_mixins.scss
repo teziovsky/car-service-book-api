@@ -1,0 +1,15 @@
+@use "utils" as *;
+@use "typography" as *;
+
+@mixin font($size, $lineHeight: $size, $weight: 400, $family: $base-font-family) {
+  @if $family != Overpass {
+    font-family: $family, sans-serif;
+  }
+
+  @if $weight != 400 {
+    font-weight: $weight;
+  }
+
+  font-size: toRem($size);
+  line-height: toRem($lineHeight);
+}

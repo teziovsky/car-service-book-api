@@ -1,0 +1,59 @@
+@use "../../assets/scss/theme" as *;
+@use "../../assets/scss/typography" as *;
+@use "../../assets/scss/mixins" as *;
+
+.alert {
+  position: relative;
+  display: flex;
+  align-items: flex-start;
+  border-radius: 8px;
+  padding: 16px 10px;
+  gap: 8px;
+
+  @each $size, $class in $statusColors {
+    &.alert#{$class} {
+      color: hsl(var(--#{$size}-50));
+      background-image: var(--#{$size}-background-gradient);
+      border: 2px solid hsla(var(--#{$size}-200), 0.4);
+
+      .alertIcon {
+        color: hsl(var(--#{$size}-400));
+      }
+
+      .alertClose {
+        color: hsl(var(--#{$size}-400));
+      }
+    }
+  }
+
+  &Icon {
+    width: 22px;
+    height: 22px;
+  }
+
+  &Content {
+    display: flex;
+    flex-direction: column;
+    padding-right: 40px;
+  }
+
+  &Title {
+    @include font($h5-font-size, $h5-line-height);
+  }
+
+  &Description {
+    @include font($small-font-size, $small-line-height);
+  }
+
+  .btnClose {
+    cursor: pointer;
+    position: absolute;
+    top: 16px;
+    right: 10px;
+    display: flex;
+    background: none;
+    border: none;
+    padding: 2px;
+    place-items: center;
+  }
+}

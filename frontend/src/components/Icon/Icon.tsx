@@ -1,10 +1,9 @@
 import React from "react";
 import * as HeroIcons from "react-icons/hi";
 
-console.log("HeroIcons: ", HeroIcons);
-
 type Props = {
   icon: string;
+  [x: string]: any;
 };
 
 const Icon = ({ icon, ...props }: Props) => {

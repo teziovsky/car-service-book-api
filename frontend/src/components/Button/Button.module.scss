@@ -1,62 +1,207 @@
+@use "../../assets/scss/theme" as *;
+@use "../../assets/scss/mixins" as *;
+@use "../../assets/scss/typography" as *;
+
 .btn {
+  @include font($base-font-size, $base-line-height, 700);
   cursor: pointer;
+  position: relative;
   display: flex;
   align-items: center;
-  font-family: "Overpass";
-  font-size: 16px;
-  line-height: 20px;
-  font-weight: 700;
-  color: #e6f3fe;
-  border: none;
+  border: 1px solid transparent;
   border-radius: 8px;
   padding: 10px 20px 8px 20px;
-  transition: background-color 0.25s linear;
+  transition-duration: 0.25s;
+  transition-property: background-color, border-color, color;
+  gap: 4px;
 
-  &Small {
-    font-size: 12px;
-    line-height: 16px;
-    padding: 5px 10px 4px;
+  &:focus {
+    outline: hsl(var(--accent-50)) dashed 2px;
+    outline-offset: 3px;
   }
 
-  &Large {
-    font-size: 20px;
-    line-height: 26px;
+  &:disabled {
+    cursor: not-allowed;
+  }
+
+  &.btnOnlyIcon {
+    padding: 7px;
+  }
+
+  &.btnSmall {
+    @include font($small-font-size, $small-line-height, 700);
+    padding: 5px 10px 4px;
+
+    &.btnOnlyIcon {
+      padding: 5px;
+    }
+  }
+
+  &.btnLarge {
+    @include font($large-font-size, $large-line-height, 700);
     padding: 15px 35px 12px;
+
+    &.btnOnlyIcon {
+      padding: 9px;
+    }
   }
 
   &Primary {
-    background-color: #033863;
+    color: hsl(var(--accent-50));
+    background-color: hsl(var(--accent-800));
+    border: none;
 
-    &:hover {
-      background-color: #055494;
+    @each $size, $class in $statusColors {
+      &.btn#{$class} {
+        color: hsl(var(--#{$size}-50));
+        background-color: hsl(var(--#{$size}-800));
+      }
     }
 
-    &:active {
-      background-color: #0670c6;
+    &:not(:disabled):hover {
+      background-color: hsl(var(--accent-700));
+
+      @each $size, $class in $statusColors {
+        &.btn#{$class} {
+          background-color: hsl(var(--#{$size}-700));
+        }
+      }
+    }
+
+    &:not(:disabled):active {
+      background-color: hsl(var(--accent-600));
+
+      @each $size, $class in $statusColors {
+        &.btn#{$class} {
+          background-color: hsl(var(--#{$size}-600));
+        }
+      }
     }
 
     &:disabled {
-      cursor: not-allowed;
-      color: #859bad;
-      background-color: #29343d;
+      color: hsl(var(--accent-saturated-400));
+      background-color: hsl(var(--accent-saturated-800));
+
+      @each $size, $class in $statusColors {
+        &.btn#{$class} {
+          color: hsl(var(--#{$size}-saturated-400));
+          background-color: hsl(var(--#{$size}-saturated-800));
+        }
+      }
     }
   }
 
   &Secondary {
-    background-color: #021c31;
+    color: hsl(var(--accent-50));
+    background-color: hsl(var(--accent-900));
+    border: none;
 
-    &:hover {
-      background-color: #033863;
+    &:before {
+      content: "";
+      position: absolute;
+      z-index: -1;
+      background-image: var(--accent-border-gradient);
+      border-radius: 8px;
+      inset: -1px;
     }
 
-    &:active {
-      background-color: #055494;
+    @each $size, $class in $statusColors {
+      &.btn#{$class} {
+        color: hsl(var(--#{$size}-50));
+        background-color: hsl(var(--#{$size}-900));
+
+        &:before {
+          background-image: var(--#{$size}-border-gradient);
+        }
+      }
+    }
+
+    &:not(:disabled):hover {
+      background-color: hsl(var(--accent-800));
+
+      @each $size, $class in $statusColors {
+        &.btn#{$class} {
+          background-color: hsl(var(--#{$size}-800));
+        }
+      }
+    }
+
+    &:not(:disabled):active {
+      background-color: hsl(var(--accent-700));
+
+      @each $size, $class in $statusColors {
+        &.btn#{$class} {
+          background-color: hsl(var(--#{$size}-saturated-700));
+        }
+      }
     }
 
     &:disabled {
-      cursor: not-allowed;
-      color: #859bad;
-      background-color: #141a1f;
+      color: hsl(var(--accent-saturated-400));
+      background-color: hsl(var(--accent-saturated-900));
+
+      &:before {
+        background-image: var(--accent-saturated-border-gradient);
+      }
+
+      @each $size, $class in $statusColors {
+        &.btn#{$class} {
+          color: hsl(var(--#{$size}-saturated-400));
+          background-color: hsl(var(--#{$size}-saturated-900));
+
+          &:before {
+            background-image: var(--#{$size}-saturated-border-gradient);
+          }
+        }
+      }
     }
+  }
+
+  &Tertiary {
+    color: hsl(var(--accent-200));
+    background-color: transparent;
+
+    @each $size, $class in $statusColors {
+      &.btn#{$class} {
+        color: hsl(var(--#{$size}-200));
+      }
+    }
+
+    &:not(:disabled):hover {
+      background-color: hsla(var(--accent-200), 0.2);
+      border-color: hsl(var(--accent-200));
+
+      @each $size, $class in $statusColors {
+        &.btn#{$class} {
+          background-color: hsla(var(--#{$size}-200), 0.2);
+          border-color: hsl(var(--#{$size}-200));
+        }
+      }
+    }
+
+    &:not(:disabled):active {
+      background-color: hsl(var(--accent-900));
+
+      @each $size, $class in $statusColors {
+        &.btn#{$class} {
+          background-color: hsl(var(--#{$size}-900));
+        }
+      }
+    }
+
+    &:disabled {
+      color: hsl(var(--accent-saturated-400));
+      background-color: hsl(var(--accent-saturated-900));
+
+      @each $size, $class in $statusColors {
+        &.btn#{$class} {
+          color: hsl(var(--#{$size}-saturated-400));
+          background-color: hsl(var(--#{$size}-saturated-900));
+        }
+      }
+    }
+  }
+
+  &Icon {
   }
 }

@@ -9,6 +9,7 @@ export default {
   args: {
     children: "This is Heading",
     level: 1,
+    bold: false,
   },
   argTypes: {},
 } as ComponentMeta<typeof Heading>;
