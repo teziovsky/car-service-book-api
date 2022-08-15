@@ -1,15 +1,17 @@
-import React from "react";
+import cx from "classnames";
+import React, { FC } from "react";
 import * as HeroIcons from "react-icons/hi";
 
-type Props = {
+import { DefaultProps } from "../../main";
+
+type Props = DefaultProps & {
   icon: string;
-  [x: string]: any;
 };
 
-const Icon = ({ icon, ...props }: Props) => {
+const Icon: FC<Props> = ({ icon, className: passedClasses, ...props }) => {
   const HeroIcon = HeroIcons[icon as keyof typeof HeroIcons];
 
-  return <HeroIcon {...props} />;
+  return <HeroIcon className={cx(passedClasses)} {...props} />;
 };
 
 export default Icon;

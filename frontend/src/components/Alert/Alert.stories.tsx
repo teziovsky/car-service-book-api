@@ -12,6 +12,7 @@ export default {
   args: {
     title: "Info",
     color: "success",
+    notification: false,
   },
   argTypes: {
     color: {
@@ -29,8 +30,8 @@ const Template: ComponentStory<typeof Alert> = (args) => <Alert {...args}>{args.
 
 export const Success = Template.bind({});
 Success.args = {
-  title: "Alert",
-  children: "To close this alert, push X button",
+  title: "",
+  children: "Successfully added car",
   icon: "HiOutlineCheckCircle",
   color: "success",
 };
@@ -46,7 +47,7 @@ Info.args = {
 export const Warning = Template.bind({});
 Warning.args = {
   title: "Alert",
-  children: "To close this alert, push X button",
+  children: "To close this alert, push X button. Thank you for submission!",
   icon: "HiOutlineExclamation",
   color: "warning",
 };

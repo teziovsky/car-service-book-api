@@ -1,1 +1,9 @@
-@use "assets/scss/style";
+@use "assets/scss/style" as *;
+@use "assets/scss/typography" as *;
+@use "assets/scss/mixins" as *;
+
+body {
+  @include font($base-font-size, $base-line-height, 400, $base-font-family);
+  font-size: 16px;
+  color: hsl(var(--accent-50));
+}

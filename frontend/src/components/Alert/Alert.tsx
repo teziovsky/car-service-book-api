@@ -1,33 +1,35 @@
 import cx from "classnames";
-import React, { FC, ReactNode } from "react";
+import React, { FC } from "react";
 
+import { DefaultProps } from "../../main";
 import Button from "../Button/Button";
 import Icon from "../Icon/Icon";
 import styles from "./Alert.module.scss";
 
-type Props = {
+type Props = DefaultProps & {
   color?: "success" | "info" | "warning" | "error";
   title?: string;
   icon?: string;
-  children?: string | ReactNode;
-  [x: string]: any;
+  notification?: boolean;
 };
 
-const Alert: FC<Props> = (props) => {
+const Alert: FC<Props> = ({ color, title, icon, notification, children, className: passedClasses, ...props }) => {
   return (
     <div
-      className={cx(styles.alert, {
-        [styles.alertSuccess]: props.color === "success",
-        [styles.alertInfo]: props.color === "info",
-        [styles.alertWarning]: props.color === "warning",
-        [styles.alertError]: props.color === "error",
-      })}>
-      {props.icon && <Icon className={styles.alertIcon} icon={props.icon} />}
+      className={cx(styles.alert, passedClasses, {
+        [styles.alertSuccess]: color === "success",
+        [styles.alertInfo]: color === "info",
+        [styles.alertWarning]: color === "warning",
+        [styles.alertError]: color === "error",
+        [styles.alertNotification]: notification,
+      })}
+      {...props}>
+      {icon && <Icon className={styles.alertIcon} icon={icon} />}
       <div className={styles.alertContent}>
-        {props.title && <span className={styles.alertTitle}>{props.title}</span>}
-        <span className={styles.alertDescription}>{props.children}</span>
+        {title && <span className={styles.alertTitle}>{title}</span>}
+        <span className={styles.alertDescription}>{children}</span>
       </div>
-      <Button color={props.color} className={styles.btnClose} status="tertiary" size="default" icon="HiX" />
+      <Button color={color} className={styles.btnClose} status="tertiary" size="default" icon="HiX" />
     </div>
   );
 };

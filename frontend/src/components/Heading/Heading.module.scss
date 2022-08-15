@@ -2,13 +2,51 @@
 @use "../../assets/scss/typography" as *;
 
 .h1 {
-  @include font($h1-font-size, $h1-line-height, 700, $main-heading-font-family);
+  @include font($h1-font-size, $h1-line-height, 400, $main-heading-font-family);
+  color: hsl(var(--accent-50));
 }
 
 .h2 {
-  @include font($h2-font-size, $h2-line-height, 400, $main-heading-font-family);
+  @include font($h2-font-size, $h2-line-height, 400, $heading-font-family);
+  color: hsl(var(--accent-50));
+
+  &.bold {
+    font-weight: 700;
+  }
 }
 
-.h2-bold {
-  @include font($h2-font-size, $h2-line-height, 700, $main-heading-font-family);
+.h3 {
+  @include font($h3-font-size, $h3-line-height, 400, $heading-font-family);
+  color: hsl(var(--accent-50));
+
+  &.bold {
+    font-weight: 700;
+  }
+}
+
+.h4 {
+  @include font($h4-font-size, $h4-line-height, 400, $heading-font-family);
+  color: hsl(var(--accent-50));
+
+  &.bold {
+    font-weight: 700;
+  }
+}
+
+.h5 {
+  @include font($h5-font-size, $h5-line-height, 400, $heading-font-family);
+  color: hsl(var(--accent-50));
+
+  &.bold {
+    font-weight: 700;
+  }
+}
+
+.h6 {
+  @include font($h6-font-size, $h6-line-height, 400, $heading-font-family);
+  color: hsl(var(--accent-50));
+
+  &.bold {
+    font-weight: 700;
+  }
 }

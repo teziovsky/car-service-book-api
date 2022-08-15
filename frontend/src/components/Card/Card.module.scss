@@ -1,0 +1,50 @@
+//@use "../../assets/scss/theme" as *;
+@use "../../assets/scss/typography" as *;
+@use "../../assets/scss/mixins" as *;
+
+.card {
+  background: linear-gradient(
+      160deg,
+      hsl(var(--accent-800)) 0%,
+      hsla(var(--accent-800), 0.4) 32.33%,
+      hsla(var(--accent-800), 0.5) 64.85%,
+      hsla(var(--accent-800), 0.3) 100%
+    ),
+    hsl(var(--black));
+  border: 1px solid hsla(var(--accent-200), 0.4);
+  border-radius: 8px;
+  padding: 20px;
+
+  & > :not(:last-child) {
+    padding-bottom: 10px;
+  }
+
+  & > div + div {
+    padding-top: 10px;
+  }
+
+  &Header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  &Avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+  }
+
+  &Title {
+    @include font($h4-font-size, $h4-line-height, 700, $heading-font-family);
+    color: hsl(var(--accent-50));
+  }
+
+  &Body {
+    @include font($base-font-size, $base-line-height);
+    color: hsl(var(--accent-50));
+  }
+
+  &Footer {
+  }
+}

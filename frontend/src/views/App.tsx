@@ -8,7 +8,7 @@ function App() {
   return (
     <div>
       <Heading level={1}>{selectedTheme}</Heading>
-      <Heading level={2}>Buttony</Heading>
+      <Heading level={2}>Button</Heading>
       <div style={{ display: "flex", gap: "8px" }}>
         <Button onClick={() => setSelectedTheme("light")} icon="HiPlus">
           Light

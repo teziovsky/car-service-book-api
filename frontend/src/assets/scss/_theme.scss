@@ -5,6 +5,14 @@ $statusColors: (
   error: Error,
 );
 
+$Colors: (
+  success: Success,
+  info: Info,
+  warning: Warning,
+  error: Error,
+  accent: Accent,
+);
+
 :root {
   /* Status color styles */
   --error-500: 2, 72.5%, 60%;
@@ -96,89 +104,6 @@ $statusColors: (
   --info-saturated-800: 186, 19.6%, 20%;
   --info-saturated-900: 191, 21.6%, 10%;
 
-  /* Status border styles */
-  --success-border-gradient: linear-gradient(
-    160deg,
-    hsla(var(--success-300), 0.4) 25.4%,
-    hsla(var(--success-300), 0.1) 52.07%,
-    hsla(var(--success-300), 0.4) 78.46%
-  );
-  --success-saturated-border-gradient: linear-gradient(
-    160deg,
-    hsla(var(--success-saturated-300), 0.4) 25.4%,
-    hsla(var(--success-saturated-300), 0.1) 52.07%,
-    hsla(var(--success-saturated-300), 0.4) 78.46%
-  );
-
-  --info-border-gradient: linear-gradient(
-    160deg,
-    hsla(var(--info-300), 0.4) 25.4%,
-    hsla(var(--info-300), 0.1) 52.07%,
-    hsla(var(--info-300), 0.4) 78.46%
-  );
-  --info-saturated-border-gradient: linear-gradient(
-    160deg,
-    hsla(var(--info-saturated-300), 0.4) 25.4%,
-    hsla(var(--info-saturated-300), 0.1) 52.07%,
-    hsla(var(--info-saturated-300), 0.4) 78.46%
-  );
-
-  --warning-border-gradient: linear-gradient(
-    160deg,
-    hsla(var(--warning-300), 0.4) 25.4%,
-    hsla(var(--warning-300), 0.1) 52.07%,
-    hsla(var(--warning-300), 0.4) 78.46%
-  );
-  --warning-saturated-border-gradient: linear-gradient(
-    160deg,
-    hsla(var(--warning-saturated-300), 0.4) 25.4%,
-    hsla(var(--warning-saturated-300), 0.1) 52.07%,
-    hsla(var(--warning-saturated-300), 0.4) 78.46%
-  );
-
-  --error-border-gradient: linear-gradient(
-    160deg,
-    hsla(var(--error-300), 0.4) 25.4%,
-    hsla(var(--error-300), 0.1) 52.07%,
-    hsla(var(--error-300), 0.4) 78.46%
-  );
-  --error-saturated-border-gradient: linear-gradient(
-    160deg,
-    hsla(var(--error-saturated-300), 0.4) 25.4%,
-    hsla(var(--error-saturated-300), 0.1) 52.07%,
-    hsla(var(--error-saturated-300), 0.4) 78.46%
-  );
-
-  /* Status background styles */
-  --success-background-gradient: linear-gradient(
-    160deg,
-    hsl(var(--success-800)) 0%,
-    hsla(var(--success-800), 0.4) 32.33%,
-    hsla(var(--success-800), 0.5) 64.85%,
-    hsla(var(--success-800), 0.3) 100%
-  );
-  --info-background-gradient: linear-gradient(
-    160deg,
-    hsl(var(--info-800)) 0%,
-    hsla(var(--info-800), 0.4) 32.33%,
-    hsla(var(--info-800), 0.5) 64.85%,
-    hsla(var(--info-800), 0.3) 100%
-  );
-  --warning-background-gradient: linear-gradient(
-    160deg,
-    hsl(var(--warning-800)) 0%,
-    hsla(var(--warning-800), 0.4) 32.33%,
-    hsla(var(--warning-800), 0.5) 64.85%,
-    hsla(var(--warning-800), 0.3) 100%
-  );
-  --error-background-gradient: linear-gradient(
-    160deg,
-    hsl(var(--error-800)) 0%,
-    hsla(var(--error-800), 0.4) 32.33%,
-    hsla(var(--error-800), 0.5) 64.85%,
-    hsla(var(--error-800), 0.3) 100%
-  );
-
   /* Accent color styles */
   --accent-500: 207, 94%, 60.6%;
   --accent-50: 208, 92.3%, 94.9%;
@@ -205,21 +130,43 @@ $statusColors: (
   --accent-saturated-800: 207, 19.6%, 20%;
   --accent-saturated-900: 207, 21.6%, 10%;
 
-  /* Accent border styles */
-  --accent-border-gradient: linear-gradient(
-    160deg,
-    hsla(var(--accent-300), 0.4) 25.4%,
-    hsla(var(--accent-300), 0.1) 52.07%,
-    hsla(var(--accent-300), 0.4) 78.46%
-  );
-  --accent-saturated-border-gradient: linear-gradient(
-    160deg,
-    hsla(var(--accent-saturated-300), 0.4) 25.4%,
-    hsla(var(--accent-saturated-300), 0.1) 52.07%,
-    hsla(var(--accent-saturated-300), 0.4) 78.46%
-  );
+  --black: 0, 0%, 0%;
 
-  /* Accent background styles */
+  /* Border gradient styles */
+  @each $color, $class in $Colors {
+    --#{$color}-border-gradient: linear-gradient(
+      160deg,
+      hsla(var(--#{$color}-300), 0.4) 25.4%,
+      hsla(var(--#{$color}-300), 0.1) 52.07%,
+      hsla(var(--#{$color}-300), 0.4) 78.46%
+    );
+
+    --#{$color}-saturated-border-gradient: linear-gradient(
+      160deg,
+      hsla(var(--#{$color}-saturated-300), 0.4) 25.4%,
+      hsla(var(--#{$color}-saturated-300), 0.1) 52.07%,
+      hsla(var(--#{$color}-saturated-300), 0.4) 78.46%
+    );
+  }
+
+  /* Background gradient styles */
+  @each $color, $class in $Colors {
+    --#{$color}-background-gradient: linear-gradient(
+      160deg,
+      hsl(var(--#{$color}-800)) 0%,
+      hsla(var(--#{$color}-800), 0.4) 32.33%,
+      hsla(var(--#{$color}-800), 0.5) 64.85%,
+      hsla(var(--#{$color}-800), 0.3) 100%
+    );
+
+    --#{$color}-saturated-background-gradient: linear-gradient(
+      160deg,
+      hsl(var(--#{$color}-800)) 0%,
+      hsla(var(--#{$color}-800), 0.4) 32.33%,
+      hsla(var(--#{$color}-800), 0.5) 64.85%,
+      hsla(var(--#{$color}-800), 0.3) 100%
+    );
+  }
 
   /* Effect styles */
   --drop-shadow-50: 0px 0px 2px rgba(230, 243, 254, 1);
