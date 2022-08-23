@@ -1,4 +1,3 @@
-//@use "../../assets/scss/theme" as *;
 @use "../../assets/scss/typography" as *;
 @use "../../assets/scss/mixins" as *;
 
@@ -15,7 +14,7 @@
   border-radius: 8px;
   padding: 20px;
 
-  & > :not(:last-child) {
+  & > div:not(:last-child) {
     padding-bottom: 10px;
   }
 
