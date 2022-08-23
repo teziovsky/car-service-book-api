@@ -11,10 +11,13 @@ type Props = DefaultProps & {
 
 const Heading: FC<Props> = ({ level, bold, children, className: passedClasses, ...props }) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
-  const Class = bold ? `${Tag}-bold` : `${Tag}`;
 
   return (
-    <Tag className={cx(styles[Class], passedClasses)} {...props}>
+    <Tag
+      className={cx(styles[Tag], passedClasses, {
+        [styles.bold]: bold,
+      })}
+      {...props}>
       {children}
     </Tag>
   );
