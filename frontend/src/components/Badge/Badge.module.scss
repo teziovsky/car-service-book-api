@@ -1,0 +1,49 @@
+@use "../../assets/scss/theme" as *;
+@use "../../assets/scss/mixins" as *;
+@use "../../assets/scss/typography" as *;
+
+.badge {
+  @include font($base-font-size, $base-line-height, 700);
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: hsl(var(--accent-900));
+  background-color: hsl(var(--accent-200));
+  border-radius: 8px;
+  padding: 10px 20px 8px 20px;
+  transition-duration: 0.25s;
+  transition-property: background-color, border-color, color;
+  gap: 4px;
+
+  @each $color, $class in $statusColors {
+    &.badge#{$class} {
+      color: hsl(var(--#{$color}-900));
+      background-color: hsl(var(--#{$color}-200));
+    }
+  }
+
+  &.badgeOnlyIcon {
+    padding: 7px;
+  }
+
+  &.badgeSmall {
+    @include font($small-font-size, $small-line-height, 700);
+    padding: 5px 10px 4px;
+
+    &.badgeOnlyIcon {
+      padding: 5px;
+    }
+  }
+
+  &.badgeLarge {
+    @include font($large-font-size, $large-line-height, 700);
+    padding: 15px 35px 12px;
+
+    &.badgeOnlyIcon {
+      padding: 9px;
+    }
+  }
+
+  &Icon {
+  }
+}
