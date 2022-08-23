@@ -131,6 +131,7 @@ $Colors: (
   --accent-saturated-900: 207, 21.6%, 10%;
 
   --black: 0, 0%, 0%;
+  --white: 0, 0%, 100%;
 
   /* Border gradient styles */
   @each $color, $class in $Colors {
