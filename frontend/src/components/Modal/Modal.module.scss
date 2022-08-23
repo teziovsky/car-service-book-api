@@ -14,11 +14,11 @@
       hsla(var(--accent-800), 0.5) 64.85%,
       hsla(var(--accent-800), 0.3) 100%
     ),
-    hsl(var(--black));
+    hsl(var(--accent-950));
   border: 1px solid hsla(var(--accent-200), 0.4);
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0 5px 10px -10px hsl(var(--accent-50));
+  box-shadow: var(--box-shadow-50);
   transform: translate(-50%, -50%);
 
   &.wide {
@@ -74,7 +74,7 @@
     left: 50%;
     width: 100vw;
     height: 100vh;
-    background-color: hsla(var(--accent-950), 0.3);
+    background-color: hsla(var(--black), 0.3);
     transform: translate(-50%, -50%);
   }
 }

@@ -6,4 +6,5 @@ body {
   @include font($base-font-size, $base-line-height, 400, $base-font-family);
   font-size: 16px;
   color: hsl(var(--accent-50));
+  background-color: hsl(var(--accent-950));
 }
