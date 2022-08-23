@@ -9,13 +9,9 @@ export const parameters = {
     },
   },
   layout: "centered",
-  backgrounds: {
-    default: 'blue',
-    values: [
-      {
-        name: 'blue',
-        value: '#021C31',
-      },
-    ],
+  options: {
+    storySort: {
+      method: "alphabetical"
+    }
   },
 };
