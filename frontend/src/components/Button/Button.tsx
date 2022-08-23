@@ -13,7 +13,7 @@ type Props = DefaultProps & {
   iconRight?: boolean;
 };
 
-const Button: FC<Props> = ({ className: passedClasses, status, color, size, icon, iconRight, children, ...props }) => {
+const Button: FC<Props> = ({ status, color, size, icon, iconRight, children, className: passedClasses, ...props }) => {
   return (
     <button
       className={cx(styles.btn, passedClasses, {
