@@ -1,15 +1,16 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { useRoutes } from "react-router-dom";
 
-import Index from "./Index";
+import routes from "../routes";
 
 const App = () => {
+  const allRoutes = useRoutes(routes);
+
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Index />} />
-      </Routes>
-    </BrowserRouter>
+    <>
+      <h1>Test</h1>
+      {allRoutes}
+    </>
   );
 };
 
