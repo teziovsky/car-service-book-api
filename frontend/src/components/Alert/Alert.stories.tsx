@@ -7,7 +7,7 @@ import Alert from "./Alert";
 const IconsList = Object.keys(HeroIcons).map((icon) => icon);
 
 export default {
-  title: "Alert",
+  title: "Components/Alert",
   component: Alert,
   args: {
     title: "Info",
