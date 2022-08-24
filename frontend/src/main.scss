@@ -8,3 +8,24 @@ body {
   color: hsl(var(--accent-50));
   background-color: hsl(var(--accent-950));
 }
+
+.layout {
+  min-height: 100vh;
+  padding-top: 61.5px;
+}
+
+a[href],
+area[href] input:not(:disabled),
+select:not(:disabled),
+textarea:not(:disabled),
+button:not(:disabled),
+iframe,
+[tabindex],
+[contentEditable="true"] {
+  &:not([tabindex="-1"]) {
+    &:focus-visible {
+      outline: hsl(var(--accent-50)) dashed 2px;
+      outline-offset: 3px;
+    }
+  }
+}
