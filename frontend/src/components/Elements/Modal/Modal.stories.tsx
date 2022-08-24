@@ -1,11 +1,11 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
+import Button from "components/Elements/Button/Button";
 import React from "react";
 
-import Button from "../Button/Button";
 import Modal from "./Modal";
 
 const handleButtonClick = (text: string) => {
-  alert(`${text}`);
+  console.log(`${text}`);
 };
 
 const Footer = () => (

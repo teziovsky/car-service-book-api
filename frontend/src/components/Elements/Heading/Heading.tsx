@@ -1,7 +1,7 @@
 import cx from "classnames";
 import React, { FC } from "react";
+import { DefaultProps } from "src/main";
 
-import { DefaultProps } from "../../main";
 import styles from "./Heading.module.scss";
 
 type Props = DefaultProps & {

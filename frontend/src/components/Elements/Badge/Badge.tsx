@@ -1,8 +1,8 @@
 import cx from "classnames";
+import Icon from "components/Elements/Icon/Icon";
 import React, { FC } from "react";
+import { DefaultProps } from "src/main";
 
-import { DefaultProps } from "../../main";
-import Icon from "../Icon/Icon";
 import styles from "./Badge.module.scss";
 
 type Props = DefaultProps & {

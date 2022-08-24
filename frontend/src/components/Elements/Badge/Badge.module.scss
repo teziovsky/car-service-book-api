@@ -1,6 +1,6 @@
-@use "../../assets/scss/theme" as *;
-@use "../../assets/scss/mixins" as *;
-@use "../../assets/scss/typography" as *;
+@use "../../../assets/scss/theme" as *;
+@use "../../../assets/scss/mixins" as *;
+@use "../../../assets/scss/typography" as *;
 
 .badge {
   @include font($base-font-size, $base-line-height, 700);
@@ -9,11 +9,10 @@
   align-items: center;
   color: hsl(var(--accent-900));
   background-color: hsl(var(--accent-200));
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   padding: 4px 12px 2px 12px;
-  transition-duration: 0.25s;
-  transition-property: background-color, border-color, color;
   gap: 4px;
+  @include transition(background-color, border-color, color);
 
   @each $color, $class in $statusColors {
     &.badge#{$class} {

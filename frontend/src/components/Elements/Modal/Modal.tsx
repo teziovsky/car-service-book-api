@@ -1,9 +1,9 @@
 import cx from "classnames";
+import Button from "components/Elements/Button/Button";
+import Heading from "components/Elements/Heading/Heading";
 import React, { FC, ReactNode } from "react";
+import { DefaultProps } from "src/main";
 
-import { DefaultProps } from "../../main";
-import Button from "../Button/Button";
-import Heading from "../Heading/Heading";
 import styles from "./Modal.module.scss";
 
 type Props = DefaultProps & {

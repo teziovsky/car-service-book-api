@@ -1,9 +1,9 @@
 import cx from "classnames";
+import Button from "components/Elements/Button/Button";
+import Icon from "components/Elements/Icon/Icon";
 import React, { FC } from "react";
+import { DefaultProps } from "src/main";
 
-import { DefaultProps } from "../../main";
-import Button from "../Button/Button";
-import Icon from "../Icon/Icon";
 import styles from "./Alert.module.scss";
 
 type Props = DefaultProps & {

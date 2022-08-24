@@ -1,5 +1,5 @@
-@use "../../assets/scss/typography" as *;
-@use "../../assets/scss/mixins" as *;
+@use "../../../assets/scss/typography" as *;
+@use "../../../assets/scss/mixins" as *;
 
 .modal {
   position: fixed;
@@ -16,7 +16,7 @@
     ),
     hsl(var(--accent-950));
   border: 1px solid hsla(var(--accent-200), 0.4);
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   padding: 20px;
   box-shadow: var(--box-shadow-50);
   transform: translate(-50%, -50%);

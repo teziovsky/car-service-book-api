@@ -1,14 +1,14 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
+import Button from "components/Elements/Button/Button";
 import React from "react";
 import * as HeroIcons from "react-icons/hi";
 
-import Button from "../Button/Button";
 import Card from "./Card";
 
 const IconsList = Object.keys(HeroIcons).map((icon) => icon);
 
 const handleButtonClick = (text: string) => {
-  alert(`${text}`);
+  console.log(`${text}`);
 };
 
 export default {

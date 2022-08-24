@@ -1,8 +1,8 @@
 import cx from "classnames";
+import Heading from "components/Elements/Heading/Heading";
 import React, { FC, ReactNode } from "react";
+import { DefaultProps } from "src/main";
 
-import { DefaultProps } from "../../main";
-import Heading from "../Heading/Heading";
 import styles from "./Card.module.scss";
 
 type Props = DefaultProps & {

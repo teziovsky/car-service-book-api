@@ -1,5 +1,5 @@
-@use "../../assets/scss/mixins" as *;
-@use "../../assets/scss/typography" as *;
+@use "../../../assets/scss/mixins" as *;
+@use "../../../assets/scss/typography" as *;
 
 .h1 {
   @include font($h1-font-size, $h1-line-height, 400, $main-heading-font-family);

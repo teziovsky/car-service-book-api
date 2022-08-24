@@ -1,6 +1,6 @@
-@use "../../assets/scss/theme" as *;
-@use "../../assets/scss/mixins" as *;
-@use "../../assets/scss/typography" as *;
+@use "../../../assets/scss/theme" as *;
+@use "../../../assets/scss/mixins" as *;
+@use "../../../assets/scss/typography" as *;
 
 .btn {
   @include font($base-font-size, $base-line-height, 700);
@@ -9,16 +9,10 @@
   display: flex;
   align-items: center;
   border: 1px solid transparent;
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   padding: 10px 20px 8px 20px;
-  transition-duration: 0.25s;
-  transition-property: background-color, border-color, color;
   gap: 4px;
-
-  &:focus-visible {
-    outline: hsl(var(--accent-50)) dashed 2px;
-    outline-offset: 3px;
-  }
+  @include transition(background-color, border-color, color);
 
   &:disabled {
     cursor: not-allowed;
@@ -30,7 +24,7 @@
 
   &.btnSmall {
     @include font($small-font-size, $small-line-height, 700);
-    padding: 5px 10px 4px;
+    padding: 7.5px 15px 6px;
 
     &.btnOnlyIcon {
       padding: 5px;
@@ -101,7 +95,7 @@
       position: absolute;
       z-index: -1;
       background-image: var(--accent-border-gradient);
-      border-radius: 8px;
+      border-radius: var(--border-radius);
       inset: -1px;
     }
 

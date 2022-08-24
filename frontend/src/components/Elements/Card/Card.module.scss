@@ -1,5 +1,5 @@
-@use "../../assets/scss/typography" as *;
-@use "../../assets/scss/mixins" as *;
+@use "../../../assets/scss/typography" as *;
+@use "../../../assets/scss/mixins" as *;
 
 .card {
   background: linear-gradient(
@@ -11,7 +11,7 @@
     ),
     hsl(var(--accent-950));
   border: 1px solid hsla(var(--accent-200), 0.4);
-  border-radius: 8px;
+  border-radius: var(--border-radius);
   padding: 20px;
 
   & > div:not(:last-child) {
