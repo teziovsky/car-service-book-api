@@ -1,0 +1,64 @@
+@use "../../../assets/scss/theme" as *;
+@use "../../../assets/scss/typography" as *;
+@use "../../../assets/scss/mixins" as *;
+@use "../../../assets/scss/variables" as *;
+@use "../../../assets/scss/utils" as *;
+
+.navigation {
+  position: absolute;
+  z-index: 2;
+  top: 80px;
+  right: 16px;
+  left: 16px;
+  opacity: 0;
+  visibility: hidden;
+  background-color: hsl(var(--accent-600));
+  border-radius: var(--border-radius);
+  padding: 16px;
+
+  @media only screen and (min-width: $min-sm-breakpoint) {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    background: none;
+  }
+
+  &.mobile {
+    @include transition(opacity, visibility, transform);
+  }
+
+  &.open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(-10px);
+  }
+
+  &List {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+
+    @media only screen and (min-width: $min-sm-breakpoint) {
+      flex-direction: row;
+    }
+  }
+
+  &Item {
+  }
+
+  &Link {
+    text-decoration: none;
+    color: hsl(var(--accent-50));
+    padding: 2px 8px;
+    @include transition(color);
+
+    &:hover {
+      color: hsl(var(--accent-500));
+    }
+
+    &.active {
+      color: hsl(var(--accent-300));
+    }
+  }
+}
