@@ -15,8 +15,11 @@
 }
 
 @mixin transition($properties...) {
-  @debug $properties;
   transition-timing-function: var(--transition-timing-function);
   transition-duration: var(--transition-duration);
   transition-property: $properties;
+
+  @media (prefers-reduced-motion) {
+    transition-duration: 0.1s;
+  }
 }
