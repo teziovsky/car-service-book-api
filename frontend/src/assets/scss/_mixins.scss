@@ -13,3 +13,10 @@
   font-size: toRem($size);
   line-height: toRem($lineHeight);
 }
+
+@mixin transition($properties...) {
+  @debug $properties;
+  transition-timing-function: var(--transition-timing-function);
+  transition-duration: var(--transition-duration);
+  transition-property: $properties;
+}

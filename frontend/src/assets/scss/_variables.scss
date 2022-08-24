@@ -1,0 +1,21 @@
+:root {
+  // BREAKPOINTS
+  --min-sm-breakpoint: 576px;
+  --min-md-breakpoint: 768px;
+  --min-lg-breakpoint: 992px;
+  --min-xl-breakpoint: 1200px;
+  --min-xxl-breakpoint: 1400px;
+
+  // TRANSITIONS
+  --transition-duration: 0.25s;
+  --transition-timing-function: ease-in-out;
+
+  // BORDERS
+  --border-radius: 8px;
+}
+
+$min-sm-breakpoint: 576px;
+$min-md-breakpoint: 768px;
+$min-lg-breakpoint: 992px;
+$min-xl-breakpoint: 1200px;
+$min-xxl-breakpoint: 1400px;
