@@ -18,7 +18,7 @@ module.exports = {
   features: {
     storyStoreV7: true,
   },
-  async viteFinal(config, { configType }) {
+  async viteFinal(config) {
     return {
       ...config,
       resolve: {
@@ -28,12 +28,16 @@ module.exports = {
             replacement: path.resolve(__dirname, "../src/components"),
           },
           {
+            find: "hooks",
+            replacement: path.resolve(__dirname, "../src/hooks"),
+          },
+          {
             find: "layouts",
             replacement: path.resolve(__dirname, "../src/layouts"),
           },
           {
-            find: "routes",
-            replacement: path.resolve(__dirname, "../src/routes"),
+            find: "utils",
+            replacement: path.resolve(__dirname, "../src/utils"),
           },
           {
             find: "views",

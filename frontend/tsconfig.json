@@ -20,8 +20,10 @@
     "paths": {
       "src/*": ["*"],
       "components/*": ["components/*"],
+      "hooks/*": ["hooks/*"],
       "layouts/*": ["layouts/*"],
       "routes/*": ["routes/*"],
+      "utils/*": ["utils/*"],
       "views/*": ["views/*"]
     }
   },

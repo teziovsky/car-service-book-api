@@ -16,8 +16,10 @@ export default ({ mode }) => {
       alias: {
         src: path.resolve(__dirname, "src"),
         components: path.resolve(__dirname, "src/components"),
+        hooks: path.resolve(__dirname, "src/hooks"),
         layouts: path.resolve(__dirname, "src/layouts"),
         routes: path.resolve(__dirname, "src/routes"),
+        utils: path.resolve(__dirname, "src/utils"),
         views: path.resolve(__dirname, "src/views"),
       },
     },
