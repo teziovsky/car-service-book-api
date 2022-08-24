@@ -1,15 +1,23 @@
 import React from "react";
-import { useRoutes } from "react-router-dom";
-
-import routes from "../routes";
+import { Route, Routes } from "react-router-dom";
+import routes from "src/routes";
 
 const App = () => {
-  const allRoutes = useRoutes(routes);
+  const routeComponents = routes.map(({ path, Layout, Component }, key) => (
+    <Route
+      path={path}
+      element={
+        <Layout>
+          <Component />
+        </Layout>
+      }
+      key={key}
+    />
+  ));
 
   return (
     <>
-      <h1>Test</h1>
-      {allRoutes}
+      <Routes>{routeComponents}</Routes>
     </>
   );
 };
