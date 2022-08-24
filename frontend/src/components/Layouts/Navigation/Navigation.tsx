@@ -1,4 +1,5 @@
 import cx from "classnames";
+import useBreakpoint from "hooks/useBreakpoint";
 import React, { FC } from "react";
 import { NavLink } from "react-router-dom";
 import { DefaultProps } from "src/main";
@@ -13,13 +14,17 @@ export type LinkType = {
 
 type Props = DefaultProps & {
   links: LinkType[];
+  isOpen: boolean;
 };
 
-const Navigation: FC<Props> = ({ links, className: passedClasses }) => {
+const Navigation: FC<Props> = ({ links, isOpen, className: passedClasses }) => {
+  const breakpoint = useBreakpoint();
+
   return (
     <nav
       className={cx(styles.navigation, passedClasses, {
-        [styles.mobile]: true,
+        [styles.mobile]: breakpoint === "sm" || breakpoint === "md",
+        [styles.open]: isOpen,
       })}>
       <ul className={cx(styles.navigationList)}>
         {links.map((link) => (
