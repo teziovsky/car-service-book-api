@@ -2,13 +2,13 @@ import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
 import * as HeroIcons from "react-icons/hi";
 
-import Button from "./Button";
+import BurgerMenu from "./BurgerMenu";
 
 const IconsList = Object.keys(HeroIcons).map((icon) => icon);
 
 export default {
-  title: "Components/Button",
-  component: Button,
+  title: "Components/BurgerMenu",
+  component: BurgerMenu,
   args: {
     size: "default",
     color: "accent",
@@ -33,9 +33,9 @@ export default {
       options: IconsList,
     },
   },
-} as ComponentMeta<typeof Button>;
+} as ComponentMeta<typeof BurgerMenu>;
 
-const Template: ComponentStory<typeof Button> = (args) => <Button {...args}>{args.children}</Button>;
+const Template: ComponentStory<typeof BurgerMenu> = (args) => <BurgerMenu {...args}>{args.children}</BurgerMenu>;
 
 export const Primary = Template.bind({});
 Primary.args = {

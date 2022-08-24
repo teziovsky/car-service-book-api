@@ -1,0 +1,110 @@
+@use "../../../assets/scss/variables" as *;
+@use "../../../assets/scss/mixins" as *;
+
+.burger {
+  cursor: pointer;
+  position: relative;
+  width: 32px;
+  height: 32px;
+  background: none;
+  border: none;
+  border-radius: var(--border-radius);
+  outline: none;
+  padding: 8px;
+
+  @media only screen and (min-width: $min-sm-breakpoint) {
+    display: none;
+  }
+
+  &:hover .bar {
+    background-color: hsl(var(--accent-300));
+  }
+
+  &:hover:not(.open) .bar {
+    &:first-child {
+      transition-delay: 0.1s;
+    }
+
+    &:nth-child(2) {
+      transform: translateY(-50%) scaleX(100%);
+      transition-delay: 0.2s;
+    }
+
+    &:last-child {
+      transform: scaleX(100%);
+      transition-delay: 0.1s;
+    }
+  }
+
+  &:not(.open) .bar {
+    &:first-child {
+      transition-delay: 0.1s;
+    }
+
+    &:nth-child(2) {
+      transform: translateY(-50%) scaleX(80%);
+      transition-delay: 0.2s;
+    }
+
+    &:last-child {
+      transform: scaleX(60%);
+      transition-delay: 0.1s;
+    }
+  }
+
+  &.open:hover .bar {
+    &:first-child {
+      transition-delay: 0.2s;
+    }
+
+    &:nth-child(2) {
+      transition-delay: 0.1s;
+    }
+
+    &:last-child {
+      transition-delay: 0.2s;
+    }
+  }
+
+  &.open .bar {
+    &:first-child {
+      top: 50%;
+      transform: scaleX(100%) rotate(315deg) translateY(-50%);
+      transition-delay: 0.1s;
+    }
+
+    &:nth-child(2) {
+      transform: translateY(-50%) scaleX(0%);
+      transition-delay: 0.2s;
+    }
+
+    &:last-child {
+      bottom: 50%;
+      transform: scaleX(100%) rotate(-315deg) translateY(50%);
+      transition-delay: 0.1s;
+    }
+  }
+
+  & .bar {
+    position: absolute;
+    right: 8px;
+    left: 8px;
+    height: 2px;
+    display: block;
+    background-color: hsl(var(--accent-50));
+    @include transition(background-color, transform, top, bottom);
+
+    &:first-child {
+      top: 8px;
+    }
+
+    &:nth-child(2) {
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    &:last-child {
+      bottom: 8px;
+    }
+  }
+}
