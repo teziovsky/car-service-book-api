@@ -5,13 +5,14 @@
 @use "../../../assets/scss/utils" as *;
 
 .header {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  background-color: hsl(var(--accent-950));
   padding: 16px;
 
   &Logo {
