@@ -16,9 +16,12 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "types": ["node"],
-    "baseUrl": "src",
+    "baseUrl": "./src",
     "paths": {
+      "src/*": ["*"],
       "components/*": ["components/*"],
+      "layouts/*": ["layouts/*"],
+      "routes/*": ["routes/*"],
       "views/*": ["views/*"]
     }
   },
