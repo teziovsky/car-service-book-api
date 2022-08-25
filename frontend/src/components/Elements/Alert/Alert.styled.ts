@@ -19,7 +19,7 @@ export const StyledWrapper = styled.div<Props>`
     css`
       color: ${({ theme }) => Hsla(theme[`${color}50`])};
       border: ${({ theme }) => `1px solid ${Hsla(theme[`${color}200`], 0.4)}`};
-      ${({ theme }) => Gradient({ type: "background", color: theme[`${color}900`] })};
+      ${({ theme }) => Gradient({ type: "background", color: theme[`${color}800`] })};
 
       ${StyledIcon} {
         color: ${({ theme }) => Hsla(theme[`${color}400`])};
@@ -51,7 +51,7 @@ export const StyledText = styled.span<Props>`
   word-break: break-word;
 `;
 
-export const StyledButtonClose = styled(Button)<Props>`
+export const StyledButtonClose = styled(Button)`
   cursor: pointer;
   position: absolute;
   top: 16px;
