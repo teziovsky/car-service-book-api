@@ -1,36 +1,30 @@
-import cx from "classnames";
-import Button from "components/Elements/Button/Button";
-import Icon from "components/Elements/Icon/Icon";
+import {
+  StyledButtonClose,
+  StyledContent,
+  StyledIcon,
+  StyledText,
+  StyledWrapper,
+} from "components/Elements/Alert/Alert.styled";
 import React, { FC } from "react";
 import { DefaultProps } from "src/main";
 
-import styles from "./Alert.module.scss";
-
-type Props = DefaultProps & {
+export type Props = DefaultProps & {
   color?: "success" | "info" | "warning" | "error";
   title?: string;
   icon?: string;
   notification?: boolean;
 };
 
-const Alert: FC<Props> = ({ color, title, icon, notification, children, className: passedClasses, ...props }) => {
+const Alert: FC<Props> = ({ color, title, icon, notification, children, ...props }) => {
   return (
-    <div
-      className={cx(styles.alert, passedClasses, {
-        [styles.alertSuccess]: color === "success",
-        [styles.alertInfo]: color === "info",
-        [styles.alertWarning]: color === "warning",
-        [styles.alertError]: color === "error",
-        [styles.alertNotification]: notification,
-      })}
-      {...props}>
-      {icon && <Icon className={styles.alertIcon} icon={icon} />}
-      <div className={styles.alertContent}>
-        {title && <span className={styles.alertTitle}>{title}</span>}
-        <span className={styles.alertDescription}>{children}</span>
-      </div>
-      <Button color={color} className={styles.btnClose} status="tertiary" size="default" icon="HiX" />
-    </div>
+    <StyledWrapper notification={notification} color={color} {...props}>
+      {icon && <StyledIcon icon={icon} />}
+      <StyledContent>
+        {title && <StyledText title>{title}</StyledText>}
+        <StyledText>{children}</StyledText>
+      </StyledContent>
+      <StyledButtonClose color={color} status="tertiary" size="default" icon="HiX" />
+    </StyledWrapper>
   );
 };
 
