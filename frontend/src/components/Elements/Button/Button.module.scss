@@ -4,13 +4,14 @@
 
 .btn {
   @include font($base-font-size, $base-line-height, 700);
+
   cursor: pointer;
   position: relative;
   display: flex;
   align-items: center;
   border: 1px solid transparent;
   border-radius: var(--border-radius);
-  padding: 10px 20px 8px 20px;
+  padding: 10px 20px 8px;
   gap: 4px;
   @include transition(background-color, border-color, color);
 
@@ -24,6 +25,7 @@
 
   &.btnSmall {
     @include font($small-font-size, $small-line-height, 700);
+
     padding: 7.5px 15px 6px;
 
     &.btnOnlyIcon {
@@ -33,6 +35,7 @@
 
   &.btnLarge {
     @include font($large-font-size, $large-line-height, 700);
+
     padding: 15px 35px 12px;
 
     &.btnOnlyIcon {
@@ -45,7 +48,7 @@
     background-color: hsl(var(--accent-800));
     border: none;
 
-    @each $color, $class in $statusColors {
+    @each $color, $class in $status-colors {
       &.btn#{$class} {
         color: hsl(var(--#{$color}-50));
         background-color: hsl(var(--#{$color}-800));
@@ -55,7 +58,7 @@
     &:not(:disabled):hover {
       background-color: hsl(var(--accent-700));
 
-      @each $color, $class in $statusColors {
+      @each $color, $class in $status-colors {
         &.btn#{$class} {
           background-color: hsl(var(--#{$color}-700));
         }
@@ -65,7 +68,7 @@
     &:not(:disabled):active {
       background-color: hsl(var(--accent-600));
 
-      @each $color, $class in $statusColors {
+      @each $color, $class in $status-colors {
         &.btn#{$class} {
           background-color: hsl(var(--#{$color}-600));
         }
@@ -76,7 +79,7 @@
       color: hsl(var(--accent-saturated-400));
       background-color: hsl(var(--accent-saturated-800));
 
-      @each $color, $class in $statusColors {
+      @each $color, $class in $status-colors {
         &.btn#{$class} {
           color: hsl(var(--#{$color}-saturated-400));
           background-color: hsl(var(--#{$color}-saturated-800));
@@ -90,7 +93,7 @@
     background-color: hsl(var(--accent-900));
     border: none;
 
-    &:before {
+    &::before {
       content: "";
       position: absolute;
       z-index: -1;
@@ -99,12 +102,12 @@
       inset: -1px;
     }
 
-    @each $color, $class in $statusColors {
+    @each $color, $class in $status-colors {
       &.btn#{$class} {
         color: hsl(var(--#{$color}-50));
         background-color: hsl(var(--#{$color}-900));
 
-        &:before {
+        &::before {
           background-image: var(--#{$color}-border-gradient);
         }
       }
@@ -113,7 +116,7 @@
     &:not(:disabled):hover {
       background-color: hsl(var(--accent-800));
 
-      @each $color, $class in $statusColors {
+      @each $color, $class in $status-colors {
         &.btn#{$class} {
           background-color: hsl(var(--#{$color}-800));
         }
@@ -123,7 +126,7 @@
     &:not(:disabled):active {
       background-color: hsl(var(--accent-700));
 
-      @each $color, $class in $statusColors {
+      @each $color, $class in $status-colors {
         &.btn#{$class} {
           background-color: hsl(var(--#{$color}-saturated-700));
         }
@@ -134,16 +137,16 @@
       color: hsl(var(--accent-saturated-400));
       background-color: hsl(var(--accent-saturated-900));
 
-      &:before {
+      &::before {
         background-image: var(--accent-saturated-border-gradient);
       }
 
-      @each $color, $class in $statusColors {
+      @each $color, $class in $status-colors {
         &.btn#{$class} {
           color: hsl(var(--#{$color}-saturated-400));
           background-color: hsl(var(--#{$color}-saturated-900));
 
-          &:before {
+          &::before {
             background-image: var(--#{$color}-saturated-border-gradient);
           }
         }
@@ -155,7 +158,7 @@
     color: hsl(var(--accent-200));
     background-color: transparent;
 
-    @each $color, $class in $statusColors {
+    @each $color, $class in $status-colors {
       &.btn#{$class} {
         color: hsl(var(--#{$color}-200));
       }
@@ -165,7 +168,7 @@
       background-color: hsla(var(--accent-200), 0.2);
       border-color: hsl(var(--accent-200));
 
-      @each $color, $class in $statusColors {
+      @each $color, $class in $status-colors {
         &.btn#{$class} {
           background-color: hsla(var(--#{$color}-200), 0.2);
           border-color: hsl(var(--#{$color}-200));
@@ -176,7 +179,7 @@
     &:not(:disabled):active {
       background-color: hsl(var(--accent-900));
 
-      @each $color, $class in $statusColors {
+      @each $color, $class in $status-colors {
         &.btn#{$class} {
           background-color: hsl(var(--#{$color}-900));
         }
@@ -187,15 +190,12 @@
       color: hsl(var(--accent-saturated-400));
       background-color: hsl(var(--accent-saturated-900));
 
-      @each $color, $class in $statusColors {
+      @each $color, $class in $status-colors {
         &.btn#{$class} {
           color: hsl(var(--#{$color}-saturated-400));
           background-color: hsl(var(--#{$color}-saturated-900));
         }
       }
     }
-  }
-
-  &Icon {
   }
 }
