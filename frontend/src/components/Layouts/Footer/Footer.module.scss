@@ -1,0 +1,23 @@
+@use "../../../assets/scss/typography" as *;
+@use "../../../assets/scss/mixins" as *;
+
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 32px 0;
+
+  &Wrapper {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    place-items: center;
+    grid-gap: 4px;
+  }
+
+  &Text {
+    @include font($small-font-size, $small-line-height, 400);
+
+    color: hsl(var(--accent-50));
+  }
+}

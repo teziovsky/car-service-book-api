@@ -1,3 +1,5 @@
+import Breadcrumbs from "components/Layouts/Breadcrumbs/Breadcrumbs";
+import Footer from "components/Layouts/Footer/Footer";
 import Header from "components/Layouts/Header/Header";
 import { LinkType } from "components/Layouts/Navigation/Navigation";
 import React, { FC } from "react";
@@ -24,7 +26,9 @@ const AppLayout: FC<Props> = ({ children }) => {
   return (
     <>
       <Header type="App" links={links} />
+      <Breadcrumbs />
       {children}
+      <Footer />
     </>
   );
 };

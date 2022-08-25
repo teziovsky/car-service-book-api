@@ -1,3 +1,4 @@
+import Footer from "components/Layouts/Footer/Footer";
 import Header from "components/Layouts/Header/Header";
 import { LinkType } from "components/Layouts/Navigation/Navigation";
 import React, { FC } from "react";
@@ -31,6 +32,7 @@ const HomeLayout: FC<Props> = ({ children }) => {
     <>
       <Header type="Home" links={links} />
       {children}
+      <Footer />
     </>
   );
 };
