@@ -31,6 +31,8 @@
     "lint:fix": "eslint ./src --ext .jsx,.js,.ts,.tsx --fix --quiet",
     "format": "prettier --check '**/*.{js,jsx,ts,tsx,css,scss,md,json}'",
     "format:fix": "prettier --write '**/*.{js,jsx,ts,tsx,css,scss,md,json}'",
+    "style": "stylelint '**/*.{css,scss}'",
+    "style:fix": "stylelint --fix '**/*.{css,scss}'",
     "type-check": "tsc",
     "prepare": "cd .. && husky install frontend/.husky",
     "storybook": "start-storybook -p 6006",
@@ -75,6 +77,10 @@
     "lint-staged": "^13.0.3",
     "prettier": "^2.7.1",
     "storybook-addon-react-router-v6": "^0.1.14",
+    "stylelint": "^14.11.0",
+    "stylelint-config-prettier-scss": "^0.0.1",
+    "stylelint-config-standard-scss": "^5.0.0",
+    "stylelint-scss": "^4.3.0",
     "typescript": "^4.6.4",
     "vite": "^3.0.0"
   }

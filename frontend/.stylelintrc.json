@@ -1,0 +1,16 @@
+{
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier-scss"],
+  "plugins": ["stylelint-scss"],
+  "rules": {
+    "no-descending-specificity": null,
+    "color-function-notation": null,
+    "color-hex-case": "upper",
+    "selector-class-pattern": "^[a-z][a-zA-Z0-9]+$",
+    "value-keyword-case": [
+      "lower",
+      {
+        "ignoreKeywords": ["Success", "Info", "Warning", "Error", "Accent"]
+      }
+    ]
+  }
+}
