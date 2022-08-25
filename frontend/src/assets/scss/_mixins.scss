@@ -10,8 +10,8 @@
     font-weight: $weight;
   }
 
-  font-size: toRem($size);
-  line-height: toRem($lineHeight);
+  font-size: to-rem($size);
+  line-height: to-rem($lineHeight);
 }
 
 @mixin transition($properties...) {

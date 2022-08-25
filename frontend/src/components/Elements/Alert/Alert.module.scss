@@ -15,7 +15,7 @@
     max-width: 400px;
   }
 
-  @each $color, $class in $statusColors {
+  @each $color, $class in $status-colors {
     &.alert#{$class} {
       color: hsl(var(--#{$color}-50));
       background-image: var(--#{$color}-background-gradient);
@@ -45,11 +45,13 @@
 
   &Title {
     @include font($h5-font-size, $h5-line-height, 700, $heading-font-family);
+
     word-break: break-word;
   }
 
   &Description {
     @include font($small-font-size, $small-line-height, 400);
+
     word-break: break-word;
   }
 

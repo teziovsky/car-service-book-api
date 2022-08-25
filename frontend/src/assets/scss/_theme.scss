@@ -1,11 +1,10 @@
-$statusColors: (
+$status-colors: (
   success: Success,
   info: Info,
   warning: Warning,
   error: Error,
 );
-
-$Colors: (
+$colors: (
   success: Success,
   info: Info,
   warning: Warning,
@@ -14,18 +13,19 @@ $Colors: (
 );
 
 :root {
+  color-scheme: light dark;
+
   --black: 0, 0%, 0%;
   --white: 0, 0%, 100%;
 
   /* Border gradient styles */
-  @each $color, $class in $Colors {
+  @each $color in $colors {
     --#{$color}-border-gradient: linear-gradient(
       160deg,
       hsla(var(--#{$color}-300), 0.4) 25.4%,
       hsla(var(--#{$color}-300), 0.1) 52.07%,
       hsla(var(--#{$color}-300), 0.4) 78.46%
     );
-
     --#{$color}-saturated-border-gradient: linear-gradient(
       160deg,
       hsla(var(--#{$color}-saturated-300), 0.4) 25.4%,
@@ -35,7 +35,7 @@ $Colors: (
   }
 
   /* Background gradient styles */
-  @each $color, $class in $Colors {
+  @each $color in $colors {
     --#{$color}-background-gradient: linear-gradient(
       160deg,
       hsl(var(--#{$color}-900)) 0%,
@@ -43,7 +43,6 @@ $Colors: (
       hsla(var(--#{$color}-900), 0.5) 64.85%,
       hsla(var(--#{$color}-900), 0.3) 100%
     );
-
     --#{$color}-saturated-background-gradient: linear-gradient(
       160deg,
       hsl(var(--#{$color}-900)) 0%,

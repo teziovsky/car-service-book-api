@@ -53,18 +53,17 @@
 
   &Title {
     @include font($h4-font-size, $h4-line-height, 700, $heading-font-family);
+
     color: hsl(var(--accent-50));
   }
 
   &Body {
     @include font($small-font-size, $small-line-height);
+
     display: flex;
     justify-content: center;
     align-items: center;
     color: hsl(var(--accent-50));
-  }
-
-  &Footer {
   }
 
   &Backdrop {

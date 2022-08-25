@@ -9,6 +9,6 @@
   @return $number;
 }
 
-@function toRem($pxValue) {
+@function to-rem($pxValue) {
   @return calc(($pxValue / 16) * 1rem);
 }

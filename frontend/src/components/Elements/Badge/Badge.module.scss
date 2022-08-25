@@ -4,17 +4,18 @@
 
 .badge {
   @include font($base-font-size, $base-line-height, 700);
+
   position: relative;
   display: flex;
   align-items: center;
   color: hsl(var(--accent-900));
   background-color: hsl(var(--accent-200));
   border-radius: var(--border-radius);
-  padding: 4px 12px 2px 12px;
+  padding: 4px 12px 2px;
   gap: 4px;
   @include transition(background-color, border-color, color);
 
-  @each $color, $class in $statusColors {
+  @each $color, $class in $status-colors {
     &.badge#{$class} {
       color: hsl(var(--#{$color}-900));
       background-color: hsl(var(--#{$color}-200));
@@ -27,6 +28,7 @@
 
   &.badgeSmall {
     @include font($small-font-size, $small-line-height, 700);
+
     padding: 5px 10px 4px;
 
     &.badgeOnlyIcon {
@@ -36,13 +38,11 @@
 
   &.badgeLarge {
     @include font($large-font-size, $large-line-height, 700);
+
     padding: 15px 35px 12px;
 
     &.badgeOnlyIcon {
       padding: 9px;
     }
-  }
-
-  &Icon {
   }
 }

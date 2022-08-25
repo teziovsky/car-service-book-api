@@ -1,11 +1,9 @@
-@use "../../../assets/scss/theme" as *;
 @use "../../../assets/scss/typography" as *;
 @use "../../../assets/scss/mixins" as *;
-@use "../../../assets/scss/variables" as *;
-@use "../../../assets/scss/utils" as *;
 
 .header {
   position: sticky;
+  z-index: 10;
   top: 0;
   left: 0;
   width: 100%;
@@ -17,7 +15,7 @@
 
   &Logo {
     position: absolute;
-    z-index: 1;
+    z-index: 11;
     top: 55%;
     left: 50%;
     text-decoration: none;
@@ -26,7 +24,7 @@
 
     &:hover {
       .headerTitle {
-        color: hsl(var(--accent-300));
+        color: hsl(var(--accent-400));
       }
     }
   }
@@ -34,16 +32,18 @@
   &Title {
     display: flex;
     flex-direction: column;
-    color: hsl(var(--accent-100));
+    color: hsl(var(--accent-200));
     @include transition(color);
 
     &Heading {
       @include font(28, 32, 400, $main-heading-font-family);
+
       letter-spacing: 0.02em;
     }
 
     &Subheading {
       @include font(18, 22, 400, $main-heading-font-family);
+
       letter-spacing: -0.02em;
       margin-top: -8px;
     }

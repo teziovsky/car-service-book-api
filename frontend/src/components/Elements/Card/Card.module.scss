@@ -36,14 +36,13 @@
 
   &Title {
     @include font($h4-font-size, $h4-line-height, 700, $heading-font-family);
+
     color: hsl(var(--accent-50));
   }
 
   &Body {
     @include font($base-font-size, $base-line-height);
-    color: hsl(var(--accent-50));
-  }
 
-  &Footer {
+    color: hsl(var(--accent-50));
   }
 }
