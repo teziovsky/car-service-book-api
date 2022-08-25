@@ -1,5 +1,12 @@
 import { useEffect, useState } from "react";
-import breakpoints from "utils/breakpoints";
+
+const breakpoints = {
+  sm: 0,
+  md: 576,
+  lg: 768,
+  xl: 1200,
+  xxl: 1400,
+};
 
 const useBreakpoint = () => {
   const [breakpoint, setBreakPoint] = useState("");
