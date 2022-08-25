@@ -4,14 +4,14 @@
 
 body {
   @include font($base-font-size, $base-line-height, 400, $base-font-family);
+
   font-size: 16px;
   color: hsl(var(--accent-50));
   background-color: hsl(var(--accent-950));
 }
 
 .layout {
-  min-height: 100vh;
-  padding-top: 61.5px;
+  min-height: calc(100vh - 68px);
 }
 
 a[href],
@@ -26,6 +26,35 @@ iframe,
     &:focus-visible {
       outline: hsl(var(--accent-50)) dashed 2px;
       outline-offset: 3px;
+    }
+  }
+}
+
+a {
+  position: relative;
+  text-decoration: none;
+  color: hsl(var(--accent-200));
+  @include transition(color);
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 50%;
+    height: 1px;
+    background-color: transparent;
+    transform: translate(-50%, -10px) scale(0);
+    @include transition(background-color, transform);
+  }
+
+  &:hover,
+  &:focus {
+    color: hsl(var(--accent-400));
+
+    &::after {
+      background-color: hsl(var(--accent-400));
+      transform: translate(-50%, 0) scale(1);
     }
   }
 }
