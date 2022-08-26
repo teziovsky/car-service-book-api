@@ -1,9 +1,24 @@
 export const breakpoints = {
-  minSmBreakpoint: "576px",
-  minMdBreakpoint: "768px",
-  minLgBreakpoint: "992px",
-  minXlBreakpoint: "1200px",
-  minXxlBreakpoint: "1400px",
+  minSmBreakpoint: 576,
+  minMdBreakpoint: 768,
+  minLgBreakpoint: 992,
+  minXlBreakpoint: 1200,
+  minXxlBreakpoint: 1400,
+  breakpointSm: function () {
+    return `(min-width: ${this.minSmBreakpoint}px)`;
+  },
+  breakpointMd: function () {
+    return `(min-width: ${this.minMdBreakpoint}px)`;
+  },
+  breakpointLg: function () {
+    return `(min-width: ${this.minLgBreakpoint}px)`;
+  },
+  breakpointXl: function () {
+    return `(min-width: ${this.minXlBreakpoint}px)`;
+  },
+  breakpointXxl: function () {
+    return `(min-width: ${this.minXxlBreakpoint}px)`;
+  },
 };
 
 export const typography = {
