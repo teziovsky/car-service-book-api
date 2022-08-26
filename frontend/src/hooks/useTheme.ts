@@ -12,7 +12,7 @@ const themesMap: Map = {
 
 const useTheme = () => {
   const [currentTheme, setCurrentTheme] = useState("dark");
-  const theme = { breakpoints, ...themesMap[currentTheme], ...typography, ...variables };
+  const theme = { ...breakpoints, ...themesMap[currentTheme], ...typography, ...variables };
 
   return {
     theme,
