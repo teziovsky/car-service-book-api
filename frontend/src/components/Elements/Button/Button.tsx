@@ -1,11 +1,8 @@
-import cx from "classnames";
-import Icon from "components/Elements/Icon/Icon";
+import { StyledButton, StyledIcon } from "components/Elements/Button/Button.styled";
 import React, { FC } from "react";
 import { DefaultProps } from "src/main";
 
-import styles from "./Button.module.scss";
-
-type Props = DefaultProps & {
+export type Props = DefaultProps & {
   status?: "primary" | "secondary" | "tertiary";
   color?: "accent" | "success" | "info" | "warning" | "error";
   size?: "small" | "default" | "large";
@@ -13,28 +10,14 @@ type Props = DefaultProps & {
   iconRight?: boolean;
 };
 
-const Button: FC<Props> = ({ status, color, size, icon, iconRight, children, className: passedClasses, ...props }) => {
+const Button: FC<Props> = ({ status, color, size, icon, iconRight, children, ...props }) => {
+  console.log(children);
   return (
-    <button
-      className={cx(styles.btn, passedClasses, {
-        [styles.btnPrimary]: status === "primary",
-        [styles.btnSecondary]: status === "secondary",
-        [styles.btnTertiary]: status === "tertiary",
-        [styles.btnSuccess]: color === "success",
-        [styles.btnInfo]: color === "info",
-        [styles.btnWarning]: color === "warning",
-        [styles.btnError]: color === "error",
-        [styles.btnSmall]: size === "small",
-        [styles.btnLarge]: size === "large",
-        [styles.btnOnlyIcon]: !children,
-      })}
-      {...props}>
-      <>
-        {icon && !iconRight && <Icon className={styles.btnIcon} icon={icon} />}
-        {children}
-        {icon && iconRight && <Icon className={styles.btnIcon} icon={icon} />}
-      </>
-    </button>
+    <StyledButton status={status} color={color} size={size} child={children} {...props}>
+      {icon && !iconRight && <StyledIcon icon={icon} />}
+      {children}
+      {icon && iconRight && <StyledIcon icon={icon} />}
+    </StyledButton>
   );
 };
 

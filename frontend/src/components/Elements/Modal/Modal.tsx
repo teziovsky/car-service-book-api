@@ -1,12 +1,15 @@
-import cx from "classnames";
-import Button from "components/Elements/Button/Button";
-import Heading from "components/Elements/Heading/Heading";
+import {
+  StyledBackdrop,
+  StyledBody,
+  StyledButtonClose,
+  StyledHeader,
+  StyledHeading,
+  StyledWrapper,
+} from "components/Elements/Modal/Modal.styled";
 import React, { FC, ReactNode } from "react";
 import { DefaultProps } from "src/main";
 
-import styles from "./Modal.module.scss";
-
-type Props = DefaultProps & {
+export type Props = DefaultProps & {
   title?: string;
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   wide?: boolean;
@@ -14,35 +17,20 @@ type Props = DefaultProps & {
   footer?: ReactNode | ReactNode[];
 };
 
-const Modal: FC<Props> = ({
-  title,
-  titleLevel,
-  wide,
-  showClose,
-  footer,
-  children,
-  className: passedClasses,
-  ...props
-}) => {
+const Modal: FC<Props> = ({ title, titleLevel, wide, showClose, footer, children, ...props }) => {
   return (
     <>
-      <div className={styles.modalBackdrop}></div>
-      <div
-        className={cx(styles.modal, passedClasses, {
-          [styles.wide]: wide,
-        })}
-        {...props}>
-        {showClose && <Button className={styles.modalClose} status="tertiary" size="default" icon="HiX" />}
+      <StyledBackdrop></StyledBackdrop>
+      <StyledWrapper wide={wide} {...props}>
+        {showClose && <StyledButtonClose status="tertiary" size="default" icon="HiX" />}
         {title && (
-          <div className={cx(styles.modalHeader)}>
-            <Heading className={cx(styles.modalTitle)} level={titleLevel}>
-              {title}
-            </Heading>
-          </div>
+          <StyledHeader>
+            <StyledHeading level={titleLevel}>{title}</StyledHeading>
+          </StyledHeader>
         )}
-        <div className={cx(styles.modalBody)}>{children}</div>
+        <StyledBody>{children}</StyledBody>
         {footer}
-      </div>
+      </StyledWrapper>
     </>
   );
 };

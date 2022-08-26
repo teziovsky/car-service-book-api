@@ -11,12 +11,10 @@ export type Props = DefaultProps & {
 
 const Badge: FC<Props> = ({ color, size, icon, iconRight, children, ...props }) => {
   return (
-    <StyledBadge color={color} size={size} {...props}>
-      <>
-        {icon && !iconRight && <StyledIcon icon={icon} />}
-        {children}
-        {icon && iconRight && <StyledIcon icon={icon} />}
-      </>
+    <StyledBadge color={color} size={size} child={children} {...props}>
+      {icon && !iconRight && <StyledIcon icon={icon} />}
+      {children}
+      {icon && iconRight && <StyledIcon icon={icon} />}
     </StyledBadge>
   );
 };

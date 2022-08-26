@@ -1,25 +1,19 @@
-import cx from "classnames";
+import { StyledHeading } from "components/Elements/Heading/Heading.styled";
 import React, { FC } from "react";
 import { DefaultProps } from "src/main";
 
-import styles from "./Heading.module.scss";
-
-type Props = DefaultProps & {
+export type Props = DefaultProps & {
   level?: 1 | 2 | 3 | 4 | 5 | 6;
   bold?: boolean;
 };
 
-const Heading: FC<Props> = ({ level, bold, children, className: passedClasses, ...props }) => {
+const Heading: FC<Props> = ({ level, bold, children, ...props }) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
 
   return (
-    <Tag
-      className={cx(styles[Tag], passedClasses, {
-        [styles.bold]: bold,
-      })}
-      {...props}>
+    <StyledHeading as={Tag} level={level} bold={bold} {...props}>
       {children}
-    </Tag>
+    </StyledHeading>
   );
 };
 

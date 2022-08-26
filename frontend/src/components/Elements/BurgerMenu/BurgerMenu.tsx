@@ -1,7 +1,5 @@
-import cx from "classnames";
+import { StyledBar, StyledBurgerMenu } from "components/Elements/BurgerMenu/BurgerMenu.styled";
 import React, { FC } from "react";
-
-import styles from "./BurgerMenu.module.scss";
 
 type Props = {
   isOpen: boolean;
@@ -10,15 +8,11 @@ type Props = {
 
 const BurgerMenu: FC<Props> = ({ isOpen, setIsOpen }) => {
   return (
-    <button
-      onClick={() => setIsOpen(!isOpen)}
-      className={cx(styles.burger, {
-        [styles.open]: isOpen,
-      })}>
-      <span className={styles.bar}></span>
-      <span className={styles.bar}></span>
-      <span className={styles.bar}></span>
-    </button>
+    <StyledBurgerMenu isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
+      <StyledBar></StyledBar>
+      <StyledBar></StyledBar>
+      <StyledBar></StyledBar>
+    </StyledBurgerMenu>
   );
 };
 

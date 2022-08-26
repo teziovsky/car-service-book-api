@@ -14,26 +14,28 @@ export const StyledWrapper = styled.div<Props>`
   gap: 8px;
   max-width: ${({ notification }) => (notification ? "400px" : null)};
 
-  ${({ color }) =>
+  ${({ theme, color }) =>
     color &&
     css`
-      color: ${({ theme }) => Hsla(theme[`${color}50`])};
-      border: ${({ theme }) => `1px solid ${Hsla(theme[`${color}200`], 0.4)}`};
-      ${({ theme }) => Gradient({ type: "background", color: theme[`${color}800`] })};
+      color: ${Hsla(theme[`${color}50`])};
+      border: ${`1px solid ${Hsla(theme[`${color}200`], 0.4)}`};
+      ${Gradient({ type: "background", color: theme[`${color}800`] })};
 
       ${StyledIcon} {
-        color: ${({ theme }) => Hsla(theme[`${color}400`])};
+        color: ${Hsla(theme[`${color}400`])};
       }
 
       ${StyledButtonClose} {
-        color: ${({ theme }) => Hsla(theme[`${color}400`])};
+        color: ${Hsla(theme[`${color}400`])};
       }
     `}
 `;
 
 export const StyledIcon = styled(Icon)`
   width: 22px;
+  min-width: 22px;
   height: 22px;
+  min-height: 22px;
   align-self: flex-start;
 `;
 
@@ -54,7 +56,7 @@ export const StyledText = styled.span<Props>`
 export const StyledButtonClose = styled(Button)`
   cursor: pointer;
   position: absolute;
-  top: 16px;
+  top: 15px;
   right: 10px;
   display: flex;
   background: none;

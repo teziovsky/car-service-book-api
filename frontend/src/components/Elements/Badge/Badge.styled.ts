@@ -8,28 +8,29 @@ export const StyledBadge = styled.span<Props>`
   display: flex;
   align-items: center;
   border-radius: ${({ theme }) => theme.borderRadius};
-  padding: ${({ children }) => (children ? "6px 18px 3px" : "7px")};
+  padding: ${({ child }) => (child ? "6px 18px 3px" : "7px")};
   gap: 4px;
+  word-break: break-word;
   ${Transition(["background-color", "border-color", "color"])};
   ${({ theme }) => Font({ size: theme.baseFont, lineHeight: theme.baseLh, fontWeight: 700 })}
 
-  ${({ color }) =>
+  ${({ theme, color }) =>
     color &&
     css`
-      color: ${({ theme }) => Hsla(theme[`${color}900`])};
-      background-color: ${({ theme }) => Hsla(theme[`${color}200`])};
+      color: ${Hsla(theme[`${color}900`])};
+      background-color: ${Hsla(theme[`${color}200`])};
     `}
 
-  ${({ size, children }) =>
+  ${({ theme, size, child }) =>
     size === "small"
       ? css`
-          padding: ${children ? "4px 12px 2px" : "5px"};
-          ${({ theme }) => Font({ size: theme.smallFont, lineHeight: theme.smallLh, fontWeight: 700 })}
+          padding: ${child ? "4px 12px 2px" : "5px"};
+          ${Font({ size: theme.smallFont, lineHeight: theme.smallLh, fontWeight: 700 })}
         `
       : size === "large"
       ? css`
-          padding: ${children ? "9px 27px 4.5px" : "9px"};
-          ${({ theme }) => Font({ size: theme.largeFont, lineHeight: theme.largeLh, fontWeight: 700 })}
+          padding: ${child ? "9px 27px 4.5px" : "9px"};
+          ${Font({ size: theme.largeFont, lineHeight: theme.largeLh, fontWeight: 700 })}
         `
       : null}
 `;

@@ -1,11 +1,8 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import Button from "components/Elements/Button/Button";
 import React from "react";
-import * as HeroIcons from "react-icons/hi";
 
 import Card from "./Card";
-
-const IconsList = Object.keys(HeroIcons).map((icon) => icon);
 
 const handleButtonClick = (text: string) => {
   console.log(`${text}`);
@@ -32,11 +29,7 @@ export default {
   argTypes: {
     titleLevel: {
       control: "select",
-      options: [1 | 2 | 3 | 4 | 5 | 6],
-    },
-    icon: {
-      control: "select",
-      options: IconsList,
+      options: [1, 2, 3, 4, 5, 6],
     },
   },
 } as ComponentMeta<typeof Card>;

@@ -16,6 +16,11 @@ export default {
     iconRight: false,
   },
   argTypes: {
+    onClick: {
+      handleClick: {
+        action: "clicked",
+      },
+    },
     status: {
       control: "select",
       options: ["primary", "secondary", "tertiary"],

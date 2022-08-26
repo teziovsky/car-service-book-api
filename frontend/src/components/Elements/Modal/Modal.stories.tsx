@@ -24,6 +24,7 @@ export default {
   component: Modal,
   args: {
     title: "Warning",
+    titleLevel: 5,
     wide: false,
     showClose: true,
     footer: <Footer />,
@@ -32,7 +33,7 @@ export default {
   argTypes: {
     titleLevel: {
       control: "select",
-      options: [1 | 2 | 3 | 4 | 5 | 6],
+      options: [1, 2, 3, 4, 5, 6],
     },
   },
 } as ComponentMeta<typeof Modal>;
