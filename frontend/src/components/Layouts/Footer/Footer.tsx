@@ -1,32 +1,30 @@
-import cx from "classnames";
 import React, { FC } from "react";
+import { StyledFooter, StyledText, StyledWrapper } from "src/components/Layouts/Footer/Footer.styled";
 import { DefaultProps } from "src/main";
-
-import styles from "./Footer.module.scss";
 
 type Props = DefaultProps & {
   email?: string;
 };
 
-const Footer: FC<Props> = ({ email, className: passedClasses, ...props }) => {
+const Footer: FC<Props> = ({ email, ...props }) => {
   return (
-    <footer className={cx(styles.footer, passedClasses)} {...props}>
-      <div className={cx(styles.footerWrapper)}>
-        <p className={cx(styles.footerText)}>
+    <StyledFooter {...props}>
+      <StyledWrapper>
+        <StyledText>
           Site made with{" "}
           <span aria-label="red heart emoji" role="img">
             ❤️
           </span>{" "}
           & React
-        </p>
-        <p className={cx(styles.footerText)}>Jakub Soboczyński &copy; 2022</p>
+        </StyledText>
+        <StyledText>Jakub Soboczyński &copy; 2022</StyledText>
         {email && (
-          <p className={cx(styles.footerText)}>
+          <StyledText>
             Need help? Feel free to <a href={`mailto:${email}`}>Contact me!</a>
-          </p>
+          </StyledText>
         )}
-      </div>
-    </footer>
+      </StyledWrapper>
+    </StyledFooter>
   );
 };
 
