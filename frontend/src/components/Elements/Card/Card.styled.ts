@@ -4,12 +4,12 @@ import { Font, Gradient, Hsla } from "components/Styled/Mixins";
 import styled, { css } from "styled-components";
 
 export const StyledWrapper = styled.div<Props>`
-  border: ${({ theme }) => `1px solid ${Hsla(theme.accent200, 0.4)}`};
-  border-radius: ${({ theme }) => theme.borderRadius};
   padding: 20px;
 
   ${({ theme }) =>
     css`
+      border: ${`1px solid ${Hsla(theme.accent200, 0.4)}`};
+      border-radius: ${theme.borderRadius};
       ${Gradient({ type: "background", color: theme.accent800, fallbackColor: theme.accent950 })};
     `}
   & > div:not(:last-child) {
