@@ -289,7 +289,6 @@ describe("App e2e", () => {
   describe("Repair", () => {
     describe("Get Empty Repairs", () => {
       it("should get empty repairs", () => {
-        console.log("carId: ", carId);
         return request(app.getHttpServer())
           .get(`/api/cars/${carId}/repairs`)
           .set("Accept", "application/json")
