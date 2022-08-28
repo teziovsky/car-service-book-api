@@ -25,6 +25,21 @@ const Breadcrumbs: FC<Props> = ({ ...props }) => {
         <StyledItem>
           <StyledNavLink to={"/app/cars/1/edit"}>Edit</StyledNavLink>
         </StyledItem>
+        <StyledItem>
+          <StyledNavLink to={"/app/cars/1/edit"}>Edit repair</StyledNavLink>
+        </StyledItem>
+        <StyledItem>
+          <StyledNavLink to={"/app/cars/1/edit"}>Edit</StyledNavLink>
+        </StyledItem>{" "}
+        <StyledItem>
+          <StyledNavLink to={"/app/cars/1/edit"}>Edit</StyledNavLink>
+        </StyledItem>{" "}
+        <StyledItem>
+          <StyledNavLink to={"/app/cars/1/edit"}>Edit</StyledNavLink>
+        </StyledItem>
+        <StyledItem>
+          <StyledNavLink to={"/app/cars/1/edit"}>Edit</StyledNavLink>
+        </StyledItem>
       </StyledList>
     </StyledBreadcrumbs>
   );
