@@ -11,5 +11,5 @@ export const StyledHeading = styled.div<Props>`
       fontFamily: level === 1 ? theme.familyLogo : theme.familyHeading,
     })}
     color: ${Hsla(theme.accent50)}
-  `}}
+  `}
 `;

@@ -94,20 +94,19 @@ export const StyledButton = styled.button<Props>`
           }
         `
       : null}
-}
 
-${({ theme, size, child }) =>
-  size === "small"
-    ? css`
-        padding: ${child ? "7.5px 15px 6px" : "5px"};
-        ${Font({ size: theme.smallFont, lineHeight: theme.smallLh, fontWeight: 700 })}
-      `
-    : size === "large"
-    ? css`
-        padding: ${child ? "15px 35px 12px" : "9px"};
-        ${Font({ size: theme.largeFont, lineHeight: theme.largeLh, fontWeight: 700 })}
-      `
-    : null}
+  ${({ theme, size, child }) =>
+    size === "small"
+      ? css`
+          padding: ${child ? "7.5px 15px 6px" : "5px"};
+          ${Font({ size: theme.smallFont, lineHeight: theme.smallLh, fontWeight: 700 })}
+        `
+      : size === "large"
+      ? css`
+          padding: ${child ? "15px 35px 12px" : "9px"};
+          ${Font({ size: theme.largeFont, lineHeight: theme.largeLh, fontWeight: 700 })}
+        `
+      : null}
 `;
 
 export const StyledIcon = styled(Icon)``;

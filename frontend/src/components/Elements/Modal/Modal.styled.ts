@@ -32,16 +32,16 @@ export const StyledWrapper = styled.div<Props>`
       ${Gradient({ type: "background", color: theme.accent800, fallbackColor: theme.accent950 })};
       ${BoxShadow(theme.accent50)};
     `}
+  & > div + div {
+    padding-top: 10px;
+  }
+
   & > div:not(:last-child) {
     padding-bottom: 10px;
   }
 
   & > div:first-of-type.modalBody {
     padding-top: 5px;
-  }
-
-  & > div + div {
-    padding-top: 10px;
   }
 `;
 
@@ -68,7 +68,6 @@ export const StyledHeading = styled(Heading)`
       fontFamily: theme.familyHeading,
     })};
   `}
-}
 `;
 
 export const StyledBody = styled.div`
@@ -83,4 +82,4 @@ export const StyledBody = styled.div`
       lineHeight: theme.smallLh,
     })};
   `}
-}`;
+`;

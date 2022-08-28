@@ -44,7 +44,6 @@ export const StyledHeading = styled(Heading)`
     })}
     color: ${Hsla(theme.accent50)}
   `}
-}
 `;
 
 export const StyledBody = styled.div`
@@ -57,6 +56,6 @@ export const StyledBody = styled.div`
       lineHeight: theme.baseLh,
     })}
   `}
-}`;
+`;
 
 export const StyledFooter = styled.div``;
