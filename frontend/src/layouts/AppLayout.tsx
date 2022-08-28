@@ -3,6 +3,7 @@ import Footer from "components/Layouts/Footer/Footer";
 import Header from "components/Layouts/Header/Header";
 import { LinkType } from "components/Layouts/Navigation/Navigation";
 import React, { FC } from "react";
+import { Outlet } from "react-router-dom";
 import { DefaultProps } from "src/main";
 
 type Props = DefaultProps & {};
@@ -22,12 +23,12 @@ const links: LinkType[] = [
   },
 ];
 
-const AppLayout: FC<Props> = ({ children }) => {
+const AppLayout: FC<Props> = () => {
   return (
     <>
       <Header type="App" links={links} />
       <Breadcrumbs />
-      {children}
+      <Outlet />
       <Footer />
     </>
   );

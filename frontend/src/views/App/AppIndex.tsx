@@ -1,7 +1,13 @@
 import React from "react";
+import { Outlet } from "react-router-dom";
 
 const AppIndex = () => {
-  return <div className="layout">App index</div>;
+  return (
+    <main className="layout">
+      <h2>App index</h2>
+      <Outlet />
+    </main>
+  );
 };
 
 export default AppIndex;
