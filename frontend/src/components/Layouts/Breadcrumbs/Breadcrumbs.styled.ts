@@ -2,9 +2,12 @@ import { Font, Hsla, Saturated } from "components/Styled/Mixins";
 import { NavLink } from "react-router-dom";
 import styled, { css } from "styled-components";
 
-export const StyledBreadcrumbs = styled.ul`
-  display: flex;
+export const StyledBreadcrumbs = styled.nav`
   padding: 0 16px;
+`;
+
+export const StyledList = styled.ul`
+  display: flex;
   gap: 8px;
 `;
 
