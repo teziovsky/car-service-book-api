@@ -1,10 +1,8 @@
-import cx from "classnames";
+import { StyledItem, StyledLink, StyledList, StyledNav } from "components/Layouts/Navigation/Navigation.styled";
 import useBreakpoint from "hooks/useBreakpoint";
-import React, { FC } from "react";
+import React, { FC, useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { DefaultProps } from "src/main";
-
-import styles from "./Navigation.module.scss";
 
 export type LinkType = {
   path: string;
@@ -12,40 +10,35 @@ export type LinkType = {
   anchor?: boolean;
 };
 
-type Props = DefaultProps & {
+export type Props = DefaultProps & {
   links: LinkType[];
   isOpen: boolean;
 };
 
-const Navigation: FC<Props> = ({ links, isOpen, className: passedClasses }) => {
+const Navigation: FC<Props> = ({ links, isOpen }) => {
+  const [isMobile, setIsMobile] = useState(false);
   const breakpoint = useBreakpoint();
 
+  useEffect(() => {
+    setIsMobile(breakpoint === "sm" || breakpoint === "md");
+  }, [breakpoint]);
+
   return (
-    <nav
-      className={cx(styles.navigation, passedClasses, {
-        [styles.mobile]: breakpoint === "sm" || breakpoint === "md",
-        [styles.open]: isOpen,
-      })}>
-      <ul className={cx(styles.navigationList)}>
+    <StyledNav isMobile={isMobile} isOpen={isOpen}>
+      <StyledList>
         {links.map((link) => (
-          <li key={link.path} className={cx(styles.navigationItem)}>
+          <StyledItem key={link.path}>
             {link.anchor ? (
-              <a className={cx(styles.navigationLink)} href={link.path}>
-                {link.name}
-              </a>
+              <StyledLink href={link.path}>{link.name}</StyledLink>
             ) : (
-              <NavLink
-                className={({ isActive }) =>
-                  isActive ? cx(styles.navigationLink, styles.active) : cx(styles.navigationLink)
-                }
-                to={link.path}>
+              <StyledLink as={NavLink} to={link.path}>
                 {link.name}
-              </NavLink>
+              </StyledLink>
             )}
-          </li>
+          </StyledItem>
         ))}
-      </ul>
-    </nav>
+      </StyledList>
+    </StyledNav>
   );
 };
 
