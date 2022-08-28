@@ -28,7 +28,9 @@ const AppLayout: FC<Props> = () => {
     <>
       <Header type="App" links={links} />
       <Breadcrumbs />
-      <Outlet />
+      <main className="layout">
+        <Outlet />
+      </main>
       <Footer />
     </>
   );

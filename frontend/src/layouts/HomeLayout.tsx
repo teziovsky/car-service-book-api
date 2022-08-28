@@ -32,7 +32,9 @@ const HomeLayout: FC<Props> = () => {
   return (
     <>
       <Header type="Home" links={links} />
-      <Outlet />
+      <main className="layout">
+        <Outlet />
+      </main>
       <Footer />
     </>
   );
