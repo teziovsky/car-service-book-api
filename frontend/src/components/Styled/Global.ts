@@ -1,17 +1,20 @@
 import { Font, Hsla, Transition } from "components/Styled/Mixins";
 import ResetStyle from "components/Styled/Reset";
 import { breakpoints, dark, light, typography, variables } from "components/Styled/Variables";
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 
 const theme = { ...breakpoints, ...dark, ...light, ...typography, ...variables };
 
 const GlobalStyle = createGlobalStyle<{ theme: typeof theme }>`
   ${ResetStyle}
   body {
-    ${({ theme }) => Font({ size: theme.h1Font })};
+    ${({ theme }) => css`
+      ${Font({ size: theme.baseFont })};
+      color: ${Hsla(theme.accent50)};
+      background-color: ${Hsla(theme.accent950)};
+    `};
+    
     font-size: 16px;
-    color: ${({ theme }) => Hsla(theme.accent50)};
-    background-color: ${({ theme }) => Hsla(theme.accent950)};
   }
 
   .layout {
@@ -37,6 +40,7 @@ const GlobalStyle = createGlobalStyle<{ theme: typeof theme }>`
   a {
     position: relative;
     text-decoration: none;
+    display: inline-block;
     color: ${({ theme }) => Hsla(theme.accent200)};
 
     ${Transition("color")}
@@ -51,16 +55,18 @@ const GlobalStyle = createGlobalStyle<{ theme: typeof theme }>`
       transform: translate(-50%, -10px) scale(0);
       ${Transition(["background-color", "transform"])}
     }
+    
+    ${({ theme }) => css`
+      &:hover,
+      &:focus {
+        color: ${Hsla(theme.accent400)};
 
-    &:hover,
-    &:focus {
-      color: ${({ theme }) => Hsla(theme.accent400)};
-
-      &::after {
-        background-color: ${({ theme }) => Hsla(theme.accent400)};
-        transform: translate(-50%, 0) scale(1);
+        &::after {
+          background-color: ${Hsla(theme.accent400)};
+          transform: translate(-50%, 0) scale(1);
+        }
       }
-    }
+    `};
   }
 `;
 
