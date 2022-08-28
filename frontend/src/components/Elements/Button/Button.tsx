@@ -11,7 +11,6 @@ export type Props = DefaultProps & {
 };
 
 const Button: FC<Props> = ({ status, color, size, icon, iconRight, children, ...props }) => {
-  console.log(children);
   return (
     <StyledButton status={status} color={color} size={size} child={children} {...props}>
       {icon && !iconRight && <StyledIcon icon={icon} />}

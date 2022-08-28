@@ -1,5 +1,5 @@
+import { StyledFooter, StyledText, StyledWrapper } from "components/Layouts/Footer/Footer.styled";
 import React, { FC } from "react";
-import { StyledFooter, StyledText, StyledWrapper } from "src/components/Layouts/Footer/Footer.styled";
 import { DefaultProps } from "src/main";
 
 type Props = DefaultProps & {

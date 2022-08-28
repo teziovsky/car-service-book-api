@@ -10,7 +10,6 @@ export default {
   title: "Components/Badge",
   component: Badge,
   args: {
-    color: "accent",
     size: "default",
     children: "Info",
     icon: "HiPlus",
@@ -32,5 +31,35 @@ export default {
   },
 } as ComponentMeta<typeof Badge>;
 
-export const BadgeComponent: ComponentStory<typeof Badge> = (args) => <Badge {...args}>{args.children}</Badge>;
-BadgeComponent.storyName = "Badge";
+const Template: ComponentStory<typeof Badge> = (args) => <Badge {...args}>{args.children}</Badge>;
+
+export const Accent = Template.bind({});
+Accent.args = {
+  status: "accent",
+};
+
+export const Success = Template.bind({});
+Success.args = {
+  color: "success",
+  children: "Sign In",
+  icon: "HiMinus",
+  iconRight: true,
+};
+
+export const Info = Template.bind({});
+Info.args = {
+  color: "info",
+  children: "Sign Up",
+};
+
+export const Warning = Template.bind({});
+Warning.args = {
+  color: "warning",
+  icon: "HiPlus",
+};
+
+export const Error = Template.bind({});
+Error.args = {
+  color: "error",
+  icon: "HiPlus",
+};
