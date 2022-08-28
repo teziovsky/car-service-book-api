@@ -26,7 +26,7 @@ const links: LinkType[] = [
 ];
 
 export default {
-  title: "Layout/Breadcrumbs",
+  title: "Layouts/Breadcrumbs",
   component: Breadcrumbs,
   args: {
     type: "Home",

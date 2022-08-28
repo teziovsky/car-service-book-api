@@ -8,7 +8,7 @@ import ButtonGroup from "./ButtonGroup";
 const IconsList = Object.keys(HeroIcons).map((icon) => icon);
 
 export default {
-  title: "Components/ButtonGroup",
+  title: "Elements/ButtonGroup",
   component: ButtonGroup,
   args: {
     direction: "row",

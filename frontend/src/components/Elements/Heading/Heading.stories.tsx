@@ -4,7 +4,7 @@ import React from "react";
 import Heading from "./Heading";
 
 export default {
-  title: "Components/Heading",
+  title: "Elements/Heading",
   component: Heading,
   args: {
     children: "This is Heading",

@@ -20,7 +20,7 @@ const Footer = () => (
 );
 
 export default {
-  title: "Components/Modal",
+  title: "Elements/Modal",
   component: Modal,
   args: {
     title: "Warning",

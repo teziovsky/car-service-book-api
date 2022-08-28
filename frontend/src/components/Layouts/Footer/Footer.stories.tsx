@@ -26,7 +26,7 @@ const links: LinkType[] = [
 ];
 
 export default {
-  title: "Layout/Footer",
+  title: "Layouts/Footer",
   component: Footer,
   args: {
     type: "Home",

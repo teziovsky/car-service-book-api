@@ -23,7 +23,7 @@ const links: LinkType[] = [
 ];
 
 export default {
-  title: "Layout/Navigation",
+  title: "Layouts/Navigation",
   component: Navigation,
   args: {
     links: links,

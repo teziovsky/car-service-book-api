@@ -9,7 +9,7 @@ const handleButtonClick = (text: string) => {
 };
 
 export default {
-  title: "Components/Card",
+  title: "Elements/Card",
   component: Card,
   args: {
     title: "Info",

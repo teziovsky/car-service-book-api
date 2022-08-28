@@ -4,7 +4,7 @@ import React from "react";
 import BurgerMenu from "./BurgerMenu";
 
 export default {
-  title: "Components/BurgerMenu",
+  title: "Elements/BurgerMenu",
   component: BurgerMenu,
   args: {
     isOpen: false,

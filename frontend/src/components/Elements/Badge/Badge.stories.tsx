@@ -7,7 +7,7 @@ import Badge from "./Badge";
 const IconsList = Object.keys(HeroIcons).map((icon) => icon);
 
 export default {
-  title: "Components/Badge",
+  title: "Elements/Badge",
   component: Badge,
   args: {
     size: "default",

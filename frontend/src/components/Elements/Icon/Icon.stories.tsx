@@ -7,7 +7,7 @@ import Icon from "./Icon";
 const IconsList = Object.keys(HeroIcons).map((icon) => icon);
 
 export default {
-  title: "Components/Icon",
+  title: "Elements/Icon",
   component: Icon,
   args: {
     icon: "HiPlus",

@@ -7,7 +7,7 @@ import Button from "./Button";
 const IconsList = Object.keys(HeroIcons).map((icon) => icon);
 
 export default {
-  title: "Components/Button",
+  title: "Elements/Button",
   component: Button,
   args: {
     size: "default",
