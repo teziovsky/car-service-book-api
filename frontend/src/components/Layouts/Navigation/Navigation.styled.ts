@@ -86,7 +86,12 @@ export const StyledLink = styled.a`
     }
 
     &.active {
-      color: ${Hsla(theme.accent300)};
+      color: ${Hsla(theme.accent200)};
+
+      &:hover,
+      &:focus {
+        color: ${Hsla(theme.accent400)};
+      }
     }
   `};
 `;
