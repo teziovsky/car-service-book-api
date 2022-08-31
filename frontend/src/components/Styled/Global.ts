@@ -22,7 +22,8 @@ const GlobalStyle = createGlobalStyle<{ theme: typeof theme }>`
   }
 
   a[href],
-  area[href] input:not(:disabled),
+  area[href],
+  input:not(:disabled),
   select:not(:disabled),
   textarea:not(:disabled),
   button:not(:disabled),
@@ -32,7 +33,7 @@ const GlobalStyle = createGlobalStyle<{ theme: typeof theme }>`
     &:not([tabindex="-1"]) {
       &:focus-visible {
         outline: ${({ theme }) => `${Hsla(theme.accent50)} dashed 2px`};
-        outline-offset: 3px;
+        outline-offset: 5px;
       }
     }
   }
