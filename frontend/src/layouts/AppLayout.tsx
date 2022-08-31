@@ -2,11 +2,8 @@ import Breadcrumbs from "components/Layouts/Breadcrumbs/Breadcrumbs";
 import Footer from "components/Layouts/Footer/Footer";
 import Header from "components/Layouts/Header/Header";
 import { LinkType } from "components/Layouts/Navigation/Navigation";
-import React, { FC } from "react";
+import React from "react";
 import { Outlet } from "react-router-dom";
-import { DefaultProps } from "src/main";
-
-type Props = DefaultProps & {};
 
 const links: LinkType[] = [
   {
@@ -23,7 +20,7 @@ const links: LinkType[] = [
   },
 ];
 
-const AppLayout: FC<Props> = () => {
+const AppLayout = () => {
   return (
     <>
       <Header type="App" links={links} />

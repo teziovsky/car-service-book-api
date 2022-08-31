@@ -5,7 +5,7 @@ import {
   StyledText,
   StyledWrapper,
 } from "components/Elements/Alert/Alert.styled";
-import React, { FC } from "react";
+import React from "react";
 import { DefaultProps } from "src/main";
 
 export type Props = DefaultProps & {
@@ -15,7 +15,7 @@ export type Props = DefaultProps & {
   notification?: boolean;
 };
 
-const Alert: FC<Props> = ({ color, title, icon, notification, children, ...props }) => {
+const Alert = ({ color, title, icon, notification, children, ...props }: Props) => {
   return (
     <StyledWrapper notification={notification} color={color} {...props}>
       {icon && <StyledIcon icon={icon} />}

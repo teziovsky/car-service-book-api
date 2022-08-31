@@ -6,7 +6,7 @@ import {
   StyledHeading,
   StyledWrapper,
 } from "components/Elements/Modal/Modal.styled";
-import React, { FC, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { DefaultProps } from "src/main";
 
 export type Props = DefaultProps & {
@@ -17,7 +17,7 @@ export type Props = DefaultProps & {
   footer?: ReactNode | ReactNode[];
 };
 
-const Modal: FC<Props> = ({ title, titleLevel, wide, showClose, footer, children, ...props }) => {
+const Modal = ({ title, titleLevel, wide, showClose, footer, children, ...props }: Props) => {
   return (
     <>
       <StyledBackdrop></StyledBackdrop>

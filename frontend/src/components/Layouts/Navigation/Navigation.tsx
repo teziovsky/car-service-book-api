@@ -1,6 +1,6 @@
 import { StyledItem, StyledLink, StyledList, StyledNav } from "components/Layouts/Navigation/Navigation.styled";
 import useBreakpoint from "hooks/useBreakpoint";
-import React, { FC, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { DefaultProps } from "src/main";
 
@@ -15,7 +15,7 @@ export type Props = DefaultProps & {
   isOpen: boolean;
 };
 
-const Navigation: FC<Props> = ({ links, isOpen }) => {
+const Navigation = ({ links, isOpen }: Props) => {
   const [isMobile, setIsMobile] = useState(false);
   const breakpoint = useBreakpoint();
 

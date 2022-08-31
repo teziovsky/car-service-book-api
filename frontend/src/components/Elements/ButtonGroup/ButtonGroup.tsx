@@ -1,6 +1,6 @@
 import { Props as ButtonProps } from "components/Elements/Button/Button";
 import { StyledButtonGroup } from "components/Elements/ButtonGroup/ButtonGroup.styled";
-import React, { FC, ReactElement } from "react";
+import React, { ReactElement } from "react";
 import { DefaultProps } from "src/main";
 
 export type Props = DefaultProps & {
@@ -8,7 +8,7 @@ export type Props = DefaultProps & {
   children: ReactElement<ButtonProps> | ReactElement<ButtonProps>[];
 };
 
-const ButtonGroup: FC<Props> = ({ children, ...props }) => {
+const ButtonGroup = ({ children, ...props }: Props) => {
   return <StyledButtonGroup {...props}>{children}</StyledButtonGroup>;
 };
 

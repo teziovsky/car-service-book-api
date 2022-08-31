@@ -1,5 +1,5 @@
 import { StyledHeading } from "components/Elements/Heading/Heading.styled";
-import React, { FC } from "react";
+import React from "react";
 import { DefaultProps } from "src/main";
 
 export type Props = DefaultProps & {
@@ -7,7 +7,7 @@ export type Props = DefaultProps & {
   bold?: boolean;
 };
 
-const Heading: FC<Props> = ({ level, bold, children, ...props }) => {
+const Heading = ({ level, bold, children, ...props }: Props) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
 
   return (

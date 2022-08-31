@@ -6,7 +6,7 @@ import {
   StyledHeading,
   StyledWrapper,
 } from "components/Elements/Card/Card.styled";
-import React, { FC, ReactNode } from "react";
+import React, { ReactNode } from "react";
 import { DefaultProps } from "src/main";
 
 export type Props = DefaultProps & {
@@ -16,7 +16,7 @@ export type Props = DefaultProps & {
   footer?: ReactNode | ReactNode[];
 };
 
-const Card: FC<Props> = ({ title, titleLevel, avatar, footer, children, ...props }) => {
+const Card = ({ title, titleLevel, avatar, footer, children, ...props }: Props) => {
   return (
     <StyledWrapper {...props}>
       {(title || avatar) && (

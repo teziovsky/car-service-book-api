@@ -1,5 +1,5 @@
 import { StyledButton, StyledIcon } from "components/Elements/Button/Button.styled";
-import React, { FC } from "react";
+import React from "react";
 import { DefaultProps } from "src/main";
 
 export type Props = DefaultProps & {
@@ -10,7 +10,7 @@ export type Props = DefaultProps & {
   iconRight?: boolean;
 };
 
-const Button: FC<Props> = ({ status, color, size, icon, iconRight, children, ...props }) => {
+const Button = ({ status, color, size, icon, iconRight, children, ...props }: Props) => {
   return (
     <StyledButton status={status} color={color} size={size} child={children} {...props}>
       {icon && !iconRight && <StyledIcon icon={icon} />}

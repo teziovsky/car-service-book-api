@@ -4,14 +4,11 @@ import {
   StyledList,
   StyledNavLink,
 } from "components/Layouts/Breadcrumbs/Breadcrumbs.styled";
-import React, { FC } from "react";
-import { DefaultProps } from "src/main";
+import React from "react";
 
-type Props = DefaultProps & {};
-
-const Breadcrumbs: FC<Props> = ({ ...props }) => {
+const Breadcrumbs = () => {
   return (
-    <StyledBreadcrumbs {...props}>
+    <StyledBreadcrumbs>
       <StyledList>
         <StyledItem>
           <StyledNavLink to={"/app"}>Home</StyledNavLink>

@@ -1,11 +1,8 @@
 import Footer from "components/Layouts/Footer/Footer";
 import Header from "components/Layouts/Header/Header";
 import { LinkType } from "components/Layouts/Navigation/Navigation";
-import React, { FC } from "react";
+import React from "react";
 import { Outlet } from "react-router-dom";
-import { DefaultProps } from "src/main";
-
-type Props = DefaultProps & {};
 
 const links: LinkType[] = [
   {
@@ -28,7 +25,7 @@ const links: LinkType[] = [
   },
 ];
 
-const HomeLayout: FC<Props> = () => {
+const HomeLayout = () => {
   return (
     <>
       <Header type="Home" links={links} />

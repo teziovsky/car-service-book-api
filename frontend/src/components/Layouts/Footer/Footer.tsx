@@ -1,12 +1,12 @@
 import { StyledFooter, StyledText, StyledWrapper } from "components/Layouts/Footer/Footer.styled";
-import React, { FC } from "react";
+import React from "react";
 import { DefaultProps } from "src/main";
 
 type Props = DefaultProps & {
   email?: string;
 };
 
-const Footer: FC<Props> = ({ email, ...props }) => {
+const Footer = ({ email, ...props }: Props) => {
   return (
     <StyledFooter {...props}>
       <StyledWrapper>

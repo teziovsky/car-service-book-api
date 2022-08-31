@@ -8,7 +8,7 @@ import {
   StyledTitleSubheading,
 } from "components/Layouts/Header/Header.styled";
 import Navigation, { LinkType } from "components/Layouts/Navigation/Navigation";
-import React, { FC, useState } from "react";
+import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DefaultProps } from "src/main";
 
@@ -17,7 +17,7 @@ type Props = DefaultProps & {
   links: LinkType[];
 };
 
-const Header: FC<Props> = ({ type, links, ...props }) => {
+const Header = ({ type, links, ...props }: Props) => {
   const [isOpen, setIsOpen] = useState(false);
   const route = useNavigate();
 

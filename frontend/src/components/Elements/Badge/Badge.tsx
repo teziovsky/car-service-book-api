@@ -1,5 +1,5 @@
 import { StyledBadge, StyledIcon } from "components/Elements/Badge/Badge.styled";
-import React, { FC } from "react";
+import React from "react";
 import { DefaultProps } from "src/main";
 
 export type Props = DefaultProps & {
@@ -9,7 +9,7 @@ export type Props = DefaultProps & {
   iconRight?: boolean;
 };
 
-const Badge: FC<Props> = ({ color, size, icon, iconRight, children, ...props }) => {
+const Badge = ({ color, size, icon, iconRight, children, ...props }: Props) => {
   return (
     <StyledBadge color={color} size={size} child={children} {...props}>
       {icon && !iconRight && <StyledIcon icon={icon} />}
