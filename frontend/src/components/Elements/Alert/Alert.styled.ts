@@ -46,11 +46,12 @@ export const StyledContent = styled.div`
 `;
 
 export const StyledText = styled.span<Props>`
+  word-break: break-word;
+
   ${({ theme, title }) =>
     title
       ? Font({ size: theme.h5Font, lineHeight: theme.h5Lh, fontWeight: 700, fontFamily: theme.familyHeading })
       : Font({ size: theme.smallFont, lineHeight: theme.smallLh, fontWeight: 400 })};
-  word-break: break-word;
 `;
 
 export const StyledButtonClose = styled(Button)`
