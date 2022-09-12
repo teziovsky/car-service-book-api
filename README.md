@@ -4,7 +4,7 @@
 
 > Backend – Node.js + NestJS Rest API 🔥
 > 
-> Frontend – Angular 14 🔥
+> Frontend – React 18 🔥
 
 ## Demo 👀
 #### [🏠 Link to demo here!](https://github.com/teziovsky/car-service-book/#readme)
