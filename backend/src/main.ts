@@ -21,6 +21,11 @@ async function bootstrap() {
       whitelist: true,
     }),
   );
+
+  app.enableCors({
+    origin: "http://127.0.0.1:8010",
+  });
+
   await app.listen(3000);
 }
 
