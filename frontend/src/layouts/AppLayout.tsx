@@ -14,10 +14,6 @@ const links: LinkType[] = [
     path: "/app/cars",
     name: "Cars",
   },
-  {
-    path: "/app/repairs",
-    name: "Repairs",
-  },
 ];
 
 const AppLayout = () => {

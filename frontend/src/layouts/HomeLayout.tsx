@@ -10,10 +10,6 @@ const links: LinkType[] = [
     name: "Home",
   },
   {
-    path: "/app",
-    name: "App",
-  },
-  {
     path: "/pricing",
     name: "Pricing",
     anchor: true,
