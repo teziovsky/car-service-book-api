@@ -37,19 +37,19 @@ export const StyledInput = styled.input<Props>`
     }
   `}
 
-  ${({ theme, inputSize }) =>
+  ${({ theme, inputSize, tag }) =>
     inputSize === "small"
       ? css`
-          padding: 8px 8px 6px;
+          padding: ${tag === "input" || tag === "textarea" ? "8px 8px 6px" : "8px 8px 6px"};
           ${Font({ size: theme.smallFont, lineHeight: theme.smallLh })}
         `
       : inputSize === "large"
       ? css`
-          padding: 12px 12px 10px;
+          padding: ${tag === "input" || tag === "textarea" ? "12px 12px 10px" : "12px 12px 10px"};
           ${Font({ size: theme.largeFont, lineHeight: theme.largeLh })}
         `
       : css`
-          padding: 10px 10px 8px;
+          padding: ${tag === "input" || tag === "textarea" ? "10px 10px 8px" : "10px 10px 8px"};
           ${Font({ size: theme.baseFont, lineHeight: theme.baseLh })}
         `}
 `;

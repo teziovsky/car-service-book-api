@@ -1,14 +1,13 @@
 import { ComponentMeta, ComponentStory } from "@storybook/react";
 import React from "react";
 
-import Input from "./Input";
+import InputComponent from "./Input";
 
 export default {
   title: "Forms/Input",
-  component: Input,
+  component: InputComponent,
   args: {
     inputSize: "default",
-    as: "input",
     placeholder: "admin@example.com",
     disabled: false,
     value: "",
@@ -18,12 +17,33 @@ export default {
       control: "select",
       options: ["small", "default", "large"],
     },
-    as: {
-      control: "select",
-      options: ["input", "textarea"],
-    },
   },
-} as ComponentMeta<typeof Input>;
+} as ComponentMeta<typeof InputComponent>;
 
-export const ErrorMessageComponent: ComponentStory<typeof Input> = (args) => <Input {...args} />;
-ErrorMessageComponent.storyName = "Input";
+const Template: ComponentStory<typeof InputComponent> = (args) => (
+  <InputComponent {...args}>{args.children}</InputComponent>
+);
+
+export const InputText = Template.bind({});
+InputText.args = {
+  tag: "input",
+};
+
+export const Textarea = Template.bind({});
+Textarea.args = {
+  tag: "textarea",
+};
+
+export const Select = Template.bind({});
+Select.args = {
+  tag: "select",
+  children: (
+    <>
+      <option selected value={0}>
+        --- Wybierz adres e-mail ---
+      </option>
+      <option value="teziovsky@gmail.com">teziovsky@gmail.com</option>
+      <option value="jakub.soboczynski@icloud.com">jakub.soboczynski@icloud.com</option>
+    </>
+  ),
+};
