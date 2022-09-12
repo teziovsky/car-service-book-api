@@ -18,6 +18,8 @@ RUN npm ci
 # Bundle app source
 COPY --chown=node:node . .
 
+RUN chown -R node /usr/src/app/node_modules
+
 # Use the node user from the image (instead of the root user)
 USER node
 
