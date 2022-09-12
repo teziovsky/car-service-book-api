@@ -36,13 +36,14 @@ export const StyledAvatar = styled.img`
 
 export const StyledHeading = styled(Heading)`
   ${({ theme }) => css`
+    color: ${Hsla(theme.accent50)};
+
     ${Font({
       size: theme.h4Font,
       lineHeight: theme.h4Lh,
       fontWeight: 700,
       fontFamily: theme.familyHeading,
     })}
-    color: ${Hsla(theme.accent50)}
   `}
 `;
 

@@ -41,7 +41,7 @@ export const StyledBurgerMenu = styled.button<Props>`
       display: none;
     }
 
-    &:hover ${StyledBar} {
+    &:hover ${StyledBar}, &:focus ${StyledBar} {
       background-color: ${Hsla(theme.accent300)};
     }
   `};
@@ -68,7 +68,7 @@ export const StyledBurgerMenu = styled.button<Props>`
             }
           }
 
-          &:hover ${StyledBar} {
+          &:hover ${StyledBar}, &:focus ${StyledBar} {
             &:first-child {
               transition-delay: 0.2s;
             }
@@ -99,7 +99,7 @@ export const StyledBurgerMenu = styled.button<Props>`
             }
           }
 
-          &:hover ${StyledBar} {
+          &:hover ${StyledBar}, &:focus ${StyledBar} {
             &:first-child {
               transition-delay: 0.1s;
             }

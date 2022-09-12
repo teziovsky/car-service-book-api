@@ -13,7 +13,7 @@ const GlobalStyle = createGlobalStyle<{ theme: typeof theme }>`
       color: ${Hsla(theme.accent50)};
       background-color: ${Hsla(theme.accent950)};
     `};
-    
+
     font-size: 16px;
   }
 
@@ -56,7 +56,7 @@ const GlobalStyle = createGlobalStyle<{ theme: typeof theme }>`
       transform: translate(-50%, -10px) scale(0);
       ${Transition(["background-color", "transform"])}
     }
-    
+
     ${({ theme }) => css`
       &:hover,
       &:focus {

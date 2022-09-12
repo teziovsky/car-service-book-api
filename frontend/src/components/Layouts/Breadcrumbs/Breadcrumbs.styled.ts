@@ -41,10 +41,10 @@ export const StyledItem = styled.li`
         transform: translateY(-50%);
         left: -9px;
         content: "";
-        mask-image: url(${HiChevronRight});
-        background-color: ${({ theme }) => Hsla(theme.accent200)};
+        background-image: url("${HiChevronRight}");
         width: 10px;
         height: 10px;
+        filter: brightness(0) invert(1);
       }
     }
   }

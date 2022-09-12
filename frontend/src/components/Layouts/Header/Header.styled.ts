@@ -32,7 +32,9 @@ export const StyledLogo = styled(Link)`
   ${({ theme }) =>
     css`
       border-radius: ${theme.borderRadius};
-      &:hover {
+
+      &:hover,
+      &:focus {
         .headerTitle {
           color: ${Hsla(theme.accent400)};
         }
