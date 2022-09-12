@@ -12,7 +12,7 @@ services:
       - /usr/src/app/node_modules
     command: npm run dev
     ports:
-      - ${APP_PORT}:${APP_PORT}
+      - ${APP_PORT}:3000
     networks:
       - teziovsky_network
     depends_on:
