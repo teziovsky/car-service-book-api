@@ -1,0 +1,41 @@
+_id: req_e8f3a8b131054b659f32cc1295430488
+type: Request
+parentId: fld_91ea44047cf449548707a46d9093b6b7
+modified: 1662980781143
+created: 1662980190104
+url: "{{ _.baseUrl }}/cars"
+name: Add Car
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"type": null,
+    	"brand": "Honda",
+    	"model": "Civic",
+    	"generation": "VIII",
+    	"productionYear": 2009,
+    	"engineType": "pertol",
+    	"engineCapacity": "1.8",
+    	"enginePower": 140,
+    	"gearboxType": "manual"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_7cda3b5c1ed74b4c8fa91937fc02af37
+authentication:
+  type: bearer
+  prefix: Bearer
+  token: "{{ _.access_token }}"
+  disabled: false
+metaSortKey: 200
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

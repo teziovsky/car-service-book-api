@@ -1,10 +1,10 @@
 _id: req_398df1e92ba24208a72c4a97ccfddc87
 type: Request
-parentId: wrk_4c3234984ca041fbb27c9db3ceb57dae
-modified: 1662976347218
+parentId: fld_91ea44047cf449548707a46d9093b6b7
+modified: 1662980780941
 created: 1662923353337
-url: "{{ _.baseUrl }}/cars/1"
-name: Get Car
+url: "{{ _.baseUrl }}/cars/{{ _.car_id }}"
+name: One Car
 description: ""
 method: GET
 body: {}
@@ -12,9 +12,9 @@ parameters: []
 headers: []
 authentication:
   type: bearer
-  prefix: JWT
+  prefix: Bearer
   token: "{{ _.access_token }}"
-metaSortKey: -1662298356020
+metaSortKey: 100
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true

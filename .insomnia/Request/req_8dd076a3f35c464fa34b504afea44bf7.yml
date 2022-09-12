@@ -1,12 +1,12 @@
-_id: req_6dd42d9c996f48fc8a7c1ad1b497d5fd
+_id: req_8dd076a3f35c464fa34b504afea44bf7
 type: Request
 parentId: fld_91ea44047cf449548707a46d9093b6b7
-modified: 1662980780510
-created: 1662298356070
-url: "{{ _.baseUrl }}/cars"
-name: All Cars
+modified: 1662980781806
+created: 1662980651643
+url: "{{ _.baseUrl }}/cars/{{ _.car_id }}"
+name: Delete Car
 description: ""
-method: GET
+method: DELETE
 body: {}
 parameters: []
 headers: []
@@ -15,7 +15,7 @@ authentication:
   prefix: Bearer
   token: "{{ _.access_token }}"
   disabled: false
-metaSortKey: 0
+metaSortKey: 300
 isPrivate: false
 settingStoreCookies: true
 settingSendCookies: true
