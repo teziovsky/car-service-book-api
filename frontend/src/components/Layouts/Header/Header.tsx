@@ -36,6 +36,11 @@ const Header = ({ type, links, ...props }: Props) => {
           Go to app
         </StyledButton>
       )}
+      {type === "App" && (
+        <StyledButton onClick={() => route("/")} color="accent" status="tertiary" size="small">
+          Go to Home
+        </StyledButton>
+      )}
     </StyledHeader>
   );
 };
