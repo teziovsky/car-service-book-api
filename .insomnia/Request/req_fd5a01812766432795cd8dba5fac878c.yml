@@ -1,0 +1,24 @@
+_id: req_fd5a01812766432795cd8dba5fac878c
+type: Request
+parentId: fld_c9364a225e6b4d2eb2df03245b6eb0a4
+modified: 1662981067586
+created: 1662980985652
+url: "{{ _.baseUrl }}/cars/{{ _.car_id }}/repairs/{{ _.repair_id }}"
+name: One Repair
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: bearer
+  prefix: Bearer
+  token: "{{ _.access_token }}"
+metaSortKey: 100
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

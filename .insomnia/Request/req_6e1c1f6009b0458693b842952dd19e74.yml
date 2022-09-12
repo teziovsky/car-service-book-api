@@ -1,0 +1,25 @@
+_id: req_6e1c1f6009b0458693b842952dd19e74
+type: Request
+parentId: fld_c9364a225e6b4d2eb2df03245b6eb0a4
+modified: 1662982238129
+created: 1662980985659
+url: "{{ _.baseUrl }}/cars/{{ _.car_id }}/repairs/{{ _.repair_id }}"
+name: Delete Repair
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers: []
+authentication:
+  type: bearer
+  prefix: Bearer
+  token: "{{ _.access_token }}"
+  disabled: false
+metaSortKey: 300
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

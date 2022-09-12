@@ -1,0 +1,37 @@
+_id: req_05756559f9144fd197578ccfbb607b2c
+type: Request
+parentId: fld_c9364a225e6b4d2eb2df03245b6eb0a4
+modified: 1662981192133
+created: 1662980985656
+url: "{{ _.baseUrl }}/cars/{{ _.car_id }}/repairs"
+name: Add Repair
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"title": "Tarcze + klocki hamulcowe TEXTAR",
+    	"description": "Cena dotyczy kupna oraz montażu.",
+    	"price": 500,
+    	"date": "2022-09-12 12:00",
+    	"mileage": 150123
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_7cda3b5c1ed74b4c8fa91937fc02af37
+authentication:
+  type: bearer
+  prefix: Bearer
+  token: "{{ _.access_token }}"
+  disabled: false
+metaSortKey: 200
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
