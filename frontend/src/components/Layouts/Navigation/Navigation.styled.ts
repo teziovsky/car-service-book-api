@@ -3,7 +3,7 @@ import styled, { css } from "styled-components";
 
 export const StyledNav = styled.nav<{ isMobile: boolean; isOpen: boolean }>`
   position: absolute;
-  z-index: 11;
+  z-index: 3;
   top: 80px;
   left: 16px;
   width: calc(100% - 32px);

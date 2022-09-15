@@ -49,12 +49,12 @@ export const StyledHeading = styled(Heading)`
 
 export const StyledBody = styled.div`
   ${({ theme }) => css`
-    color: ${Hsla(theme.accent50)}
+    color: ${Hsla(theme.accent50)};
     word-break: break-word;
 
     ${Font({
-      size: theme.baseFont,
-      lineHeight: theme.baseLh,
+      size: theme.smallFont,
+      lineHeight: theme.smallLh,
     })}
   `}
 `;

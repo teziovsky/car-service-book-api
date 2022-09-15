@@ -6,7 +6,7 @@ type Props = DefaultProps & {
   email?: string;
 };
 
-const Footer = ({ email, ...props }: Props) => {
+const Footer = ({ email = "jakub.soboczynski@icloud.com", ...props }: Props) => {
   return (
     <StyledFooter {...props}>
       <StyledWrapper>
@@ -26,10 +26,6 @@ const Footer = ({ email, ...props }: Props) => {
       </StyledWrapper>
     </StyledFooter>
   );
-};
-
-Footer.defaultProps = {
-  email: "jakub.soboczynski@icloud.com",
 };
 
 export default Footer;

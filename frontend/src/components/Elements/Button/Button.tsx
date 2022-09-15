@@ -10,7 +10,15 @@ export type Props = DefaultProps & {
   iconRight?: boolean;
 };
 
-const Button = ({ status, color, size, icon, iconRight, children, ...props }: Props) => {
+const Button = ({
+  status = "primary",
+  color = "accent",
+  size = "default",
+  icon,
+  iconRight = false,
+  children,
+  ...props
+}: Props) => {
   return (
     <StyledButton status={status} color={color} size={size} child={children} {...props}>
       {icon && !iconRight && <StyledIcon icon={icon} />}
@@ -18,13 +26,6 @@ const Button = ({ status, color, size, icon, iconRight, children, ...props }: Pr
       {icon && iconRight && <StyledIcon icon={icon} />}
     </StyledButton>
   );
-};
-
-Button.defaultProps = {
-  status: "primary",
-  color: "accent",
-  size: "default",
-  iconRight: false,
 };
 
 export default Button;

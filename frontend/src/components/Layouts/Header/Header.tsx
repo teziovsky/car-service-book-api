@@ -1,4 +1,5 @@
 import BurgerMenu from "components/Elements/BurgerMenu/BurgerMenu";
+import Modal from "components/Elements/Modal/Modal";
 import {
   StyledButton,
   StyledHeader,
@@ -8,23 +9,41 @@ import {
   StyledTitleSubheading,
 } from "components/Layouts/Header/Header.styled";
 import Navigation, { LinkType } from "components/Layouts/Navigation/Navigation";
-import React, { useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { DefaultProps } from "src/main";
+import { api } from "src/plugins";
 
 type Props = DefaultProps & {
   type: "Home" | "App";
-  links: LinkType[];
+  links?: LinkType[];
 };
 
-const Header = ({ type, links, ...props }: Props) => {
-  const [isOpen, setIsOpen] = useState(false);
+const Header = ({ type = "Home", links, ...props }: Props) => {
   const route = useNavigate();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [isOpen, setIsOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  function handleCloseModal() {
+    setIsModalOpen(false);
+  }
+
+  useEffect(() => {
+    api
+      .get("/user")
+      .then(() => {
+        setIsAuthenticated(true);
+      })
+      .catch(() => {
+        setIsAuthenticated(false);
+      });
+  }, []);
 
   return (
     <StyledHeader {...props}>
       <BurgerMenu isOpen={isOpen} setIsOpen={setIsOpen} />
-      {!!links.length && <Navigation isOpen={isOpen} links={links} />}
+      {links && !!links.length && <Navigation isOpen={isOpen} links={links} />}
       <StyledLogo to="/">
         <StyledTitle level={1}>
           <StyledTitleHeading>Vehicle</StyledTitleHeading>
@@ -32,8 +51,12 @@ const Header = ({ type, links, ...props }: Props) => {
         </StyledTitle>
       </StyledLogo>
       {type === "Home" && (
-        <StyledButton onClick={() => route("/app")} color="accent" status="secondary" size="small">
-          Go to app
+        <StyledButton
+          onClick={() => (isAuthenticated ? route("/app") : setIsModalOpen(true))}
+          color="accent"
+          status="secondary"
+          size="small">
+          {isAuthenticated ? "Go to App" : "Sign In"}
         </StyledButton>
       )}
       {type === "App" && (
@@ -41,12 +64,16 @@ const Header = ({ type, links, ...props }: Props) => {
           Go to Home
         </StyledButton>
       )}
+      <Modal closeCb={handleCloseModal} isOpen={isModalOpen} title="Sign In">
+        <Modal.Body>
+          <p>test</p>
+        </Modal.Body>
+        <Modal.Footer>
+          <p>test</p>
+        </Modal.Footer>
+      </Modal>
     </StyledHeader>
   );
-};
-
-Header.defaultProps = {
-  type: "Home",
 };
 
 export default Header;

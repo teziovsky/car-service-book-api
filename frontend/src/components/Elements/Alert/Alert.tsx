@@ -6,16 +6,19 @@ import {
   StyledWrapper,
 } from "components/Elements/Alert/Alert.styled";
 import React from "react";
+import * as HeroIcons from "react-icons/hi";
 import { DefaultProps } from "src/main";
+
+const icons = { ...HeroIcons };
 
 export type Props = DefaultProps & {
   color?: "success" | "info" | "warning" | "error";
   title?: string;
-  icon?: string;
+  icon?: keyof typeof icons;
   notification?: boolean;
 };
 
-const Alert = ({ color, title, icon, notification, children, ...props }: Props) => {
+const Alert = ({ color = "success", title, icon, notification, children, ...props }: Props) => {
   return (
     <StyledWrapper notification={notification} color={color} {...props}>
       {icon && <StyledIcon icon={icon} />}
@@ -26,10 +29,6 @@ const Alert = ({ color, title, icon, notification, children, ...props }: Props) 
       <StyledButtonClose color={color} status="tertiary" size="default" icon="HiX" />
     </StyledWrapper>
   );
-};
-
-Alert.defaultProps = {
-  color: "success",
 };
 
 export default Alert;

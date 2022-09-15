@@ -6,7 +6,7 @@ import styled, { css } from "styled-components";
 
 export const StyledHeader = styled.header`
   position: sticky;
-  z-index: 10;
+  z-index: 2;
   top: 0;
   left: 0;
   width: 100%;
@@ -23,7 +23,7 @@ export const StyledHeader = styled.header`
 
 export const StyledLogo = styled(Link)`
   position: absolute;
-  z-index: 11;
+  z-index: 3;
   top: 55%;
   left: 50%;
   text-decoration: none;

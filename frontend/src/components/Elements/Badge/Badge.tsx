@@ -9,7 +9,7 @@ export type Props = DefaultProps & {
   iconRight?: boolean;
 };
 
-const Badge = ({ color, size, icon, iconRight, children, ...props }: Props) => {
+const Badge = ({ color = "accent", size = "default", icon, iconRight = false, children, ...props }: Props) => {
   return (
     <StyledBadge color={color} size={size} child={children} {...props}>
       {icon && !iconRight && <StyledIcon icon={icon} />}
@@ -17,12 +17,6 @@ const Badge = ({ color, size, icon, iconRight, children, ...props }: Props) => {
       {icon && iconRight && <StyledIcon icon={icon} />}
     </StyledBadge>
   );
-};
-
-Badge.defaultProps = {
-  color: "accent",
-  size: "default",
-  iconRight: false,
 };
 
 export default Badge;

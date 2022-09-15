@@ -1,7 +1,7 @@
 import { Font, Hsla, Transition } from "components/Styled/Mixins";
 import ResetStyle from "components/Styled/Reset";
 import { breakpoints, dark, light, typography, variables } from "components/Styled/Variables";
-import { createGlobalStyle, css } from "styled-components";
+import styled, { createGlobalStyle, css } from "styled-components";
 
 const theme = { ...breakpoints, ...dark, ...light, ...typography, ...variables };
 
@@ -69,6 +69,10 @@ const GlobalStyle = createGlobalStyle<{ theme: typeof theme }>`
       }
     `};
   }
+`;
+
+export const StyledLayout = styled.main`
+  padding: 16px;
 `;
 
 export default GlobalStyle;

@@ -42,6 +42,4 @@ const Breadcrumbs = () => {
   );
 };
 
-Breadcrumbs.defaultProps = {};
-
 export default Breadcrumbs;

@@ -42,8 +42,4 @@ const Navigation = ({ links, isOpen }: Props) => {
   );
 };
 
-Navigation.defaultProps = {
-  anchor: false,
-};
-
 export default Navigation;

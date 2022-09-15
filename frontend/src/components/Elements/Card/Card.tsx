@@ -1,36 +1,23 @@
-import {
-  StyledAvatar,
-  StyledBody,
-  StyledFooter,
-  StyledHeader,
-  StyledHeading,
-  StyledWrapper,
-} from "components/Elements/Card/Card.styled";
-import React, { ReactNode } from "react";
+import { StyledBody, StyledFooter, StyledHeader, StyledWrapper } from "components/Elements/Card/Card.styled";
+import React from "react";
 import { DefaultProps } from "src/main";
 
-export type Props = DefaultProps & {
-  title?: string;
-  titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
-  avatar?: string;
-  footer?: ReactNode | ReactNode[];
+export type Props = DefaultProps & {};
+
+const Card = ({ children, ...props }: Props) => {
+  return <StyledWrapper {...props}>{children}</StyledWrapper>;
 };
 
-const Card = ({ title, titleLevel, avatar, footer, children, ...props }: Props) => {
-  return (
-    <StyledWrapper {...props}>
-      {(title || avatar) && (
-        <StyledHeader>
-          {avatar && <StyledAvatar src={avatar} alt="" />}
-          {title && <StyledHeading level={titleLevel}>{title}</StyledHeading>}
-        </StyledHeader>
-      )}
-      <StyledBody>{children}</StyledBody>
-      {footer && <StyledFooter>{footer}</StyledFooter>}
-    </StyledWrapper>
-  );
-};
+const Header = ({ children }: DefaultProps) => <StyledHeader>{children}</StyledHeader>;
+Header.displayName = "Header";
+Card.Header = Header;
 
-Card.defaultProps = {};
+const Body = ({ children }: DefaultProps) => <StyledBody>{children}</StyledBody>;
+Body.displayName = "Body";
+Card.Body = Body;
+
+const Footer = ({ children }: DefaultProps) => <StyledFooter>{children}</StyledFooter>;
+Footer.displayName = "Footer";
+Card.Footer = Footer;
 
 export default Card;

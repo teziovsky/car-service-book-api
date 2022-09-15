@@ -7,7 +7,7 @@ export type Props = DefaultProps & {
   bold?: boolean;
 };
 
-const Heading = ({ level, bold, children, ...props }: Props) => {
+const Heading = ({ level = 6, bold = false, children, ...props }: Props) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
 
   return (
@@ -15,11 +15,6 @@ const Heading = ({ level, bold, children, ...props }: Props) => {
       {children}
     </StyledHeading>
   );
-};
-
-Heading.defaultProps = {
-  bold: false,
-  level: 6,
 };
 
 export default Heading;
