@@ -3,6 +3,7 @@ import Header from "components/Layouts/Header/Header";
 import { LinkType } from "components/Layouts/Navigation/Navigation";
 import React from "react";
 import { Outlet } from "react-router-dom";
+import { StyledLayout } from "src/components/Styled/Global";
 
 const links: LinkType[] = [
   {
@@ -25,9 +26,9 @@ const HomeLayout = () => {
   return (
     <>
       <Header type="Home" links={links} />
-      <main className="layout">
+      <StyledLayout>
         <Outlet />
-      </main>
+      </StyledLayout>
       <Footer />
     </>
   );
