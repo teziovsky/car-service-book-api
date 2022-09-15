@@ -19,10 +19,14 @@
     "baseUrl": "./src",
     "paths": {
       "src/*": ["*"],
+      "assets/*": ["assets/*"],
       "components/*": ["components/*"],
       "hooks/*": ["hooks/*"],
       "layouts/*": ["layouts/*"],
+      "plugins/*": ["plugins/*"],
       "routes/*": ["routes/*"],
+      "services/*": ["services/*"],
+      "types/*": ["types/*"],
       "utils/*": ["utils/*"],
       "views/*": ["views/*"]
     }

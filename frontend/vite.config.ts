@@ -8,16 +8,20 @@ export default () => {
     plugins: [react()],
     envDir: path.resolve(__dirname, ".."),
     server: {
-      host: true,
+      host: "0.0.0.0",
       port: 3000,
     },
     resolve: {
       alias: {
         src: path.resolve(__dirname, "src"),
+        assets: path.resolve(__dirname, "src/assets"),
         components: path.resolve(__dirname, "src/components"),
         hooks: path.resolve(__dirname, "src/hooks"),
         layouts: path.resolve(__dirname, "src/layouts"),
+        plugins: path.resolve(__dirname, "src/plugins"),
         routes: path.resolve(__dirname, "src/routes"),
+        services: path.resolve(__dirname, "src/services"),
+        types: path.resolve(__dirname, "src/types"),
         utils: path.resolve(__dirname, "src/utils"),
         views: path.resolve(__dirname, "src/views"),
       },
