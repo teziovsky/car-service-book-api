@@ -1,12 +1,14 @@
 # Hey it's car-service-book! 🖖🏼
 
-[![GitHub](https://img.shields.io/github/license/teziovsky/car-service-book)](https://choosealicense.com/licenses/mit/) [![Twitter Follow](https://img.shields.io/twitter/follow/teziovsky?style=social)](https://www.twitter.com/teziovsky)
+[![GitHub](https://img.shields.io/github/license/teziovsky/car-service-book)](https://choosealicense.com/licenses/mit/)
+[![Twitter Follow](https://img.shields.io/twitter/follow/teziovsky?style=social)](https://www.twitter.com/teziovsky)
 
 > Backend – Node.js + NestJS Rest API 🔥
-> 
+>
 > Frontend – React 18 🔥
 
 ## Demo 👀
+
 #### [🏠 Link to demo here!](https://github.com/teziovsky/car-service-book/#readme)
 
 ## Get started 🏁
