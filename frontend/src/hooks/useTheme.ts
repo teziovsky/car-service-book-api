@@ -11,7 +11,8 @@ const themesMap: Map = {
 };
 
 const useTheme = () => {
-  const [currentTheme, setCurrentTheme] = useState("dark");
+  const defaultDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  const [currentTheme, setCurrentTheme] = useState<"dark" | "light">(defaultDark ? "dark" : "light");
   const theme = { ...breakpoints, ...themesMap[currentTheme], ...typography, ...variables };
 
   return {
