@@ -18,6 +18,9 @@ module.exports = {
         heading: ["Cairo", "sans-serif"],
         base: ["Overpass", "sans-serif"],
       },
+      backgroundImage: {
+        "chevron-right": "url('/assets/images/chevron-right.svg')",
+      },
     },
   },
   plugins: [],
