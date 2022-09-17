@@ -1,4 +1,39 @@
 @layer components {
+  /* BUTTON GROUP */
+  .btn-group {
+    @apply flex items-center;
+  }
+
+  .btn-group-row {
+    @apply flex-row;
+
+    & > button {
+      &:not(:last-child) {
+        @apply rounded-r-none;
+      }
+
+      & + button {
+        @apply rounded-l-none;
+      }
+    }
+  }
+
+  .btn-group-col {
+    @apply flex-col;
+
+    & > button {
+      @apply w-full justify-center;
+
+      &:not(:last-child) {
+        @apply rounded-b-none;
+      }
+
+      & + button {
+        @apply rounded-t-none;
+      }
+    }
+  }
+
   /* CARD */
   .card-wrapper {
     @apply p-5 border-solid border border-sky-200/40 rounded-lg bg-sky-900/60;
@@ -17,6 +52,6 @@
   }
 
   .card-heading {
-    @apply text-cyan-50 break-all font-bold font-heading text-xl;
+    @apply text-cyan-50 break-all font-bold font-heading text-lg;
   }
 }

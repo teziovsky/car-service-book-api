@@ -67,7 +67,7 @@ const Button = ({
           "p-[9px]": !children && size === "large",
           "text-sm": size === "small",
           "text-base": size === "default",
-          "text-lg": size === "large",
+          "text-md": size === "large",
         },
         className
       )}

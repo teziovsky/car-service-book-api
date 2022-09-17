@@ -1,5 +1,5 @@
+import cx from "classnames";
 import { Props as ButtonProps } from "components/Elements/Button/Button";
-import { StyledButtonGroup } from "components/Elements/ButtonGroup/ButtonGroup.styled";
 import React, { ReactElement } from "react";
 import { DefaultProps } from "src/main";
 
@@ -8,8 +8,17 @@ export type Props = DefaultProps & {
   children: ReactElement<ButtonProps> | ReactElement<ButtonProps>[];
 };
 
-const ButtonGroup = ({ children, ...props }: Props) => {
-  return <StyledButtonGroup {...props}>{children}</StyledButtonGroup>;
+const ButtonGroup = ({ direction, children, ...props }: Props) => {
+  return (
+    <div
+      className={cx("btn-group", {
+        "btn-group-row": direction === "row",
+        "btn-group-col": direction === "column",
+      })}
+      {...props}>
+      {children}
+    </div>
+  );
 };
 
 export default ButtonGroup;

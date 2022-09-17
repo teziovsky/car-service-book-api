@@ -1,4 +1,4 @@
-import { StyledHeading } from "components/Elements/Heading/Heading.styled";
+import cx from "classnames";
 import React from "react";
 import { DefaultProps } from "src/main";
 
@@ -7,13 +7,29 @@ export type Props = DefaultProps & {
   bold?: boolean;
 };
 
-const Heading = ({ level = 6, bold = false, children, ...props }: Props) => {
+const Heading = ({ level = 6, bold = false, className, children, ...props }: Props) => {
   const Tag = `h${level}` as keyof JSX.IntrinsicElements;
 
   return (
-    <StyledHeading as={Tag} level={level} bold={bold} {...props}>
+    <Tag
+      className={cx(
+        "text-sky-50",
+        {
+          "font-bold": bold,
+          "font-logo": level === 1,
+          "font-heading": level !== 1,
+          "text-base": level === 6,
+          "text-md": level === 5,
+          "text-lg": level === 4,
+          "text-xl": level === 3,
+          "text-2xl": level === 2,
+          "text-3xl": level === 1,
+        },
+        className
+      )}
+      {...props}>
       {children}
-    </StyledHeading>
+    </Tag>
   );
 };
 

@@ -6,8 +6,11 @@ module.exports = {
     fontSize: {
       sm: ["0.875rem", "1.125rem"],
       base: ["1rem", "1.25rem"],
-      lg: ["1.125rem", "1.375rem"],
-      xl: ["1.25rem", "1.625rem"],
+      md: ["1.125rem", "1.375rem"],
+      lg: ["1.25rem", "1.625rem"],
+      xl: ["1.5625rem", "1.9375rem"],
+      "2xl": ["1.9375rem", "2.375rem"],
+      "3xl": ["2.4375rem", "2.875rem"],
     },
     extend: {
       fontFamily: {
