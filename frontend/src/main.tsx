@@ -5,6 +5,7 @@ import Providers from "src/providers";
 import App from "views/App";
 
 export type DefaultProps = {
+  className?: string;
   children?: string | ReactNode | ReactNode[];
   [x: string]: any;
 };

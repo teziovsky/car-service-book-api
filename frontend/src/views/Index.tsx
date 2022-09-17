@@ -1,12 +1,17 @@
-import Alert from "components/Elements/Alert/Alert";
+import Card from "src/components/Elements/Card/Card";
 
 const Index = () => {
   return (
     <>
-      <p className="text-emerald-500">Hello World!</p>
-      <Alert icon="HiUserCircle" color="success" title="Informacja">
-        Super
-      </Alert>
+      <div className="flex flex-col items-center gap-5">
+        <Card>
+          <Card.Header>
+            <h5 className="card-heading">Nagłówek</h5>
+          </Card.Header>
+          <Card.Body>Body</Card.Body>
+          <Card.Footer>Test</Card.Footer>
+        </Card>
+      </div>
     </>
   );
 };

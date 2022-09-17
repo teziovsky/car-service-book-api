@@ -3,8 +3,6 @@ import { CookiesProvider } from "react-cookie";
 import { DefaultProps } from "src/main";
 import { ThemeProvider } from "styled-components";
 
-import GlobalStyle from "./components/Styled/Global";
-
 type Props = DefaultProps & {};
 
 const Providers = ({ children }: Props) => {
@@ -12,10 +10,7 @@ const Providers = ({ children }: Props) => {
 
   return (
     <CookiesProvider>
-      <ThemeProvider theme={theme}>
-        <GlobalStyle />
-        {children}
-      </ThemeProvider>
+      <ThemeProvider theme={theme}>{children}</ThemeProvider>
     </CookiesProvider>
   );
 };

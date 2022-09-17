@@ -1,0 +1,20 @@
+body {
+  @apply text-sky-900 bg-slate-100 dark:bg-slate-900 font-base dark:text-sky-50;
+  font-size: 16px;
+}
+
+.layout {
+  min-height: calc(100vh - 68px);
+}
+
+a[href]:not([tabindex="-1"]):focus-visible,
+area[href]:not([tabindex="-1"]):focus-visible,
+input:not(:disabled):not([tabindex="-1"]):focus-visible,
+select:not(:disabled):not([tabindex="-1"]):focus-visible,
+textarea:not(:disabled):not([tabindex="-1"]):focus-visible,
+button:not(:disabled):not([tabindex="-1"]):focus-visible,
+iframe:not([tabindex="-1"]):focus-visible,
+[tabindex]:not([tabindex="-1"]):focus-visible,
+[contentEditable="true"]:not([tabindex="-1"]):focus-visible {
+  @apply outline outline-offset-4 outline-2 outline-sky-400;
+}

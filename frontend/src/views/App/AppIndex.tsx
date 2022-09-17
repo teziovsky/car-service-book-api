@@ -1,7 +1,6 @@
 import Card from "components/Elements/Card/Card";
 import React, { useEffect } from "react";
 import carService from "services/carService";
-import { StyledHeading } from "src/components/Elements/Card/Card.styled";
 
 const AppIndex = () => {
   const { data: carsList, isLoading, errorMsg, execute: getCars } = carService.getCars();
@@ -25,11 +24,11 @@ const AppIndex = () => {
   return (
     <>
       {carsList.map((car) => (
-        <Card title={``} titleLevel={2} key={car.id}>
+        <Card key={car.id}>
           <Card.Header>
-            <StyledHeading>
+            <div className="card-heading">
               {car.brand} {car.model} {car.generation}
-            </StyledHeading>
+            </div>
           </Card.Header>
           <Card.Body>
             {car.type && <p>Nadwozie: {car.type}</p>}

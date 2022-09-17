@@ -1,0 +1,22 @@
+@layer components {
+  /* CARD */
+  .card-wrapper {
+    @apply p-5 border-solid border border-sky-200/40 rounded-lg bg-sky-900/60;
+  }
+
+  .card-wrapper > div:not(:last-child) {
+    @apply pb-2;
+  }
+
+  .card-wrapper > div + div {
+    @apply pt-2;
+  }
+
+  .card-avatar {
+    @apply w-9 h-9 rounded-full object-cover;
+  }
+
+  .card-heading {
+    @apply text-cyan-50 break-all font-bold font-heading text-xl;
+  }
+}

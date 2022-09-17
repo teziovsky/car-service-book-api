@@ -1,22 +1,30 @@
-import { StyledBody, StyledFooter, StyledHeader, StyledWrapper } from "components/Elements/Card/Card.styled";
+import cx from "classnames";
 import React from "react";
 import { DefaultProps } from "src/main";
 
 export type Props = DefaultProps & {};
 
-const Card = ({ children, ...props }: Props) => {
-  return <StyledWrapper {...props}>{children}</StyledWrapper>;
+const Card = ({ className, children, ...props }: Props) => {
+  return (
+    <div className={cx("card-wrapper", className)} {...props}>
+      {children}
+    </div>
+  );
 };
 
-const Header = ({ children }: DefaultProps) => <StyledHeader>{children}</StyledHeader>;
+const Header = ({ className, children }: DefaultProps) => (
+  <div className={cx("flex items-center gap-2", className)}>{children}</div>
+);
 Header.displayName = "Header";
 Card.Header = Header;
 
-const Body = ({ children }: DefaultProps) => <StyledBody>{children}</StyledBody>;
+const Body = ({ className, children }: DefaultProps) => (
+  <div className={cx("break-all text-sky-50", className)}>{children}</div>
+);
 Body.displayName = "Body";
 Card.Body = Body;
 
-const Footer = ({ children }: DefaultProps) => <StyledFooter>{children}</StyledFooter>;
+const Footer = ({ className, children }: DefaultProps) => <div className={cx("break-all", className)}>{children}</div>;
 Footer.displayName = "Footer";
 Card.Footer = Footer;
 

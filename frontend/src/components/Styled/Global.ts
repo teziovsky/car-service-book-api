@@ -1,43 +1,10 @@
-import { Font, Hsla, Transition } from "components/Styled/Mixins";
-import ResetStyle from "components/Styled/Reset";
+import { Hsla, Transition } from "components/Styled/Mixins";
 import { breakpoints, dark, light, typography, variables } from "components/Styled/Variables";
-import styled, { createGlobalStyle, css } from "styled-components";
+import { createGlobalStyle, css } from "styled-components";
 
 const theme = { ...breakpoints, ...dark, ...light, ...typography, ...variables };
 
 const GlobalStyle = createGlobalStyle<{ theme: typeof theme }>`
-  ${ResetStyle}
-  body {
-    ${({ theme }) => css`
-      ${Font({ size: theme.baseFont })};
-      color: ${Hsla(theme.accent50)};
-      background-color: ${Hsla(theme.accent950)};
-    `};
-
-    font-size: 16px;
-  }
-
-  .layout {
-    min-height: calc(100vh - 68px);
-  }
-
-  a[href],
-  area[href],
-  input:not(:disabled),
-  select:not(:disabled),
-  textarea:not(:disabled),
-  button:not(:disabled),
-  iframe,
-  [tabindex],
-  [contentEditable="true"] {
-    &:not([tabindex="-1"]) {
-      &:focus-visible {
-        outline: ${({ theme }) => `${Hsla(theme.accent50)} dashed 2px`};
-        outline-offset: 5px;
-      }
-    }
-  }
-
   a {
     position: relative;
     text-decoration: none;
@@ -45,6 +12,7 @@ const GlobalStyle = createGlobalStyle<{ theme: typeof theme }>`
     color: ${({ theme }) => Hsla(theme.accent200)};
 
     ${Transition("color")}
+
     &::after {
       content: "";
       position: absolute;
@@ -69,10 +37,6 @@ const GlobalStyle = createGlobalStyle<{ theme: typeof theme }>`
       }
     `};
   }
-`;
-
-export const StyledLayout = styled.main`
-  padding: 16px;
 `;
 
 export default GlobalStyle;
