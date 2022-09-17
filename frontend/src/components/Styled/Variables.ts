@@ -37,10 +37,12 @@ export const typography = {
   h5Lh: 20,
   h6Font: 12,
   h6Lh: 16,
+
   largeFont: 20,
   largeLh: 26,
   baseFont: 16,
   baseLh: 20,
+
   smallFont: 12,
   smallLh: 16,
 };

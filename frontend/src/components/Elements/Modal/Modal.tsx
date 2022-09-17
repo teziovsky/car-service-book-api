@@ -1,21 +1,17 @@
-import {
-  StyledBackdrop,
-  StyledBody,
-  StyledButtonClose,
-  StyledHeader,
-  StyledHeading,
-  StyledWrapper,
-} from "components/Elements/Modal/Modal.styled";
+import cx from "classnames";
+import Button from "components/Elements/Button/Button";
 import FocusTrap from "focus-trap-react";
 import React from "react";
 import ReactDOM from "react-dom";
 import { DefaultProps } from "src/main";
 
+import Heading from "../Heading/Heading";
+
 export type Props = DefaultProps & {
   title?: string;
   titleLevel?: 1 | 2 | 3 | 4 | 5 | 6;
   wide?: boolean;
-  closeCb?: () => void;
+  closeCb?: Function;
   isOpen: boolean;
 };
 
@@ -34,18 +30,26 @@ const Modal = ({ title, titleLevel = 5, wide = false, closeCb, isOpen = false, c
 
   return ReactDOM.createPortal(
     <>
-      {isOpen && closeCb && <StyledBackdrop onClick={closeCb} />}
+      {isOpen && closeCb && <div className="modal-backdrop" />}
       {isOpen && (
         <FocusTrap focusTrapOptions={{ allowOutsideClick: true }}>
-          <StyledWrapper wide={wide} {...props}>
-            {closeCb && <StyledButtonClose status="tertiary" size="default" onClick={closeCb} icon="HiX" />}
+          <div
+            className={cx("modal", {
+              wide: wide,
+            })}
+            {...props}>
+            {closeCb && (
+              <Button className="modal-close" status="tertiary" size="default" onClick={closeCb} icon="HiX" />
+            )}
             {title && (
-              <StyledHeader>
-                <StyledHeading level={titleLevel}>{title}</StyledHeading>
-              </StyledHeader>
+              <div className="modal-header">
+                <Heading bold level={titleLevel}>
+                  {title}
+                </Heading>
+              </div>
             )}
             {children}
-          </StyledWrapper>
+          </div>
         </FocusTrap>
       )}
     </>,
@@ -53,11 +57,13 @@ const Modal = ({ title, titleLevel = 5, wide = false, closeCb, isOpen = false, c
   );
 };
 
-const Body = ({ children }: DefaultProps) => <StyledBody>{children}</StyledBody>;
+const Body = ({ className, children }: DefaultProps) => <div className={cx("modal-body", className)}>{children}</div>;
 Body.displayName = "Body";
 Modal.Body = Body;
 
-const Footer = ({ children }: DefaultProps) => <>{children}</>;
+const Footer = ({ className, children }: DefaultProps) => (
+  <div className={cx("modal-footer", className)}>{children}</div>
+);
 Footer.displayName = "Footer";
 Modal.Footer = Footer;
 

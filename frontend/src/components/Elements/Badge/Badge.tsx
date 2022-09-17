@@ -25,22 +25,19 @@ const Badge = ({
   return (
     <span
       className={cx(
-        "flex relative items-center rounded-lg gap-1 break-all transition-colors font-bold font-base",
+        "badge",
         {
-          "bg-blue-300 text-blue-900": color === "accent",
-          "bg-green-300 text-green-900": color === "success",
-          "bg-cyan-300 text-cyan-900": color === "info",
-          "bg-yellow-300 text-yellow-900": color === "warning",
-          "bg-red-300 text-red-900": color === "error",
-          "p-[4px_12px_2px]": children && size === "small",
-          "p-[6px_18px_3px]": children && size === "default",
-          "p-[8px_24px_4px]": children && size === "large",
-          "p-[5px]": !children && size === "small",
-          "p-[7px]": !children && size === "default",
-          "p-[9px]": !children && size === "large",
-          "text-sm": size === "small",
-          "text-base": size === "default",
-          "text-md": size === "large",
+          "badge-accent": color === "accent",
+          "badge-success": color === "success",
+          "badge-info": color === "info",
+          "badge-warning": color === "warning",
+          "badge-error": color === "error",
+
+          "badge-sm": children && size === "small",
+          "badge-lg": children && size === "large",
+          "badge-icon-sm": !children && size === "small",
+          "badge-icon": !children && size === "default",
+          "badge-icon-lg": !children && size === "large",
         },
         className
       )}

@@ -13,18 +13,18 @@ const Card = ({ className, children, ...props }: Props) => {
 };
 
 const Header = ({ className, children }: DefaultProps) => (
-  <div className={cx("flex items-center gap-2", className)}>{children}</div>
+  <div className={cx("card-header", className)}>{children}</div>
 );
 Header.displayName = "Header";
 Card.Header = Header;
 
-const Body = ({ className, children }: DefaultProps) => (
-  <div className={cx("break-all text-sky-50", className)}>{children}</div>
-);
+const Body = ({ className, children }: DefaultProps) => <div className={cx("card-body", className)}>{children}</div>;
 Body.displayName = "Body";
 Card.Body = Body;
 
-const Footer = ({ className, children }: DefaultProps) => <div className={cx("break-all", className)}>{children}</div>;
+const Footer = ({ className, children }: DefaultProps) => (
+  <div className={cx("card-footer", className)}>{children}</div>
+);
 Footer.displayName = "Footer";
 Card.Footer = Footer;
 

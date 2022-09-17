@@ -13,17 +13,15 @@ const Heading = ({ level = 6, bold = false, className, children, ...props }: Pro
   return (
     <Tag
       className={cx(
-        "text-sky-50",
+        "heading",
         {
-          "font-bold": bold,
-          "font-logo": level === 1,
-          "font-heading": level !== 1,
-          "text-base": level === 6,
-          "text-md": level === 5,
-          "text-lg": level === 4,
-          "text-xl": level === 3,
-          "text-2xl": level === 2,
-          "text-3xl": level === 1,
+          "heading-bold": bold,
+          "heading-logo": level === 1,
+          "heading-2": level === 2,
+          "heading-3": level === 3,
+          "heading-4": level === 4,
+          "heading-5": level === 5,
+          "heading-6": level === 6,
         },
         className
       )}

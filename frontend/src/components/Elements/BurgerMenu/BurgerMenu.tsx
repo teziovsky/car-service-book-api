@@ -1,4 +1,4 @@
-import { StyledBar, StyledBurgerMenu } from "components/Elements/BurgerMenu/BurgerMenu.styled";
+import cx from "classnames";
 import React from "react";
 
 type Props = {
@@ -8,11 +8,15 @@ type Props = {
 
 const BurgerMenu = ({ isOpen, setIsOpen }: Props) => {
   return (
-    <StyledBurgerMenu isOpen={isOpen} onClick={() => setIsOpen(!isOpen)}>
-      <StyledBar></StyledBar>
-      <StyledBar></StyledBar>
-      <StyledBar></StyledBar>
-    </StyledBurgerMenu>
+    <button
+      className={cx("burger", {
+        opened: isOpen,
+      })}
+      onClick={() => setIsOpen(!isOpen)}>
+      <span className="burger-bar"></span>
+      <span className="burger-bar"></span>
+      <span className="burger-bar"></span>
+    </button>
   );
 };
 

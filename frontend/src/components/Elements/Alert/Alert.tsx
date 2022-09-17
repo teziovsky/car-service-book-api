@@ -17,31 +17,31 @@ const Alert = ({ color = "success", description, icon, notification, className, 
   return (
     <div
       className={cx(
-        "relative w-full border-solid border gap-2 flex items-center rounded-lg px-4 py-3",
+        "alert",
         {
-          "max-w-[400px]": notification,
-          "bg-green-900 border-green-600 text-green-50": color === "success",
-          "bg-cyan-900 border-cyan-600 text-cyan-50": color === "info",
-          "bg-yellow-600 border-yellow-600 text-yellow-50": color === "warning",
-          "bg-red-900 border-red-600 text-red-50": color === "error",
+          "alert-notification": notification,
+          "alert-success": color === "success",
+          "alert-info": color === "info",
+          "alert-warning": color === "warning",
+          "alert-error": color === "error",
         },
         className
       )}
       {...props}>
       {icon && (
         <Icon
-          className={cx("self-start w-[22px] h-[22px] min-w-[22px] min-h-[22px]", {
-            "text-green-200": color === "success",
-            "text-cyan-200": color === "info",
-            "text-yellow-200": color === "warning",
-            "text-red-200": color === "error",
+          className={cx("alert-icon", {
+            "alert-icon-success": color === "success",
+            "alert-icon-info": color === "info",
+            "alert-icon-warning": color === "warning",
+            "alert-icon-error": color === "error",
           })}
           icon={icon}
         />
       )}
-      <div className="flex flex-col gap-3 pr-8">
-        {children && <span className="text-base font-bold break-all font-heading">{children}</span>}
-        {description && <span className="text-sm break-all">{description}</span>}
+      <div className="alert-body">
+        {children && <span className="alert-title">{children}</span>}
+        {description && <span className="alert-description">{description}</span>}
       </div>
     </div>
   );
