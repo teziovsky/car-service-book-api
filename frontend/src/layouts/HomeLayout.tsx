@@ -25,7 +25,7 @@ const HomeLayout = () => {
   return (
     <>
       <Header type="Home" links={links} />
-      <main className="p-4">
+      <main className="layout">
         <Outlet />
       </main>
       <Footer />

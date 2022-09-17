@@ -1,6 +1,8 @@
 @import "reset.css";
 @import "global.css";
-@import "components.css";
+@import "./components/elements.css";
+@import "./components/forms.css";
+@import "./components/layouts.css";
 
 @tailwind base;
 @tailwind components;

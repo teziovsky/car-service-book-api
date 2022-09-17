@@ -1,44 +1,61 @@
-import {
-  StyledBreadcrumbs,
-  StyledItem,
-  StyledList,
-  StyledNavLink,
-} from "components/Layouts/Breadcrumbs/Breadcrumbs.styled";
+import cx from "classnames";
 import React from "react";
+import { NavLink } from "react-router-dom";
+import { DefaultProps } from "src/main";
 
-const Breadcrumbs = () => {
+type Props = DefaultProps & {};
+
+const Breadcrumbs = ({ className }: Props) => {
   return (
-    <StyledBreadcrumbs>
-      <StyledList>
-        <StyledItem>
-          <StyledNavLink to={"/app"}>Home</StyledNavLink>
-        </StyledItem>
-        <StyledItem>
-          <StyledNavLink to={"/app/cars"}>Cars</StyledNavLink>
-        </StyledItem>
-        <StyledItem>
-          <StyledNavLink to={"/app/cars/1"}>Honda Civic VIII</StyledNavLink>
-        </StyledItem>
-        <StyledItem>
-          <StyledNavLink to={"/app/cars/1/edit"}>Edit</StyledNavLink>
-        </StyledItem>
-        <StyledItem>
-          <StyledNavLink to={"/app/cars/1/edit"}>Edit repair</StyledNavLink>
-        </StyledItem>
-        <StyledItem>
-          <StyledNavLink to={"/app/cars/1/edit"}>Edit</StyledNavLink>
-        </StyledItem>{" "}
-        <StyledItem>
-          <StyledNavLink to={"/app/cars/1/edit"}>Edit</StyledNavLink>
-        </StyledItem>{" "}
-        <StyledItem>
-          <StyledNavLink to={"/app/cars/1/edit"}>Edit</StyledNavLink>
-        </StyledItem>
-        <StyledItem>
-          <StyledNavLink to={"/app/cars/1/edit"}>Edit</StyledNavLink>
-        </StyledItem>
-      </StyledList>
-    </StyledBreadcrumbs>
+    <nav className={cx("breadcrumbs", className)}>
+      <ul className="breadcrumbs-list">
+        <li className="breadcrumbs-item">
+          <NavLink className="breadcrumbs-link" to={"/app"}>
+            Home
+          </NavLink>
+        </li>
+        <li className="breadcrumbs-item">
+          <NavLink className="breadcrumbs-link" to={"/app/cars"}>
+            Cars
+          </NavLink>
+        </li>
+        <li className="breadcrumbs-item">
+          <NavLink className="breadcrumbs-link" to={"/app/cars/1"}>
+            Honda Civic VIII
+          </NavLink>
+        </li>
+        <li className="breadcrumbs-item">
+          <NavLink className="breadcrumbs-link" to={"/app/cars/1/edit"}>
+            Edit
+          </NavLink>
+        </li>
+        <li className="breadcrumbs-item">
+          <NavLink className="breadcrumbs-link" to={"/app/cars/1/edit"}>
+            Edit repair
+          </NavLink>
+        </li>
+        <li className="breadcrumbs-item">
+          <NavLink className="breadcrumbs-link" to={"/app/cars/1/edit"}>
+            Edit
+          </NavLink>
+        </li>{" "}
+        <li className="breadcrumbs-item">
+          <NavLink className="breadcrumbs-link" to={"/app/cars/1/edit"}>
+            Edit
+          </NavLink>
+        </li>{" "}
+        <li className="breadcrumbs-item">
+          <NavLink className="breadcrumbs-link" to={"/app/cars/1/edit"}>
+            Edit
+          </NavLink>
+        </li>
+        <li className="breadcrumbs-item">
+          <NavLink className="breadcrumbs-link" to={"/app/cars/1/edit"}>
+            Edit
+          </NavLink>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

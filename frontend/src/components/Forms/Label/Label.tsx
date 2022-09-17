@@ -1,11 +1,15 @@
-import { StyledLabel } from "components/Forms/Label/Label.styled";
+import cx from "classnames";
 import React from "react";
 import { DefaultProps } from "src/main";
 
 type Props = DefaultProps & {};
 
-const Label = ({ children, ...props }: Props) => {
-  return <StyledLabel {...props}>{children}</StyledLabel>;
+const Label = ({ children, className, ...props }: Props) => {
+  return (
+    <label className={cx("label", className)} {...props}>
+      {children}
+    </label>
+  );
 };
 
 export default Label;

@@ -9,7 +9,7 @@ const AppLayout = () => {
     <>
       <Header type="App" />
       <Breadcrumbs />
-      <main className="p-4">
+      <main className="layout">
         <Outlet />
       </main>
       <Footer />

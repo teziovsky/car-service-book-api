@@ -1,17 +1,27 @@
-import { StyledInput } from "components/Forms/Input/Input.styled";
+import cx from "classnames";
 import React from "react";
 import { DefaultProps } from "src/main";
 
 export type Props = DefaultProps & {
-  inputSize?: "small" | "default" | "large";
+  size?: "small" | "default" | "large";
   tag: "input" | "select" | "textarea";
 };
 
-const Input = ({ tag, inputSize, children, ...props }: Props) => {
+const Input = ({ tag, size, children, className, ...props }: Props) => {
+  const Tag = tag;
   return (
-    <StyledInput as={tag} inputSize={inputSize} {...props}>
+    <Tag
+      className={cx(
+        "input",
+        {
+          "input--small": size === "small",
+          "input--large": size === "large",
+        },
+        className
+      )}
+      {...props}>
       {children}
-    </StyledInput>
+    </Tag>
   );
 };
 

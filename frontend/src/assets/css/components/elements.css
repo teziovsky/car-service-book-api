@@ -218,7 +218,7 @@
   .burger {
     @apply cursor-pointer relative w-8 h-8 bg-transparent border-none rounded-lg outline-none p-2;
 
-    @media only screen and min-width: 768px {
+    @media only screen and (min-width: 768px) {
       display: none;
     }
 

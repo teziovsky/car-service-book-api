@@ -4,7 +4,8 @@ body {
 }
 
 .layout {
-  min-height: calc(100vh - 68px);
+  @apply p-4;
+  min-height: calc(100vh - 215px);
 }
 
 a[href]:not([tabindex="-1"]):focus-visible,

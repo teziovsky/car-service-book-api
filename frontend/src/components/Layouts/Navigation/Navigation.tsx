@@ -1,4 +1,4 @@
-import { StyledItem, StyledLink, StyledList, StyledNav } from "components/Layouts/Navigation/Navigation.styled";
+import cx from "classnames";
 import useBreakpoint from "hooks/useBreakpoint";
 import React, { useEffect, useState } from "react";
 import { NavLink } from "react-router-dom";
@@ -24,21 +24,27 @@ const Navigation = ({ links, isOpen }: Props) => {
   }, [breakpoint]);
 
   return (
-    <StyledNav isMobile={isMobile} isOpen={isOpen}>
-      <StyledList>
+    <nav
+      className={cx("nav", {
+        mobile: isMobile,
+        opened: isOpen,
+      })}>
+      <ul className="nav-list">
         {links.map((link) => (
-          <StyledItem key={link.path}>
+          <li className="nav-item" key={link.path}>
             {link.anchor ? (
-              <StyledLink href={link.path}>{link.name}</StyledLink>
-            ) : (
-              <StyledLink as={NavLink} to={link.path}>
+              <a className="nav-link" href={link.path}>
                 {link.name}
-              </StyledLink>
+              </a>
+            ) : (
+              <NavLink className="nav-link" to={link.path}>
+                {link.name}
+              </NavLink>
             )}
-          </StyledItem>
+          </li>
         ))}
-      </StyledList>
-    </StyledNav>
+      </ul>
+    </nav>
   );
 };
 
