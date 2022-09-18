@@ -10,11 +10,11 @@ services:
     volumes:
       - ../../frontend:/usr/src/app
       - /usr/src/app/node_modules
-    command: npm run dev
+    command: sh -c "npm install && npm run dev"
     ports:
       - ${APP_PORT}:3000
     networks:
-      - teziovsky_network
+      - car_service_book_network
     depends_on:
       - api
   api:
@@ -35,7 +35,7 @@ services:
     ports:
       - ${API_PORT}:3000
     networks:
-      - teziovsky_network
+      - car_service_book_network
     depends_on:
       - postgresql
   postgresql:
@@ -53,10 +53,10 @@ services:
     ports:
       - 127.0.0.1:${POSTGRES_PORT}:5432
     networks:
-      - teziovsky_network
+      - car_service_book_network
 volumes:
   car_service_book_postgresql:
     name: car_service_book_postgresql
     driver: local
 networks:
-  teziovsky_network:
+  car_service_book_network:

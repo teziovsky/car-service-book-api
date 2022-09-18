@@ -12,7 +12,7 @@ services:
     ports:
       - ${APP_PORT}:80
     networks:
-      - teziovsky_network
+      - car_service_book_network
     depends_on:
       - api
   api:
@@ -32,7 +32,7 @@ services:
     ports:
       - ${API_PORT}:3000
     networks:
-      - teziovsky_network
+      - car_service_book_network
     depends_on:
       - postgresql
   postgresql:
@@ -51,6 +51,6 @@ services:
     ports:
       - 127.0.0.1:${POSTGRES_PORT}:5432
     networks:
-      - teziovsky_network
+      - car_service_book_network
 networks:
-  teziovsky_network:
+  car_service_book_network:
