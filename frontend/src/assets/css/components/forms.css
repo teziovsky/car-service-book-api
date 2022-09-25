@@ -48,12 +48,54 @@
 
   /* ERROR MESSAGE */
   .error-message {
-    @apply text-red-400 text-sm;
+    @apply text-red-400 text-sm self-end mt-1 mr-1;
   }
 
   /* INPUT */
   .input {
-    @apply text-sky-50 bg-slate-900 border-solid border border-sky-50 rounded-lg p-[10px_10px_8px] transition-colors enabled:hover:border-sky-300 enabled:focus:border-sky-300 placeholder:text-gray-500 placeholder:opacity-100 disabled:border-gray-500 disabled:text-gray-600 disabled:pointer-events-none;
+    @apply text-sky-50 bg-slate-900 border-solid border border-sky-50 rounded-lg p-[10px_10px_8px] transition-colors enabled:hover:border-sky-300 enabled:focus:border-sky-300 placeholder:text-gray-500 placeholder:opacity-100 disabled:border-gray-500 disabled:text-gray-600 disabled:pointer-events-none appearance-none;
+
+    &--select {
+      @apply bg-chevron-up-down bg-no-repeat text-white;
+    }
+
+    &-wrapper {
+      @apply flex flex-col gap-1;
+
+      &:focus-within {
+        & label {
+          @apply text-sky-300;
+        }
+      }
+
+      &.error {
+        & input,
+        & select,
+        & textarea {
+          @apply border-red-400;
+        }
+
+        & input[type="checkbox"] {
+          &:before {
+            @apply border-red-400;
+          }
+        }
+      }
+
+      &.success {
+        & input,
+        & select,
+        & textarea {
+          @apply border-green-400;
+        }
+
+        & input[type="checkbox"] {
+          &:before {
+            @apply border-green-400;
+          }
+        }
+      }
+    }
 
     &--small {
       @apply p-[8px_8px_6px] text-sm;
@@ -66,6 +108,6 @@
 
   /* LABEL */
   .label {
-    @apply text-sm text-sky-50;
+    @apply text-sm text-sky-50 ml-1 transition-colors;
   }
 }

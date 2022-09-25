@@ -4,8 +4,15 @@ body {
 }
 
 .layout {
-  @apply p-4;
-  min-height: calc(100vh - 215px);
+  @apply px-4 container;
+
+  &--app {
+    min-height: calc(100vh - 225px);
+  }
+
+  &--home {
+    min-height: calc(100vh - 191px);
+  }
 }
 
 a[href]:not([tabindex="-1"]):focus-visible,
@@ -21,7 +28,7 @@ iframe:not([tabindex="-1"]):focus-visible,
 }
 
 a {
-  @apply relative no-underline inline-block text-sky-200 transition-colors after:content-[''];
+  @apply relative no-underline inline-block rounded-lg text-sky-200 transition-colors after:content-[''];
 
   &::after {
     @apply absolute bottom-0 left-1/2 w-1/2 h-[1px] bg-transparent -translate-x-1/2 -translate-y-[10px] transition-all;
@@ -31,7 +38,7 @@ a {
   &:focus {
     @apply text-sky-400;
 
-    &::after {
+    &:not(.header-logo)::after {
       @apply bg-sky-400 -translate-y-0 scale-100;
     }
   }

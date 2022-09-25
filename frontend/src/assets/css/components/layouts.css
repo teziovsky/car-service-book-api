@@ -1,7 +1,7 @@
 @layer components {
   /* BREADCRUMBS */
   .breadcrumbs {
-    @apply px-4 w-full;
+    @apply w-full mb-4;
 
     &-list {
       @apply flex flex-nowrap overflow-x-auto gap-2;
@@ -36,7 +36,7 @@
 
   /* HEADER */
   .header {
-    @apply sticky z-20 top-0 left-0 w-full flex justify-between items-center p-4 min-h-[87px] bg-slate-900 shadow-sm bg-sky-900/30 shadow-sky-900;
+    @apply sticky z-20 top-0 left-0 w-full flex justify-between items-center p-4 min-h-[87px] shadow-sm bg-slate-900;
 
     &-logo {
       @apply absolute z-30 top-[50%] left-1/2 no-underline -translate-x-1/2 -translate-y-1/2 rounded-lg;
@@ -60,6 +60,10 @@
     &-subheading {
       @apply tracking-tight -mt-2 font-logo text-md;
     }
+
+    &-buttons {
+      @apply flex gap-2;
+    }
   }
 
   /* FOOTER */
@@ -67,7 +71,7 @@
     @apply flex justify-center items-center py-8 px-4;
 
     &-wrapper {
-      @apply grid grid-cols-1 grid-rows-3 place-items-center gap-1;
+      @apply flex flex-col items-center gap-1;
     }
 
     &-text {
@@ -124,7 +128,7 @@
     }
 
     &-link {
-      @apply w-full block no-underline px-2 text-sky-50 transition-colors;
+      @apply w-full block rounded-lg no-underline px-2 text-sky-50 transition-colors;
 
       @media only screen and (min-width: 768px) {
         @apply inline-block p-2;

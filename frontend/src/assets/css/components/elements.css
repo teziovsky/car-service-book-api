@@ -159,7 +159,7 @@
     }
 
     &-sm {
-      @apply text-sm p-[4px_12px_2px];
+      @apply text-sm p-[4px_12px_3px];
     }
 
     &-lg {
@@ -294,7 +294,7 @@
   /* CARD */
   .card {
     &-wrapper {
-      @apply p-5 border-solid border border-sky-200/40 rounded-lg bg-sky-900/60;
+      @apply p-5 border-solid border border-sky-200/40 rounded-lg bg-sky-900/30 backdrop-blur-xl;
 
       & > div {
         &:not(:last-child) {
@@ -316,7 +316,7 @@
     }
 
     &-heading {
-      @apply text-cyan-50 break-all font-bold font-heading text-lg;
+      @apply text-cyan-50 break-all font-bold font-heading text-lg w-full;
     }
 
     &-body {
@@ -340,19 +340,23 @@
       @apply font-logo text-3xl;
     }
 
-    &-2 {
+    &-h2 {
       @apply text-2xl;
     }
-    &-3 {
+
+    &-h3 {
       @apply text-xl;
     }
-    &-4 {
+
+    &-h4 {
       @apply text-lg;
     }
-    &-5 {
+
+    &-h5 {
       @apply text-md;
     }
-    &-6 {
+
+    &-h6 {
       @apply text-base;
     }
   }
