@@ -16,6 +16,7 @@ export default () => {
         src: path.resolve(__dirname, "src"),
         assets: path.resolve(__dirname, "src/assets"),
         components: path.resolve(__dirname, "src/components"),
+        context: path.resolve(__dirname, "src/context"),
         hooks: path.resolve(__dirname, "src/hooks"),
         layouts: path.resolve(__dirname, "src/layouts"),
         plugins: path.resolve(__dirname, "src/plugins"),

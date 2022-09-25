@@ -40,6 +40,7 @@
     "*.{jsx,js,ts,tsx}": "eslint --cache --fix"
   },
   "dependencies": {
+    "@hookform/resolvers": "2.9.8",
     "axios": "0.27.2",
     "classnames": "2.3.2",
     "focus-trap-react": "10.0.0",
@@ -47,17 +48,19 @@
     "react": "^18.2.0",
     "react-cookie": "4.1.1",
     "react-dom": "^18.2.0",
+    "react-hook-form": "7.35.0",
     "react-icons": "^4.4.0",
     "react-router-dom": "^6.3.0",
-    "yup": "^0.32.11"
+    "yup": "0.32.11"
   },
   "devDependencies": {
     "@babel/core": "^7.18.13",
-    "@types/node": "^18.7.14",
-    "@types/react": "^18.0.18",
+    "@hookform/devtools": "4.2.2",
+    "@types/node": "^18.7.18",
+    "@types/react": "^18.0.20",
     "@types/react-dom": "^18.0.6",
-    "@typescript-eslint/eslint-plugin": "^5.36.1",
-    "@typescript-eslint/parser": "^5.36.1",
+    "@typescript-eslint/eslint-plugin": "^5.36.2",
+    "@typescript-eslint/parser": "^5.36.2",
     "@vitejs/plugin-react": "^2.0.1",
     "autoprefixer": "10.4.11",
     "babel-loader": "^8.2.5",
@@ -66,19 +69,19 @@
     "eslint-plugin-import": "^2.26.0",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.1",
+    "eslint-plugin-react": "^7.31.8",
     "eslint-plugin-simple-import-sort": "^7.0.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.3",
     "postcss": "8.4.16",
     "postcss-import": "15.0.0",
-    "postcss-scss": "^4.0.4",
+    "postcss-scss": "^4.0.5",
     "prettier": "^2.7.1",
     "rimraf": "3.0.2",
     "stylelint": "^14.11.0",
     "stylelint-config-recommended": "^9.0.0",
     "tailwindcss": "3.1.8",
-    "typescript": "^4.8.2",
+    "typescript": "^4.8.3",
     "vite": "^3.0.9"
   }
 }

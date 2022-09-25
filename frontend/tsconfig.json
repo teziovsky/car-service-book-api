@@ -17,10 +17,12 @@
     "jsx": "react-jsx",
     "types": ["node"],
     "baseUrl": "./src",
+    "typeRoots": ["./src/types"],
     "paths": {
       "src/*": ["*"],
       "assets/*": ["assets/*"],
       "components/*": ["components/*"],
+      "context/*": ["context/*"],
       "hooks/*": ["hooks/*"],
       "layouts/*": ["layouts/*"],
       "plugins/*": ["plugins/*"],

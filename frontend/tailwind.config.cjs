@@ -3,6 +3,9 @@ module.exports = {
   mode: "jit",
   content: ["./src/**/*.{ts,tsx,js,jsx}"],
   theme: {
+    container: {
+      center: true,
+    },
     fontSize: {
       sm: ["0.875rem", "1.125rem"],
       base: ["1rem", "1.25rem"],
@@ -20,6 +23,7 @@ module.exports = {
       },
       backgroundImage: {
         "chevron-right": "url('/assets/images/chevron-right.svg')",
+        "chevron-up-down": "url('/assets/images/chevron-up-down.svg')",
       },
     },
   },
