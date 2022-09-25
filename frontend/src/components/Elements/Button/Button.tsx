@@ -1,13 +1,16 @@
 import cx from "classnames";
 import Icon from "components/Elements/Icon/Icon";
 import React from "react";
+import * as HeroIcons from "react-icons/hi";
 import { DefaultProps } from "src/main";
+
+const icons = { ...HeroIcons };
 
 export type Props = DefaultProps & {
   status?: "primary" | "secondary" | "tertiary";
   color?: "accent" | "success" | "info" | "warning" | "error";
   size?: "small" | "default" | "large";
-  icon?: string;
+  icon?: keyof typeof icons;
   iconRight?: boolean;
 };
 

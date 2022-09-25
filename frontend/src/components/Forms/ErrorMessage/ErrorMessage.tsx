@@ -3,7 +3,7 @@ import React from "react";
 import { DefaultProps } from "src/main";
 
 type Props = DefaultProps & {
-  message: string;
+  message: string | undefined;
 };
 
 const ErrorMessage = ({ message, className, ...props }: Props) => {

@@ -23,7 +23,7 @@ const onResponse = (response: AxiosResponse): AxiosResponse => {
 
 const onError = (error: AxiosError) => {
   if (error?.response?.status === 401) {
-    console.log("logout");
+    window.location.href = "/";
   }
 
   return Promise.reject(error);

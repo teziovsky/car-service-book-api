@@ -17,7 +17,6 @@ const Footer = ({ email = "jakub.soboczynski@icloud.com", className, ...props }:
           </span>{" "}
           & React
         </p>
-        <p className="footer-text">Jakub Soboczyński &copy; 2022</p>
         {email && (
           <p className="footer-text">
             Need help? Feel free to <a href={`mailto:${email}`}>Contact me!</a>

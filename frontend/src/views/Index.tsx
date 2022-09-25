@@ -1,17 +1,11 @@
-import Card from "src/components/Elements/Card/Card";
+import { useAuth } from "context/authContext";
 
 const Index = () => {
+  const { user } = useAuth();
   return (
     <>
-      <div className="flex flex-col items-center gap-5">
-        <Card>
-          <Card.Header>
-            <h5 className="card-heading">Nagłówek</h5>
-          </Card.Header>
-          <Card.Body>Body</Card.Body>
-          <Card.Footer>Test</Card.Footer>
-        </Card>
-      </div>
+      <div className="flex flex-col items-center gap-5"></div>
+      <p>{JSON.stringify(user)}</p>
     </>
   );
 };

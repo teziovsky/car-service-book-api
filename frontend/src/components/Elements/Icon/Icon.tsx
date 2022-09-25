@@ -2,8 +2,10 @@ import React from "react";
 import * as HeroIcons from "react-icons/hi";
 import { DefaultProps } from "src/main";
 
+const icons = { ...HeroIcons };
+
 type Props = DefaultProps & {
-  icon: string;
+  icon: keyof typeof icons;
 };
 
 const Icon = ({ icon, ...props }: Props) => {

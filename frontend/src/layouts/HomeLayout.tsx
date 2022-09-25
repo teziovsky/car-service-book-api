@@ -1,5 +1,5 @@
 import Footer from "components/Layouts/Footer/Footer";
-import Header from "components/Layouts/Header/Header";
+import HeaderHome from "components/Layouts/Header/HeaderHome";
 import { LinkType } from "components/Layouts/Navigation/Navigation";
 import React from "react";
 import { Outlet } from "react-router-dom";
@@ -24,8 +24,8 @@ const links: LinkType[] = [
 const HomeLayout = () => {
   return (
     <>
-      <Header type="Home" links={links} />
-      <main className="layout">
+      <HeaderHome links={links} />
+      <main className="layout layout--home">
         <Outlet />
       </main>
       <Footer />

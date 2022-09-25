@@ -11,11 +11,6 @@ const Breadcrumbs = ({ className }: Props) => {
       <ul className="breadcrumbs-list">
         <li className="breadcrumbs-item">
           <NavLink className="breadcrumbs-link" to={"/app"}>
-            Home
-          </NavLink>
-        </li>
-        <li className="breadcrumbs-item">
-          <NavLink className="breadcrumbs-link" to={"/app/cars"}>
             Cars
           </NavLink>
         </li>
@@ -32,26 +27,6 @@ const Breadcrumbs = ({ className }: Props) => {
         <li className="breadcrumbs-item">
           <NavLink className="breadcrumbs-link" to={"/app/cars/1/edit"}>
             Edit repair
-          </NavLink>
-        </li>
-        <li className="breadcrumbs-item">
-          <NavLink className="breadcrumbs-link" to={"/app/cars/1/edit"}>
-            Edit
-          </NavLink>
-        </li>{" "}
-        <li className="breadcrumbs-item">
-          <NavLink className="breadcrumbs-link" to={"/app/cars/1/edit"}>
-            Edit
-          </NavLink>
-        </li>{" "}
-        <li className="breadcrumbs-item">
-          <NavLink className="breadcrumbs-link" to={"/app/cars/1/edit"}>
-            Edit
-          </NavLink>
-        </li>
-        <li className="breadcrumbs-item">
-          <NavLink className="breadcrumbs-link" to={"/app/cars/1/edit"}>
-            Edit
           </NavLink>
         </li>
       </ul>

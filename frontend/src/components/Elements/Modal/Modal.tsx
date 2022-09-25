@@ -1,11 +1,10 @@
 import cx from "classnames";
 import Button from "components/Elements/Button/Button";
+import Heading from "components/Elements/Heading/Heading";
 import FocusTrap from "focus-trap-react";
 import React from "react";
 import ReactDOM from "react-dom";
 import { DefaultProps } from "src/main";
-
-import Heading from "../Heading/Heading";
 
 export type Props = DefaultProps & {
   title?: string;
@@ -30,7 +29,7 @@ const Modal = ({ title, titleLevel = 5, wide = false, closeCb, isOpen = false, c
 
   return ReactDOM.createPortal(
     <>
-      {isOpen && closeCb && <div className="modal-backdrop" />}
+      {isOpen && closeCb && <div className="modal-backdrop" onClick={() => closeCb()} />}
       {isOpen && (
         <FocusTrap focusTrapOptions={{ allowOutsideClick: true }}>
           <div

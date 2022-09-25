@@ -1,15 +1,15 @@
 import Breadcrumbs from "components/Layouts/Breadcrumbs/Breadcrumbs";
 import Footer from "components/Layouts/Footer/Footer";
-import Header from "components/Layouts/Header/Header";
+import HeaderApp from "components/Layouts/Header/HeaderApp";
 import React from "react";
 import { Outlet } from "react-router-dom";
 
 const AppLayout = () => {
   return (
     <>
-      <Header type="App" />
-      <Breadcrumbs />
-      <main className="layout">
+      <HeaderApp />
+      <main className="layout layout--app">
+        <Breadcrumbs />
         <Outlet />
       </main>
       <Footer />
