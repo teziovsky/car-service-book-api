@@ -31,7 +31,7 @@ cd docker/develop && ./docker_up.sh
 
 ## Contact ☎️
 
-If you have any suggestions, please [email me here](mailto:jakub.soboczynski@icloud.com)! 🔥
+If you have any suggestions, please [email me here](mailto:teziovsky@gmail.com)! 🔥
 
 ## License 🧾
 
