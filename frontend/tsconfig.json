@@ -1,38 +1,30 @@
 {
   "compilerOptions": {
-    "target": "ESNext",
-    "useDefineForClassFields": true,
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": false,
     "skipLibCheck": true,
-    "esModuleInterop": false,
-    "allowSyntheticDefaultImports": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
-    "module": "ESNext",
-    "moduleResolution": "Node",
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
     "resolveJsonModule": true,
     "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx",
-    "types": ["node"],
+    "jsx": "preserve",
+    "incremental": true,
     "baseUrl": "./src",
-    "typeRoots": ["./src/types"],
+    "types": ["node"],
     "paths": {
-      "src/*": ["*"],
-      "assets/*": ["assets/*"],
-      "components/*": ["components/*"],
-      "context/*": ["context/*"],
-      "hooks/*": ["hooks/*"],
-      "layouts/*": ["layouts/*"],
-      "plugins/*": ["plugins/*"],
-      "routes/*": ["routes/*"],
-      "services/*": ["services/*"],
-      "types/*": ["types/*"],
-      "utils/*": ["utils/*"],
-      "views/*": ["views/*"]
+      "@/*": ["*"]
     }
   },
-  "include": ["src"],
-  "references": [{ "path": "./tsconfig.node.json" }]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules"],
+  "ts-node": {
+    "compilerOptions": {
+      "module": "commonjs"
+    }
+  }
 }

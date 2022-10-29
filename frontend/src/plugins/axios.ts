@@ -1,9 +1,10 @@
-import Axios, { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
+import type { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
+import axios from "axios";
 import { Cookies as ReactCookies } from "react-cookie";
 
 const cookies = new ReactCookies();
 
-const api = Axios.create({
+export const api = axios.create({
   baseURL: "http://localhost:8011/api",
 });
 
@@ -31,5 +32,3 @@ const onError = (error: AxiosError) => {
 
 api.interceptors.request.use(onRequest, onError);
 api.interceptors.response.use(onResponse, onError);
-
-export { api };

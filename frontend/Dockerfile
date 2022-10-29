@@ -1,58 +1,55 @@
-###################
-# BUILD FOR LOCAL DEVELOPMENT
-###################
+FROM node:16-alpine AS base
 
-FROM node:18-alpine As development
+RUN npm i -g pnpm
 
-# Create app directory
-WORKDIR /usr/src/app
-
-# Copy application dependency manifests to the container image.
-# A wildcard is used to ensure copying both package.json AND package-lock.json (when available).
-# Copying this first prevents re-running npm install on every code change.
-COPY package*.json ./
-
-# Install app dependencies using the `npm ci` command instead of `npm install`
-RUN npm ci
-
-# Bundle app source
-COPY . .
-
-###################
-# BUILD FOR PRODUCTION
-###################
-
-FROM node:18-alpine As build
+FROM base As dev
 
 WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-# In order to run `npm run build` we need access to the Nest CLI which is a dev dependency. In the previous development stage we ran `npm ci` which installed all dependencies, so we can copy over the node_modules directory from the development image
-COPY --from=development /usr/src/app/node_modules ./node_modules
+RUN pnpm install
+
+
+FROM base AS builder
+
+# Check https://github.com/nodejs/docker-node/tree/b4117f9333da4138b03a546ec926ef50a31506c3#nodealpine to understand why libc6-compat might be needed.
+RUN apk add --no-cache libc6-compat
+
+WORKDIR /usr/src/app
+
+COPY package.json package-lock.json* pnpm-lock.yaml* ./
+RUN \
+  if [ -f package-lock.json ]; then npm ci; \
+  elif [ -f pnpm-lock.yaml ]; then pnpm i --frozen-lockfile; \
+  else echo "Lockfile not found." && exit 1; \
+  fi
 
 COPY . .
 
-# Run the build command which creates the production bundle
-RUN npm run build
+RUN pnpm build
 
-# Set NODE_ENV environment variable
+
+FROM base AS prod
+WORKDIR /usr/src/app
+
 ENV NODE_ENV production
+ENV NEXT_TELEMETRY_DISABLED 1
 
-# Running `npm ci` removes the existing node_modules directory and passing in --only=production ensures that only the production dependencies are installed. This ensures that the node_modules directory is as optimized as possible
-RUN npm ci --only=production && npm cache clean --force
+RUN addgroup --system --gid 1001 nodejs
+RUN adduser --system --uid 1001 nextjs
 
-###################
-# PRODUCTION
-###################
+COPY --from=builder /usr/src/app/public ./public
 
-FROM nginx:1.23.1-alpine As production
+# Automatically leverage output traces to reduce image size
+# https://nextjs.org/docs/advanced-features/output-file-tracing
+COPY --from=builder --chown=nextjs:nodejs /usr/src/app/.next/standalone ./
+COPY --from=builder --chown=nextjs:nodejs /usr/src/app/.next/static ./.next/static
 
-# Copy the bundled code from the build stage to the production image
-COPY --from=build /usr/src/app/dist/frontend /usr/share/nginx/html
-COPY /nginx/nginx.conf /etc/nginx/conf.d/default.conf
+USER nextjs
 
-EXPOSE 80
+EXPOSE 3000
 
-# Start the server using the production build
-#CMD [ "npm", "run", "start:migrate:prod" ]
+ENV PORT 3000
+
+CMD ["node", "server.js"]

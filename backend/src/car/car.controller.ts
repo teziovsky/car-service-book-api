@@ -11,13 +11,14 @@ import {
   Put,
   UseGuards,
 } from "@nestjs/common";
-import { ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { GetUser } from "../auth/decorator";
 import { JwtGuard } from "../auth/guard";
 import { CarService } from "./car.service";
 import { CreateCarDto, UpdateCarDto } from "./dto";
 
 @ApiTags("cars")
+@ApiBearerAuth()
 @UseGuards(JwtGuard)
 @Controller("cars")
 export class CarController {
