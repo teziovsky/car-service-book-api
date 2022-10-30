@@ -14,7 +14,7 @@ module.exports = {
     themes: [
       "winter",
       {
-        vehicle: {
+        car: {
           primary: "#2563eb",
           secondary: "#1d4ed8",
           accent: "#86198f",

@@ -1,0 +1,22 @@
+{
+  "recommendations": [
+    "mgmcdermott.vscode-language-babel",
+    "kamikillerto.vscode-colorize",
+    "pranaygp.vscode-css-peek",
+    "mikestead.dotenv",
+    "dsznajder.es7-react-js-snippets",
+    "dbaeumer.vscode-eslint",
+    "heybourn.headwind",
+    "ecmel.vscode-html-css",
+    "wix.vscode-import-cost",
+    "Zignd.html-css-class-completion",
+    "xabikos.JavaScriptSnippets",
+    "ghmcadams.lintlens",
+    "leizongmin.node-module-intellisense",
+    "christian-kohler.npm-intellisense",
+    "csstools.postcss",
+    "Prisma.prisma",
+    "bradlc.vscode-tailwindcss",
+    "rbbit.typescript-hero"
+  ]
+}

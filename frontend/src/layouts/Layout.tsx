@@ -1,4 +1,3 @@
-import Head from "next/head";
 import { PropsWithChildren, useEffect } from "react";
 
 import Footer from "@/components/Footer";
@@ -10,13 +9,19 @@ type Props = PropsWithChildren & {};
 const Layout = (props: Props) => {
   const isDark = useMediaQuery("(prefers-color-scheme: dark)");
 
+  useEffect(() => {
+    if (isDark) {
+      document.documentElement.setAttribute("data-theme", "car");
+    } else {
+      document.documentElement.removeAttribute("data-theme");
+    }
+  }, [isDark]);
+
   return (
     <>
-      <Header data-theme={isDark ? "vehicle" : "winter"} />
-      <main className={"pt-16"} data-theme={isDark ? "vehicle" : "winter"}>
-        {props.children}
-      </main>
-      <Footer data-theme={isDark ? "vehicle" : "winter"} />
+      <Header />
+      <main className={"pt-16"}>{props.children}</main>
+      <Footer />
     </>
   );
 };

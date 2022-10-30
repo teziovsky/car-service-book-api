@@ -64,12 +64,12 @@ const Header = ({ ...props }) => {
       </div>
       <div className={"navbar-center"}>
         <Link href={"/"} className={"normal-case t ext-xl btn btn-ghost"}>
-          Vehicle Service Book
+          Car Service Book
         </Link>
       </div>
       <div className={"navbar-end"}>
         {pathname === "/" ? (
-          <Link href={"/app"} className={"btn"}>
+          <Link href={"/app"} className={"btn btn-outline"}>
             Go to app
           </Link>
         ) : null}
