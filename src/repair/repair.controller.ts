@@ -25,18 +25,12 @@ export class RepairController {
   constructor(private readonly repairService: RepairService) {}
 
   @Post()
-  create(
-    @Param("car_id", ParseIntPipe) carId: number,
-    @Body() createRepairDto: CreateRepairDto,
-  ) {
+  create(@Param("car_id", ParseIntPipe) carId: number, @Body() createRepairDto: CreateRepairDto) {
     return this.repairService.create(carId, createRepairDto);
   }
 
   @Get()
-  findAll(
-    @GetUser("id") userId: number,
-    @Param("car_id", ParseIntPipe) carId: number,
-  ) {
+  findAll(@GetUser("id") userId: number, @Param("car_id", ParseIntPipe) carId: number) {
     return this.repairService.findAll(userId, carId);
   }
 
@@ -44,7 +38,7 @@ export class RepairController {
   findOne(
     @GetUser("id") userId: number,
     @Param("car_id", ParseIntPipe) carId: number,
-    @Param("repair_id", ParseIntPipe) repairId: number,
+    @Param("repair_id", ParseIntPipe) repairId: number
   ) {
     return this.repairService.findOne(userId, carId, repairId);
   }
@@ -54,7 +48,7 @@ export class RepairController {
     @GetUser("id") userId: number,
     @Param("car_id", ParseIntPipe) carId: number,
     @Param("repair_id", ParseIntPipe) repairId: number,
-    @Body() updateRepairDto: UpdateRepairDto,
+    @Body() updateRepairDto: UpdateRepairDto
   ) {
     return this.repairService.update(userId, carId, repairId, updateRepairDto);
   }
@@ -64,7 +58,7 @@ export class RepairController {
   remove(
     @GetUser("id") userId: number,
     @Param("car_id", ParseIntPipe) carId: number,
-    @Param("repair_id", ParseIntPipe) repairId: number,
+    @Param("repair_id", ParseIntPipe) repairId: number
   ) {
     return this.repairService.remove(userId, carId, repairId);
   }
