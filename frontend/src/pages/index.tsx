@@ -1,27 +1,9 @@
 import type { InferGetServerSidePropsType } from "next";
-import { useEffect } from "react";
 
 import Seo from "@/components/Seo";
-import { useAuth } from "@/context/authContext";
 import Layout from "@/layouts/Layout";
 
 const Home = (props: InferGetServerSidePropsType<typeof getServerSideProps>) => {
-  const { user, login, getUser } = useAuth();
-  console.log("user: ", user);
-
-  useEffect(() => {
-    async function getData() {
-      await login({
-        email: "mail@example.com",
-        password: "password12345",
-      });
-
-      await getUser();
-    }
-
-    getData();
-  }, []);
-
   return (
     <Layout>
       <Seo title={"Home"} description={"Description of Home"} />

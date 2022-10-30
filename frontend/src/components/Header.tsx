@@ -25,7 +25,7 @@ const links = [
 
 const Header = ({ ...props }) => {
   const [opened, setOpened] = useState(false);
-  const isDesktop = useMediaQuery("(min-width: 1024px)");
+  const isDesktop = useMediaQuery("(min-width: 768px)");
   const { pathname } = useRouter();
 
   return (
@@ -35,7 +35,7 @@ const Header = ({ ...props }) => {
           <>
             <button
               onClick={() => setOpened((prev) => !prev)}
-              className={"flex flex-col items-start gap-1 cursor-pointer btn btn-ghost group lg:hidden"}>
+              className={"flex flex-col items-start gap-1 cursor-pointer btn btn-ghost group md:hidden"}>
               <span className={"w-4 h-[2px] bg-current d-block transition"} />
               <span
                 className={
@@ -46,7 +46,7 @@ const Header = ({ ...props }) => {
             </button>
             <ul
               className={cx(
-                "p-0 menu flex lg:menu-horizontal absolute top-20 left-2 bg-base-300 rounded-lg transition duration-500 lg:translate-y-0 lg:static lg:top-0 lg:left-0 lg:bg-transparent lg:opacity-100",
+                "p-0 menu flex md:menu-horizontal absolute top-20 left-2 bg-base-300 rounded-lg transition duration-500 md:translate-y-0 md:static md:top-0 md:left-0 md:bg-transparent md:opacity-100",
                 {
                   "opacity-0 -translate-y-6": !isDesktop && !opened,
                 }
