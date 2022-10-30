@@ -1,7 +1,7 @@
 _id: req_2b820437a0c1436dad514908399d6a96
 type: Request
 parentId: fld_432b823889964a95890408e39394023a
-modified: 1662980670069
+modified: 1667135838936
 created: 1662978924453
 url: "{{ _.baseUrl }}/auth/login"
 name: Login
@@ -12,7 +12,7 @@ body:
   text: |-
     {
     	"email": "teziovsky@gmail.com",
-    	"password": "password123"
+    	"password": "Password123"
     }
 parameters: []
 headers:
