@@ -39,8 +39,7 @@ export class CarService {
       },
     });
 
-    if (!car || car.userId !== userId)
-      throw new ForbiddenException("Access to resources denied");
+    if (!car || car.userId !== userId) throw new ForbiddenException("Access to resources denied");
 
     return this.prisma.car.update({
       where: {
@@ -59,8 +58,7 @@ export class CarService {
       },
     });
 
-    if (!car || car.userId !== userId)
-      throw new ForbiddenException("Access to resources denied");
+    if (!car || car.userId !== userId) throw new ForbiddenException("Access to resources denied");
 
     await this.prisma.car.delete({
       where: {

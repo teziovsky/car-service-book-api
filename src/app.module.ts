@@ -7,13 +7,6 @@ import { UserModule } from "./user/user.module";
 import { RepairModule } from "./repair/repair.module";
 
 @Module({
-  imports: [
-    ConfigModule.forRoot({ isGlobal: true }),
-    AuthModule,
-    PrismaModule,
-    UserModule,
-    CarModule,
-    RepairModule,
-  ],
+  imports: [ConfigModule.forRoot({ isGlobal: true }), AuthModule, PrismaModule, UserModule, CarModule, RepairModule],
 })
 export class AppModule {}

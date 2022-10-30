@@ -8,11 +8,7 @@ import { AuthDto } from "./dto";
 
 @Injectable()
 export class AuthService {
-  constructor(
-    private prisma: PrismaService,
-    private jwt: JwtService,
-    private config: ConfigService,
-  ) {}
+  constructor(private prisma: PrismaService, private jwt: JwtService, private config: ConfigService) {}
 
   async register(authDto: AuthDto) {
     const hash = await argon.hash(authDto.password);
@@ -56,10 +52,7 @@ export class AuthService {
     return this.signToken(user.id, user.email);
   }
 
-  async signToken(
-    userId: number,
-    email: string,
-  ): Promise<{ access_token: string }> {
+  async signToken(userId: number, email: string): Promise<{ access_token: string }> {
     const payload = {
       sub: userId,
       email,

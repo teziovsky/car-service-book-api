@@ -28,7 +28,7 @@ describe("App e2e", () => {
     app.useGlobalPipes(
       new ValidationPipe({
         whitelist: true,
-      }),
+      })
     );
 
     await app.init();
@@ -175,9 +175,7 @@ describe("App e2e", () => {
           .then((res) => {
             expect(res.body.brand).toEqual(createCarDto.brand);
             expect(res.body.model).toEqual(createCarDto.model);
-            expect(res.body.productionYear).toEqual(
-              createCarDto.productionYear,
-            );
+            expect(res.body.productionYear).toEqual(createCarDto.productionYear);
           });
       });
     });
@@ -278,9 +276,7 @@ describe("App e2e", () => {
             carId = res.body.id;
             expect(res.body.brand).toEqual(createCarDto.brand);
             expect(res.body.model).toEqual(createCarDto.model);
-            expect(res.body.productionYear).toEqual(
-              createCarDto.productionYear,
-            );
+            expect(res.body.productionYear).toEqual(createCarDto.productionYear);
           });
       });
     });
@@ -357,8 +353,7 @@ describe("App e2e", () => {
       it("should update repair", () => {
         const updateRepairDto: UpdateRepairDto = {
           title: "Kupno samochodu Lexus is200t",
-          description:
-            "W cenę zakupu wliczono wykonanie przeglądu 0 oraz kupno nowego kompletu opon.",
+          description: "W cenę zakupu wliczono wykonanie przeglądu 0 oraz kupno nowego kompletu opon.",
           price: 85900,
           date: "2022-07-10",
           mileage: 31210,

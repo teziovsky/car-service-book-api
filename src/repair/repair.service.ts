@@ -42,12 +42,7 @@ export class RepairService {
     });
   }
 
-  async update(
-    userId: number,
-    carId: number,
-    repairId: number,
-    updateRepairDto: UpdateRepairDto,
-  ) {
+  async update(userId: number, carId: number, repairId: number, updateRepairDto: UpdateRepairDto) {
     const repair = await this.prisma.repair.findUnique({
       where: {
         id: repairId,
