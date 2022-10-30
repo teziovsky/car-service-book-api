@@ -23,7 +23,7 @@ async function bootstrap() {
   );
 
   app.enableCors({
-    origin: "http://127.0.0.1:8010",
+    origin: ["http://127.0.0.1:8010", "http://localhost:8010"],
   });
 
   await app.listen(3000);

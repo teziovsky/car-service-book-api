@@ -1,12 +1,12 @@
-import React, { createContext, useContext, useMemo, useState } from "react";
+import React, { createContext, PropsWithChildren, useContext, useMemo, useState } from "react";
 import { Cookies as ReactCookies } from "react-cookie";
-import { DefaultProps } from "src/main";
-import { api } from "src/plugins";
-import { User } from "src/types";
+
+import { api } from "@/plugins";
+import { User } from "@/types";
 
 const cookies = new ReactCookies();
 
-type Props = DefaultProps & {};
+type Props = PropsWithChildren & {};
 
 export type LoginProps = {
   email: string;
@@ -18,8 +18,6 @@ export type SignupProps = LoginProps & {
 };
 
 interface AuthContextType {
-  // We defined the user type in `index.d.ts`, but it's
-  // a simple object with email, name and password.
   user?: User;
   isAuthenticated: boolean;
   loading: boolean;
@@ -106,7 +104,7 @@ export function AuthProvider({ children }: Props) {
       signUp,
       logout,
     }),
-    [user, loading, error]
+    [user, loading, error, isAuthenticated]
   );
 
   return <AuthContext.Provider value={memoizedValue}>{children}</AuthContext.Provider>;

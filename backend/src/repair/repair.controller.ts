@@ -11,13 +11,14 @@ import {
   Put,
   UseGuards,
 } from "@nestjs/common";
-import { ApiTags } from "@nestjs/swagger";
+import { ApiBearerAuth, ApiTags } from "@nestjs/swagger";
 import { JwtGuard } from "../auth/guard";
 import { CreateRepairDto } from "./dto/create-repair.dto";
 import { UpdateRepairDto } from "./dto/update-repair.dto";
 import { RepairService } from "./repair.service";
 
 @ApiTags("repairs")
+@ApiBearerAuth()
 @UseGuards(JwtGuard)
 @Controller("/cars/:car_id/repairs")
 export class RepairController {
