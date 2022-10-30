@@ -1,6 +1,6 @@
 import { ApiProperty } from "@nestjs/swagger";
 import {
-  IsDateString,
+  IsDate,
   IsNotEmpty,
   IsNumber,
   IsOptional,
@@ -32,9 +32,9 @@ export class CreateRepairDto {
   @ApiProperty({
     required: false,
   })
-  @IsDateString()
+  @IsDate()
   @IsOptional()
-  date?: string;
+  date?: Date;
 
   @ApiProperty({
     required: false,

@@ -21,7 +21,7 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json* pnpm-lock.yaml* ./
 RUN \
   if [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; then pnpm i --frozen-lockfile; \
+  elif [ -f pnpm-lock.yaml ]; then pnpm install --frozen-lockfile; \
   else echo "Lockfile not found." && exit 1; \
   fi
 

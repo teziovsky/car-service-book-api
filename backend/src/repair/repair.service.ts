@@ -1,7 +1,6 @@
 import { ForbiddenException, Injectable } from "@nestjs/common";
 import { PrismaService } from "../prisma/prisma.service";
-import { CreateRepairDto } from "./dto/create-repair.dto";
-import { UpdateRepairDto } from "./dto/update-repair.dto";
+import { CreateRepairDto, UpdateRepairDto } from "./dto";
 
 @Injectable()
 export class RepairService {
@@ -16,24 +15,35 @@ export class RepairService {
     });
   }
 
-  findAll(carId: number) {
+  findAll(userId: number, carId: number) {
     return this.prisma.repair.findMany({
       where: {
         carId,
+        AND: {
+          car: {
+            userId,
+          },
+        },
       },
     });
   }
 
-  findOne(carId: number, repairId: number) {
+  findOne(userId: number, carId: number, repairId: number) {
     return this.prisma.repair.findFirst({
       where: {
         id: repairId,
         carId,
+        AND: {
+          car: {
+            userId,
+          },
+        },
       },
     });
   }
 
   async update(
+    userId: number,
     carId: number,
     repairId: number,
     updateRepairDto: UpdateRepairDto,
@@ -42,9 +52,12 @@ export class RepairService {
       where: {
         id: repairId,
       },
+      include: {
+        car: true,
+      },
     });
 
-    if (!repair || repair.carId !== carId)
+    if (!repair || repair.carId !== carId || repair.car.userId !== userId)
       throw new ForbiddenException("Access to resources denied");
 
     return this.prisma.repair.update({
@@ -57,14 +70,17 @@ export class RepairService {
     });
   }
 
-  async remove(carId: number, repairId: number) {
+  async remove(userId: number, carId: number, repairId: number) {
     const repair = await this.prisma.repair.findUnique({
       where: {
         id: repairId,
       },
+      include: {
+        car: true,
+      },
     });
 
-    if (!repair || repair.carId !== carId)
+    if (!repair || repair.carId !== carId || repair.car.userId !== userId)
       throw new ForbiddenException("Access to resources denied");
 
     await this.prisma.repair.delete({

@@ -10,9 +10,9 @@ import { RepairModule } from "./repair/repair.module";
   imports: [
     ConfigModule.forRoot({ isGlobal: true }),
     AuthModule,
+    PrismaModule,
     UserModule,
     CarModule,
-    PrismaModule,
     RepairModule,
   ],
 })

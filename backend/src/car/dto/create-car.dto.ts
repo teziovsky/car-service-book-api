@@ -1,13 +1,20 @@
 import { ApiProperty } from "@nestjs/swagger";
-import { IsNotEmpty, IsNumber, IsOptional, IsString } from "class-validator";
+import { CarType, EngineType, GearboxType } from "@prisma/client";
+import {
+  IsEnum,
+  IsNotEmpty,
+  IsNumber,
+  IsOptional,
+  IsString,
+} from "class-validator";
 
 export class CreateCarDto {
   @ApiProperty({
     required: false,
   })
-  @IsString()
+  @IsEnum(CarType)
   @IsOptional()
-  type?: string;
+  type?: CarType;
 
   @ApiProperty({
     required: true,
@@ -40,16 +47,16 @@ export class CreateCarDto {
   @ApiProperty({
     required: false,
   })
-  @IsString()
+  @IsEnum(EngineType)
   @IsOptional()
-  engineType?: string;
+  engineType?: EngineType;
 
   @ApiProperty({
     required: false,
   })
-  @IsString()
+  @IsNumber()
   @IsOptional()
-  engineCapacity?: string;
+  engineCapacity?: number;
 
   @ApiProperty({
     required: false,
@@ -61,7 +68,7 @@ export class CreateCarDto {
   @ApiProperty({
     required: false,
   })
-  @IsString()
+  @IsEnum(GearboxType)
   @IsOptional()
-  gearboxType?: string;
+  gearboxType?: GearboxType;
 }

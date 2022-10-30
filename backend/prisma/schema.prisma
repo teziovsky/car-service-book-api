@@ -12,9 +12,6 @@ datasource db {
 
 model User {
   id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
   email String @unique
   hash  String
 
@@ -23,45 +20,74 @@ model User {
 
   cars Car[]
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@map("users")
+}
+
+enum CarType {
+  Sedan
+  SUV
+  Truck
+  Van
+  Coupe
+  Convertible
+  Hatchback
+  Wagon
+  Other
+}
+
+enum EngineType {
+  Gasoline
+  Diesel
+  Electric
+  Hybrid
+  Other
+}
+
+enum GearboxType {
+  Manual
+  Automatic
 }
 
 model Car {
   id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-
-  type           String?
+  type           CarType?
   brand          String
   model          String
   generation     String?
   productionYear Int?
-  engineType     String?
-  engineCapacity String?
+  engineType     EngineType?
+  engineCapacity Int?
   enginePower    Int?
-  gearboxType    String?
+  gearboxType    GearboxType?
 
   userId Int
   user   User @relation(fields: [userId], references: [id], onDelete: Cascade)
 
   Repair Repair[]
 
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
   @@map("cars")
 }
 
 model Repair {
   id        Int      @id @default(autoincrement())
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
 
   title       String
   description String?
   price       Int?
-  date        String?
+  date        DateTime?
   mileage     Int?
 
   carId Int
   car   Car @relation(fields: [carId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 
   @@map("repairs")
 }

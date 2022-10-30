@@ -23,7 +23,7 @@ WORKDIR /usr/src/app
 COPY package.json package-lock.json* pnpm-lock.yaml* ./
 RUN \
   if [ -f package-lock.json ]; then npm ci; \
-  elif [ -f pnpm-lock.yaml ]; pnpm i --frozen-lockfile; \
+  elif [ -f pnpm-lock.yaml ]; pnpm install --frozen-lockfile; \
   else echo "Lockfile not found." && exit 1; \
   fi
 
@@ -37,7 +37,7 @@ RUN pnpm install --frozen-lockfile --prod
 
 FROM base As prod
 
-# Copy the bundled code from the build stage to the production image
+# Copy the bundled code from the build test to the production image
 COPY --from=build /usr/src/app/node_modules ./node_modules
 COPY --from=build /usr/src/app/package*.json ./
 COPY --from=build /usr/src/app/dist ./dist
@@ -45,4 +45,4 @@ COPY --from=build /usr/src/app/dist ./dist
 COPY --from=build /usr/src/app/prisma ./prisma
 
 # Start the server using the production build
-#CMD [ "npm", "run", "start:migrate:prod" ]
+CMD [ "npm", "run", "start:migrate:prod" ]

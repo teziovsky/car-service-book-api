@@ -3,7 +3,7 @@ import { CarController } from "./car.controller";
 import { CarService } from "./car.service";
 
 @Module({
-  providers: [CarService],
   controllers: [CarController],
+  providers: [CarService],
 })
 export class CarModule {}
